@@ -1,0 +1,4 @@
+provider,paradigm,region,capacity_usd_per_gb_month,egress_usd_per_gb
+huawei,block,af-south-1,0.230400,
+huawei,file,af-south-1,0.100800,
+huawei,object,af-south-1,0.023000,

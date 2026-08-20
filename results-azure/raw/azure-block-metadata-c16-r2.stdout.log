@@ -1,0 +1,32 @@
+OPERATION   RESULT TYPE         FIRST DONE   LAST DONE
+=========== ================    ==========   =========
+MKDIRS      Elapsed time     :         0ms         5ms
+            Dirs/s           :       10834       28065
+            Dirs total       :          10         160
+            Dirs latency     : [ min=22us avg=48us max=225us ]
+            Dirs lat % us    : [ 1%<=23 50%<=45 75%<=54 99%<=181 ]
+---
+WRITE       Elapsed time     :   1m26.915s   1m48.451s
+            Files/s          :       17103       14753
+            Files total      :     1486586     1600000
+            Files latency    : [ min=11us avg=1.05ms max=38.7s ]
+            Files lat % us   : [ 1%<=27 50%<=38 75%<=38 99%<=9742 ]
+---
+STAT        Elapsed time     :      1.570s      1.893s
+            Files/s          :      849581      845190
+            Files total      :     1334515     1600000
+            Files latency    : [ min=1us avg=13us max=52.3ms ]
+            Files lat % us   : [ 1%<=2.4 50%<=3.4 75%<=3.4 99%<=19 ]
+---
+RMFILES     Elapsed time     :     54.854s     55.422s
+            Files/s          :       27526       28869
+            Files total      :     1509957     1600000
+            Files latency    : [ min=8us avg=548us max=17.4s ]
+            Files lat % us   : [ 1%<=11 50%<=19 75%<=23 99%<=304 ]
+---
+RMDIRS      Elapsed time     :       619ms       773ms
+            Dirs/s           :         195         206
+            Dirs total       :         121         160
+            Dirs latency     : [ min=13.5ms avg=72.9ms max=105ms ]
+            Dirs lat % us    : [ 1%<=19484 50%<=77936 75%<=92682 99%<=110218 ]
+---

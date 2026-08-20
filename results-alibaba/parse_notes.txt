@@ -1,0 +1,292 @@
+alibaba-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-object-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-block-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-object-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-block-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-object-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-block-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-object-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_nas_file_system.go:316: Resource alicloud_nas_file_system CreateFileSystem Failed!!! [SDK alibaba-cloud-sdk-go ERROR]:
+SDKError:
+   StatusCode: 403
+   Code: User.Disabled
+   Message: code: 403, Your account does not open Nas Service yet or balance is insufficient. request id: 019FC9CB-197F-34C5-9CEF-5DC3BBA638DA
+   Data: {"Code":"User.Disabled","HostId":"nas.me-central-1.aliyuncs.com","Message":"Your account does not open Nas Service yet or balance is insufficient.","Recommend":"https://api.aliyun.com/troubleshoot?q=User.Disabled&product=NAS&requestId=019FC9CB-197F-34C5-9CEF-5DC3BBA638DA","RequestId":"019FC9CB-197F-34C5-9CEF-5DC3BBA638DA"}
+
+
+  with alicloud_nas_file_system.file[0],
+  on main.tf line 75, in resource "alicloud_nas_file_system" "file":
+  75: resource "alicloud_nas_file_system" "file" {
+
+) -> metrics blank
+alibaba-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_nas_file_system.go:316: Resource alicloud_nas_file_system CreateFileSystem Failed!!! [SDK alibaba-cloud-sdk-go ERROR]:
+SDKError:
+   StatusCode: 403
+   Code: User.Disabled
+   Message: code: 403, Your account does not open Nas Service yet or balance is insufficient. request id: 019FC9CB-3813-3438-A4B2-E5F18FCE49C3
+   Data: {"Code":"User.Disabled","HostId":"nas.me-central-1.aliyuncs.com","Message":"Your account does not open Nas Service yet or balance is insufficient.","Recommend":"https://api.aliyun.com/troubleshoot?q=User.Disabled&product=NAS&requestId=019FC9CB-3813-3438-A4B2-E5F18FCE49C3","RequestId":"019FC9CB-3813-3438-A4B2-E5F18FCE49C3"}
+
+
+  with alicloud_nas_file_system.file[0],
+  on main.tf line 75, in resource "alicloud_nas_file_system" "file":
+  75: resource "alicloud_nas_file_system" "file" {
+
+) -> metrics blank
+alibaba-object-balanced-c16-r1: run status=failed (tool exited 1; see results/raw/alibaba-object-balanced-c16-r1.stdout.log) -> metrics blank
+alibaba-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_nas_file_system.go:316: Resource alicloud_nas_file_system CreateFileSystem Failed!!! [SDK alibaba-cloud-sdk-go ERROR]:
+SDKError:
+   StatusCode: 403
+   Code: User.Disabled
+   Message: code: 403, Your account does not open Nas Service yet or balance is insufficient. request id: 019FC9CD-1796-30CF-B036-A0AA5EA95722
+   Data: {"Code":"User.Disabled","HostId":"nas.me-central-1.aliyuncs.com","Message":"Your account does not open Nas Service yet or balance is insufficient.","Recommend":"https://api.aliyun.com/troubleshoot?q=User.Disabled&product=NAS&requestId=019FC9CD-1796-30CF-B036-A0AA5EA95722","RequestId":"019FC9CD-1796-30CF-B036-A0AA5EA95722"}
+
+
+  with alicloud_nas_file_system.file[0],
+  on main.tf line 75, in resource "alicloud_nas_file_system" "file":
+  75: resource "alicloud_nas_file_system" "file" {
+
+) -> metrics blank
+alibaba-object-balanced-c16-r1: run status=failed (tool exited 1; see results/raw/alibaba-object-balanced-c16-r1.stdout.log) -> metrics blank
+alibaba-object-read-c16-r3: run status=failed (tool exited 1; see results/raw/alibaba-object-read-c16-r3.stdout.log) -> metrics blank
+alibaba-object-write-c16-r1: run status=failed (tool exited 1; see results/raw/alibaba-object-write-c16-r1.stdout.log) -> metrics blank
+alibaba-object-largeobj-c16-r3: run status=failed (tool exited 1; see results/raw/alibaba-object-largeobj-c16-r3.stdout.log) -> metrics blank
+alibaba-file-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-read-c16-r2: run status=failed (tool exited 1; see results/raw/alibaba-object-read-c16-r2.stdout.log) -> metrics blank
+alibaba-file-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c16-r3: run status=failed (tool exited 1; see results/raw/alibaba-object-balanced-c16-r3.stdout.log) -> metrics blank
+alibaba-object-metadata-c16-r1: run status=failed (tool exited 1; see results/raw/alibaba-object-metadata-c16-r1.stdout.log) -> metrics blank
+alibaba-file-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-read-c16-r1: run status=failed (tool exited 1; see results/raw/alibaba-object-read-c16-r1.stdout.log) -> metrics blank
+alibaba-object-metadata-c16-r3: run status=failed (tool exited 1; see results/raw/alibaba-object-metadata-c16-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c16-r2: run status=failed (tool exited 1; see results/raw/alibaba-object-largeobj-c16-r2.stdout.log) -> metrics blank
+alibaba-object-balanced-c16-r2: run status=failed (tool exited 1; see results/raw/alibaba-object-balanced-c16-r2.stdout.log) -> metrics blank
+alibaba-object-write-c16-r3: run status=failed (tool exited 1; see results/raw/alibaba-object-write-c16-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c16-r1: run status=failed (tool exited 1; see results/raw/alibaba-object-largeobj-c16-r1.stdout.log) -> metrics blank
+alibaba-object-write-c16-r2: run status=failed (tool exited 1; see results/raw/alibaba-object-write-c16-r2.stdout.log) -> metrics blank
+alibaba-object-metadata-c16-r2: run status=failed (tool exited 1; see results/raw/alibaba-object-metadata-c16-r2.stdout.log) -> metrics blank
+alibaba-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1795: Resource csb-bench-zc7vpqnd DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A72305F741E033238C79271, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1795: Resource csb-bench-zc7vpqnd DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A7234F247A98C363894F3B8, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1795: Resource csb-bench-zc7vpqnd DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A723FC4DD0AFF3836207F30, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: configuring Terraform Alibaba Cloud Provider: no valid credential sources for Terraform Alibaba Cloud Provider found.
+
+Please see https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#authentication
+for more information about providing credentials.
+
+  with provider["registry.terraform.io/aliyun/alicloud"],
+  on main.tf line 9, in provider "alicloud":
+   9: provider "alicloud" { region = var.region }
+
+) -> metrics blank
+alibaba-file-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank

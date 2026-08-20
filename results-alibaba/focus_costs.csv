@@ -1,0 +1,4 @@
+provider,paradigm,region,capacity_usd_per_gb_month,egress_usd_per_gb
+alibaba,block,me-central-1,0.279035,
+alibaba,file,me-central-1,0.108000,
+alibaba,object,me-central-1,0.020400,

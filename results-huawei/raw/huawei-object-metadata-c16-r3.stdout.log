@@ -1,0 +1,22 @@
+OPERATION   RESULT TYPE         FIRST DONE   LAST DONE
+=========== ================    ==========   =========
+WRITE       Elapsed time     :    8m7.584s   8m15.623s
+            Objects/s        :        3240        3228
+            Objects total    :     1579779     1600000
+            Objects latency  : [ min=3.01ms avg=4.92ms max=363ms ]
+            Objects lat % us : [ 1%<=3444 50%<=4096 75%<=4096 99%<=19484 ]
+            IO latency       : [ min=3.01ms avg=4.92ms max=363ms ]
+            IO lat % us      : [ 1%<=3444 50%<=4096 75%<=4096 99%<=19484 ]
+---
+HEADOBJ     Elapsed time     :   5m37.814s   5m46.757s
+            Objects/s        :        4662        4614
+            Objects total    :     1574991     1600000
+            Objects latency  : [ min=2.68ms avg=3.43ms max=549ms ]
+            Objects lat % us : [ 1%<=3444 50%<=3444 75%<=4096 99%<=5793 ]
+---
+RMOBJECTS   Elapsed time     :   8m59.395s   9m10.545s
+            Objects/s        :        2940        2906
+            Objects total    :     1585937     1600000
+            Objects latency  : [ min=4.43ms avg=5.44ms max=434ms ]
+            Objects lat % us : [ 1%<=4871 50%<=5793 75%<=5793 99%<=8192 ]
+---

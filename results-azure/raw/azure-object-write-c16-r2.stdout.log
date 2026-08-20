@@ -1,0 +1,1 @@
+azure_blob_runner: write 12.1 MB/s 184 ops/s -> results/raw/azure-object-write-c16-r2.elbencho.csv

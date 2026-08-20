@@ -1,0 +1,616 @@
+alibaba-file-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-balanced-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error acquiring the state lock
+
+Error message: could not write lock info for "terraform.tfstate": write
+.terraform.tfstate.lock.info: no space left on device
+
+Terraform acquires a state lock to protect the state from being written
+by multiple users at the same time. Please resolve the issue above and try
+again. For most commands, you can disable locking with the "-lock=false"
+flag, but this is not recommended.
+) -> metrics blank
+alibaba-object-largeobj-c16-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r1.stdout.log) -> metrics blank
+alibaba-object-balanced-c64-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c01-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c04-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r1.stdout.log) -> metrics blank
+alibaba-object-largeobj-c04-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c04-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c04-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c04-r2.stdout.log) -> metrics blank
+alibaba-object-largeobj-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r2.stdout.log) -> metrics blank
+alibaba-file-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A81F2EAC40FED3333712744, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c04-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r3.stdout.log) -> metrics blank
+alibaba-object-balanced-c04-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c01-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c01-r1.stdout.log) -> metrics blank
+alibaba-object-balanced-c16-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c01-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c01-r3.stdout.log) -> metrics blank
+alibaba-block-balanced-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8218EEC40FED35317A4669, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-balanced-c64-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A82206C47A98C363359BB5A, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8221A1741E033233ED1817, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8222D5741E033237440718, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A82240A8FDF2339370BEAEF, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A822540BAE801313784C932, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A82267481B0D83838C00BDF, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8227A9BAE8013936C01A35, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c01-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c01-r2.stdout.log) -> metrics blank
+alibaba-object-balanced-c01-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8235498FDF233232908EFF, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-largeobj-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A823CCF741E033130A94230, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A823E04C40FED363700EF8A, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r2.stdout.log) -> metrics blank
+alibaba-file-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8245368FDF23303291540E, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A82466B809C9E3036339AD8, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A82479F8FDF233934A67910, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c04-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c04-r1.stdout.log) -> metrics blank
+alibaba-object-balanced-c64-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A825514809C9E3936FDF6E4, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8256488FDF2338314DAB1C, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c64-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A825DCF47A98C3736AE7391, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A825F04809C9E31398FACED, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A826038C40FED35395188A8, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c16-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r1.stdout.log) -> metrics blank
+alibaba-object-balanced-c64-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r1.stdout.log) -> metrics blank
+alibaba-object-largeobj-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r2.stdout.log) -> metrics blank
+alibaba-file-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83A6688FDF233939BEFA3E, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r3.stdout.log) -> metrics blank
+alibaba-object-balanced-c16-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-balanced-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83C6048FDF233833392959, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83CA36C40FED3534F6B5DF, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83CB6BC40FED353291ABE0, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83CC9F47A98C37370C29CC, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83CDD8BAE8013036E1C9A1, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83CF0D741E033137E2D289, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83D04147A98C3536A3FFCE, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83D178809C9E393684F92A, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83D8978FDF233039F02368, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-largeobj-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83E14E741E033332DEC498, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83E284BAE8013938AB67B2, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r2.stdout.log) -> metrics blank
+alibaba-file-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83EAE48FDF233032DEF476, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83EC1981B0D83730190365, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83ED4FBAE8013035E6D6BA, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c64-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83FE8ABAE80139385C47C9, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A83FFC1BAE8013936C11CCA, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c64-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A840874741E033031503EB9, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8409AA8FDF23383903DE90, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A840ADF8FDF233134DFC491, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c16-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r1.stdout.log) -> metrics blank
+alibaba-object-balanced-c64-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r1.stdout.log) -> metrics blank
+alibaba-object-largeobj-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r2.stdout.log) -> metrics blank
+alibaba-file-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8503BE47A98C3731F728E6, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r3.stdout.log) -> metrics blank
+alibaba-object-balanced-c16-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-balanced-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A851CF581B0D83735EC037D, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A851E2B8FDF2338330AEE90, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A851F62809C9E3834A7905A, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85209747A98C3339E95200, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8521CB741E03393820A0BD, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85230147A98C3635AC9102, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A852437741E03303852DABF, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85256C81B0D837322FF484, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8526A2C40FED3331EE671B, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-file-largeobj-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A853407C40FED3437559A28, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85353C741E033238A602D0, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r2.stdout.log) -> metrics blank
+alibaba-file-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85424E81B0D83738CD8D9E, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A854384809C9E393862C87A, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8544BD741E03333259B8DC, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c64-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85522347A98C363878162D, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85535A809C9E3230989589, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c64-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8560D1809C9E31378E8C96, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A856207741E033035E75FF8, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85634081B0D835372570BD, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c16-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r1.stdout.log) -> metrics blank
+alibaba-object-balanced-c64-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r1.stdout.log) -> metrics blank
+alibaba-object-largeobj-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r2.stdout.log) -> metrics blank
+alibaba-file-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85ADD8809C9E32317015E2, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-largeobj-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r3.stdout.log) -> metrics blank
+alibaba-object-balanced-c16-r2: run status=failed (measurement timed out) -> metrics blank
+alibaba-block-balanced-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85C71CBAE801393210F075, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85C852C40FED3635A420B7, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85C9AD47A98C3737C7C0A2, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85CAE9C40FED33349091B9, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85CC21741E0332327C4A61, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85CD7C47A98C3430E872A6, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85CEB2741E033334AC0164, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85CFE8BAE8013131D05F7E, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-vd2xaycf DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A85D11FC40FED35316C8EBF, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-object-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c16-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r1.stdout.log) -> metrics blank
+alibaba-object-balanced-c64-r1: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+alibaba-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c16-r3.stdout.log) -> metrics blank
+alibaba-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/alibaba-object-largeobj-c64-r1.stdout.log) -> metrics blank
+alibaba-file-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A86419B809C9E3039645E6C, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8652D88FDF233133E320B4, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A86571E47A98C3736825924, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A865856741E0332350F11E1, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A86598B8FDF2330312E92B9, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A865AC181B0D837355531A7, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A865BF7741E033332D82FE4, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A865D2E741E033236741EE5, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A865E6381B0D83735265AAA, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A866460809C9E3937DE028B, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A86691047A98C3436CD8634, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A866A46809C9E383779B590, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c04-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A866E3481B0D83537D8DBB8, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A866F6A8FDF2338348FB7CD, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c01-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8670BA741E0330381D3AF7, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A867768809C9E39396BCA9C, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c64-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A8678A4741E0331314D8CFE, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A867D9C81B0D83732E1B2C6, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-largeobj-c01-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A867ED38FDF233230066BDB, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-block-balanced-c04-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: [31m[ERROR][0m terraform-provider-alicloud/alicloud/resource_alicloud_oss_bucket.go:1798: Resource csb-bench-ijthc5ur DeleteBucket Failed!!! [SDK aliyun-oss-go-sdk ERROR]:
+oss: service returned error: StatusCode=409, ErrorCode=BucketNotEmpty, ErrorMessage="The bucket has objects. Please delete them first.", RequestId=6A868009C40FED36351F845E, Ec=0015-00000301
+
+) -> metrics blank
+alibaba-file-balanced-c01-r3: run status=failed (TimeoutExpired: Command '['/usr/bin/python3', '/root/cloud-storage-bench/sweep/purge_oss.py']' timed out after 599.9999759530183 seconds) -> metrics blank

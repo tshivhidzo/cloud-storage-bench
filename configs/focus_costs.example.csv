@@ -1,0 +1,14 @@
+# Replace with YOUR real normalised billing export. capacity is USD per GB-month;
+# egress is USD per GB. add_costs.py joins on provider+paradigm+region.
+provider,paradigm,region,capacity_usd_per_gb_month,egress_usd_per_gb
+aws,block,af-south-1,,
+aws,file,af-south-1,,
+aws,object,af-south-1,,
+azure,block,southafricanorth,,
+azure,file,southafricanorth,,
+azure,object,southafricanorth,,
+gcp,block,africa-south1,,
+gcp,file,africa-south1,,
+gcp,object,africa-south1,,
+huawei,object,af-south-1,,
+alibaba,object,me-central-1,,

@@ -1,0 +1,16 @@
+=============================== aws ===============================
+-- EC2 instances (non-terminated):
+-- EBS volumes:
+-- EFS filesystems:
+-- S3 benchmark buckets:
+
+=============================== azure ===============================
+-- resources in csb-bench-rg:
+(resource group gone -- good)
+
+=============================== gcp ===============================
+-- compute instances:
+-- disks:
+-- buckets:
+
+Empty output under a provider = clean. Anything listed is still billing.

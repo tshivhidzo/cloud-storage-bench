@@ -1,0 +1,32 @@
+COMPLETENESS REPORT
+==================================================
+Full factorial design: 225 cells (5 providers x 3 paradigms x 5 workloads x 3 reps, concurrency 16).
+Cells with a real measured metric: 210/225.
+Coverage: 93.3%.
+
+Per provider (filled / expected):
+  aws        42/45
+  azure      42/45
+  gcp        42/45
+  huawei     45/45
+  alibaba    39/45
+
+Missing cells: 15
+  alibaba-file-metadata-c16-r1
+  alibaba-file-metadata-c16-r2
+  alibaba-file-metadata-c16-r3
+  alibaba-object-metadata-c16-r1
+  alibaba-object-metadata-c16-r2
+  alibaba-object-metadata-c16-r3
+  aws-object-metadata-c16-r1
+  aws-object-metadata-c16-r2
+  aws-object-metadata-c16-r3
+  azure-file-metadata-c16-r1
+  azure-file-metadata-c16-r2
+  azure-file-metadata-c16-r3
+  gcp-object-metadata-c16-r1
+  gcp-object-metadata-c16-r2
+  gcp-object-metadata-c16-r3
+
+REPORT THIS N. Do not claim 225 unless it says 225/225.
+Blank cells are honest gaps to be disclosed, not filled.

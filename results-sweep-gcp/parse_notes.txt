@@ -1,0 +1,77 @@
+gcp-file-largeobj-c04-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-file-largeobj-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-block-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-object-largeobj-c16-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c16-r1.stdout.log) -> metrics blank
+gcp-object-balanced-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c64-r1.stdout.log) -> metrics blank
+gcp-object-balanced-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c16-r3.stdout.log) -> metrics blank
+gcp-object-balanced-c01-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c01-r2.stdout.log) -> metrics blank
+gcp-object-balanced-c04-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c04-r3.stdout.log) -> metrics blank
+gcp-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c16-r3.stdout.log) -> metrics blank
+gcp-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c64-r1.stdout.log) -> metrics blank
+gcp-object-largeobj-c04-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c04-r3.stdout.log) -> metrics blank
+gcp-object-largeobj-c04-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c04-r2.stdout.log) -> metrics blank
+gcp-object-largeobj-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c16-r2.stdout.log) -> metrics blank
+gcp-object-balanced-c04-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c04-r1.stdout.log) -> metrics blank
+gcp-object-largeobj-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c64-r3.stdout.log) -> metrics blank
+gcp-object-balanced-c04-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c04-r2.stdout.log) -> metrics blank
+gcp-object-largeobj-c01-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c01-r1.stdout.log) -> metrics blank
+gcp-object-balanced-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c16-r2.stdout.log) -> metrics blank
+gcp-object-largeobj-c01-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c01-r3.stdout.log) -> metrics blank
+gcp-object-balanced-c01-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c01-r3.stdout.log) -> metrics blank
+gcp-object-largeobj-c01-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c01-r2.stdout.log) -> metrics blank
+gcp-object-balanced-c01-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c01-r1.stdout.log) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c16-r1.stdout.log) -> metrics blank
+gcp-object-largeobj-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c64-r2.stdout.log) -> metrics blank
+gcp-object-largeobj-c04-r1: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-largeobj-c04-r1.stdout.log) -> metrics blank
+gcp-object-balanced-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c64-r2.stdout.log) -> metrics blank
+gcp-object-balanced-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/gcp-object-balanced-c64-r3.stdout.log) -> metrics blank
+gcp-object-balanced-c64-r1: run status=failed (measurement timed out) -> metrics blank
+gcp-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+gcp-object-balanced-c16-r2: run status=failed (measurement timed out) -> metrics blank
+gcp-object-balanced-c64-r2: run status=failed (measurement timed out) -> metrics blank
+gcp-object-balanced-c64-r3: run status=failed (measurement timed out) -> metrics blank

@@ -1,0 +1,13 @@
+{
+  "generated_utc": "2026-08-03T19:59:23.268184+00:00",
+  "providers": {
+    "gcp": {
+      "provider": "gcp",
+      "env_present": false,
+      "hmac_fingerprint": null,
+      "cli": true,
+      "identity_resolves": true,
+      "ready": false
+    }
+  }
+}

@@ -1,0 +1,469 @@
+huawei-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-balanced-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-balanced-c16-r1.stdout.log) -> metrics blank
+huawei-object-read-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-read-c16-r3.stdout.log) -> metrics blank
+huawei-object-write-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-write-c16-r1.stdout.log) -> metrics blank
+huawei-object-read-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-read-c16-r2.stdout.log) -> metrics blank
+huawei-object-balanced-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-balanced-c16-r3.stdout.log) -> metrics blank
+huawei-object-metadata-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-metadata-c16-r1.stdout.log) -> metrics blank
+huawei-file-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+huawei-object-read-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-read-c16-r1.stdout.log) -> metrics blank
+huawei-object-metadata-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-metadata-c16-r3.stdout.log) -> metrics blank
+huawei-object-balanced-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-balanced-c16-r2.stdout.log) -> metrics blank
+huawei-object-write-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-write-c16-r3.stdout.log) -> metrics blank
+huawei-object-write-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-write-c16-r2.stdout.log) -> metrics blank
+huawei-object-metadata-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-metadata-c16-r2.stdout.log) -> metrics blank
+huawei-object-balanced-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-balanced-c16-r3.stdout.log) -> metrics blank
+huawei-object-largeobj-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-largeobj-c16-r2.stdout.log) -> metrics blank
+huawei-object-balanced-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-balanced-c16-r2.stdout.log) -> metrics blank
+huawei-object-balanced-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-balanced-c16-r1.stdout.log) -> metrics blank
+huawei-object-largeobj-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-largeobj-c16-r3.stdout.log) -> metrics blank
+huawei-object-balanced-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-balanced-c16-r1.stdout.log) -> metrics blank
+huawei-object-read-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-read-c16-r3.stdout.log) -> metrics blank
+huawei-object-write-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-write-c16-r1.stdout.log) -> metrics blank
+huawei-object-read-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-read-c16-r2.stdout.log) -> metrics blank
+huawei-object-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+huawei-object-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
+huawei-object-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+huawei-object-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-file-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: Error fetching Auth credentials from ECS Metadata API, AkSk or ECS agency must be provided: Error requesting metadata API: status code = 401
+
+  with provider["registry.terraform.io/huaweicloud/huaweicloud"],
+  on main.tf line 8, in provider "huaweicloud":
+   8: provider "huaweicloud" { region = var.region }
+
+) -> metrics blank
+huawei-object-metadata-c16-r1: run status=failed (tool exited 1; see results/raw/huawei-object-metadata-c16-r1.stdout.log) -> metrics blank
+huawei-object-metadata-c16-r2: run status=failed (tool exited 1; see results/raw/huawei-object-metadata-c16-r2.stdout.log) -> metrics blank
+huawei-object-metadata-c16-r3: run status=failed (tool exited 1; see results/raw/huawei-object-metadata-c16-r3.stdout.log) -> metrics blank

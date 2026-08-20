@@ -1,0 +1,4 @@
+provider,paradigm,region,capacity_usd_per_gb_month,egress_usd_per_gb
+azure,block,southafricanorth,0.120000,
+azure,file,southafricanorth,0.083903,
+azure,object,southafricanorth,0.021194,

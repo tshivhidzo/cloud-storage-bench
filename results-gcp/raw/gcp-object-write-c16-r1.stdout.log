@@ -1,0 +1,12 @@
+OPERATION   RESULT TYPE         FIRST DONE   LAST DONE
+=========== ================    ==========   =========
+WRITE       Elapsed time     :  12m41.038s   13m1.151s
+            Objects/s        :         426         419
+            Throughput MiB/s :          26          26
+            Total MiB        :       20286       20480
+            Objects total    :      324575      327680
+            Objects latency  : [ min=25.5ms avg=37.5ms max=903ms ]
+            Objects lat % us : [ 1%<=32768 50%<=38968 75%<=38968 99%<=55109 ]
+            IO latency       : [ min=25.5ms avg=37.5ms max=903ms ]
+            IO lat % us      : [ 1%<=32768 50%<=38968 75%<=38968 99%<=55109 ]
+---

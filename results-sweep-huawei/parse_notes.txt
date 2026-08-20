@@ -1,0 +1,20 @@
+huawei-file-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+huawei-block-balanced-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error acquiring the state lock
+
+Error message: could not write lock info for "terraform.tfstate": write
+.terraform.tfstate.lock.info: no space left on device
+
+Terraform acquires a state lock to protect the state from being written
+by multiple users at the same time. Please resolve the issue above and try
+again. For most commands, you can disable locking with the "-lock=false"
+flag, but this is not recommended.
+) -> metrics blank
+huawei-file-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+huawei-object-balanced-c01-r2: run status=failed (measurement timed out) -> metrics blank
+huawei-file-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+huawei-object-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+huawei-file-balanced-c01-r1: run status=failed (measurement timed out) -> metrics blank
+huawei-file-balanced-c01-r2: run status=failed (measurement timed out) -> metrics blank
+huawei-object-balanced-c01-r1: run status=failed (measurement timed out) -> metrics blank

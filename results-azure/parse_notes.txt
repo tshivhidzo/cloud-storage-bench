@@ -1,0 +1,966 @@
+azure-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-object-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: tenant ID was not specified and the default tenant ID could not be determined: obtaining tenant ID: obtaining account details: running Azure CLI: exit status 1: ERROR: Please run 'az login' to setup account.
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: tenant ID was not specified and the default tenant ID could not be determined: obtaining tenant ID: obtaining account details: running Azure CLI: exit status 1: ERROR: Please run 'az login' to setup account.
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 7, in provider "azurerm":
+   7: provider "azurerm" {
+
+) -> metrics blank
+azure-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: A resource with the ID "/subscriptions/49174857-40a1-41f8-a788-6d3c026d5074/resourceGroups/csb-bench-rg" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_resource_group" for more information.
+
+  with azurerm_resource_group.rg,
+  on main.tf line 16, in resource "azurerm_resource_group" "rg":
+  16: resource "azurerm_resource_group" "rg" {
+
+) -> metrics blank
+azure-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: A resource with the ID "/subscriptions/49174857-40a1-41f8-a788-6d3c026d5074/resourceGroups/csb-bench-rg" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_resource_group" for more information.
+
+  with azurerm_resource_group.rg,
+  on main.tf line 16, in resource "azurerm_resource_group" "rg":
+  16: resource "azurerm_resource_group" "rg" {
+
+) -> metrics blank
+azure-object-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: A resource with the ID "/subscriptions/49174857-40a1-41f8-a788-6d3c026d5074/resourceGroups/csb-bench-rg" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_resource_group" for more information.
+
+  with azurerm_resource_group.rg,
+  on main.tf line 16, in resource "azurerm_resource_group" "rg":
+  16: resource "azurerm_resource_group" "rg" {
+
+) -> metrics blank
+azure-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: A resource with the ID "/subscriptions/49174857-40a1-41f8-a788-6d3c026d5074/resourceGroups/csb-bench-rg" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_resource_group" for more information.
+
+  with azurerm_resource_group.rg,
+  on main.tf line 16, in resource "azurerm_resource_group" "rg":
+  16: resource "azurerm_resource_group" "rg" {
+
+) -> metrics blank
+azure-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: A resource with the ID "/subscriptions/49174857-40a1-41f8-a788-6d3c026d5074/resourceGroups/csb-bench-rg" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_resource_group" for more information.
+
+  with azurerm_resource_group.rg,
+  on main.tf line 16, in resource "azurerm_resource_group" "rg":
+  16: resource "azurerm_resource_group" "rg" {
+
+) -> metrics blank
+azure-object-balanced-c16-r1: run status=failed (tool exited 1; see results/raw/azure-object-balanced-c16-r1.stdout.log) -> metrics blank
+azure-object-read-c16-r3: run status=failed (tool exited 1; see results/raw/azure-object-read-c16-r3.stdout.log) -> metrics blank
+azure-object-write-c16-r1: run status=failed (tool exited 1; see results/raw/azure-object-write-c16-r1.stdout.log) -> metrics blank
+azure-object-largeobj-c16-r3: run status=failed (tool exited 1; see results/raw/azure-object-largeobj-c16-r3.stdout.log) -> metrics blank
+azure-file-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+azure-object-read-c16-r2: run status=failed (tool exited 1; see results/raw/azure-object-read-c16-r2.stdout.log) -> metrics blank
+azure-file-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
+azure-object-balanced-c16-r3: run status=failed (tool exited 1; see results/raw/azure-object-balanced-c16-r3.stdout.log) -> metrics blank
+azure-object-metadata-c16-r1: run status=failed (tool exited 1; see results/raw/azure-object-metadata-c16-r1.stdout.log) -> metrics blank
+azure-file-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+azure-object-read-c16-r1: run status=failed (tool exited 1; see results/raw/azure-object-read-c16-r1.stdout.log) -> metrics blank
+azure-object-metadata-c16-r3: run status=failed (tool exited 1; see results/raw/azure-object-metadata-c16-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c16-r2: run status=failed (tool exited 1; see results/raw/azure-object-largeobj-c16-r2.stdout.log) -> metrics blank
+azure-object-balanced-c16-r2: run status=failed (tool exited 1; see results/raw/azure-object-balanced-c16-r2.stdout.log) -> metrics blank
+azure-object-write-c16-r3: run status=failed (tool exited 1; see results/raw/azure-object-write-c16-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c16-r1: run status=failed (tool exited 1; see results/raw/azure-object-largeobj-c16-r1.stdout.log) -> metrics blank
+azure-object-write-c16-r2: run status=failed (tool exited 1; see results/raw/azure-object-write-c16-r2.stdout.log) -> metrics blank
+azure-block-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+azure-object-metadata-c16-r2: run status=failed (tool exited 1; see results/raw/azure-object-metadata-c16-r2.stdout.log) -> metrics blank
+azure-object-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-file-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-file-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-object-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform init -input=false -no-color):
+
+Error: Terraform encountered problems during initialisation, including problems
+with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+
+Error: Duplicate output definition
+
+  on outputs.tf line 20:
+  20: output "env_AZURE_STORAGE_CONNECTION_STRING" {
+
+An output named "env_AZURE_STORAGE_CONNECTION_STRING" was already defined at
+outputs.tf:13,1-45. Output names must be unique within a module.
+) -> metrics blank
+azure-file-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+azure-file-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
+azure-file-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank

@@ -1,0 +1,7 @@
+name,host,region,locality
+aws-s3-afsouth1,s3.af-south-1.amazonaws.com,af-south-1,local
+azure-blob-zan,southafricanorth.blob.core.windows.net,southafricanorth,local
+gcp-gcs-afsouth1,storage.googleapis.com,africa-south1,local
+huawei-obs-afsouth1,obs.af-south-1.myhuaweicloud.com,af-south-1,local
+alibaba-oss-mecentral,oss-me-central-1.aliyuncs.com,me-central-1,offshore
+aws-s3-euwest1,s3.eu-west-1.amazonaws.com,eu-west-1,offshore

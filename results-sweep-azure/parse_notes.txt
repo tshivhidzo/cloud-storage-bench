@@ -1,0 +1,66 @@
+azure-file-largeobj-c04-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 11, in provider "azurerm":
+  11: provider "azurerm" {
+
+) -> metrics blank
+azure-file-largeobj-c64-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 11, in provider "azurerm":
+  11: provider "azurerm" {
+
+) -> metrics blank
+azure-block-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: unable to build authorizer for Resource Manager API: could not configure AzureCli Authorizer: could not parse Azure CLI version: launching Azure CLI: exec: "az": executable file not found in $PATH
+
+  with provider["registry.terraform.io/hashicorp/azurerm"],
+  on main.tf line 11, in provider "azurerm":
+  11: provider "azurerm" {
+
+) -> metrics blank
+azure-block-balanced-c01-r1: run status=failed (measurement timed out) -> metrics blank
+azure-file-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c01-r2: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c64-r2: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c64-r1: run status=failed (measurement timed out) -> metrics blank
+azure-file-balanced-c01-r1: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c04-r1: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c64-r3: run status=failed (measurement timed out) -> metrics blank
+azure-file-balanced-c01-r2: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c01-r3: run status=failed (measurement timed out) -> metrics blank
+azure-block-balanced-c04-r2: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c16-r1: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c16-r3: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c64-r1: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c04-r3: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c04-r2: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c16-r2: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c64-r3: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c01-r1: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c01-r3: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c01-r2: run status=failed (measurement timed out) -> metrics blank
+azure-object-largeobj-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c64-r2.stdout.log) -> metrics blank
+azure-object-largeobj-c04-r1: run status=failed (measurement timed out) -> metrics blank
+azure-object-balanced-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-balanced-c64-r2.stdout.log) -> metrics blank
+azure-object-balanced-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/azure-object-balanced-c64-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c16-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c64-r1.stdout.log) -> metrics blank
+azure-object-largeobj-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c16-r2.stdout.log) -> metrics blank
+azure-object-largeobj-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c64-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c64-r2.stdout.log) -> metrics blank
+azure-object-balanced-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-balanced-c64-r2.stdout.log) -> metrics blank
+azure-object-balanced-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/azure-object-balanced-c64-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c16-r3: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c16-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c64-r1: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c64-r1.stdout.log) -> metrics blank
+azure-object-largeobj-c16-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c16-r2.stdout.log) -> metrics blank
+azure-object-largeobj-c64-r3: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c64-r3.stdout.log) -> metrics blank
+azure-object-largeobj-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-largeobj-c64-r2.stdout.log) -> metrics blank
+azure-object-balanced-c64-r2: run status=failed (tool exited 1; see results-sweep/raw/azure-object-balanced-c64-r2.stdout.log) -> metrics blank

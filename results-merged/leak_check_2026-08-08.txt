@@ -1,0 +1,12 @@
+
+=============================== huawei (console) ===============================
+Verified manually via console, af-south-1: ECS instances, EVS disks,
+SFS Turbo file systems, OBS buckets, EIPs -- all empty. Host stack
+destroyed via host_down.sh (9 resources).
+
+=============================== alibaba (console) ==============================
+Verified manually via console, me-central-1: ECS instances, cloud disks,
+OSS buckets, NAS file systems, EIPs -- all empty.
+
+Note: Azure resource group csb-cal-rg intentionally alive until the
+cost-calibration window closes; torn down separately (see DERIVATION_NOTES.md).

@@ -1,0 +1,8 @@
+OPERATION   RESULT TYPE         FIRST DONE   LAST DONE
+=========== ================    ==========   =========
+MKDIRS      Elapsed time     :        28ms        34ms
+            Dirs/s           :        4915        4646
+            Dirs total       :         141         160
+            Dirs latency     : [ min=2us avg=2.88ms max=4.89ms ]
+            Dirs lat % us    : [ 1%<=2.4 50%<=3444 75%<=3444 99%<=4871 ]
+---

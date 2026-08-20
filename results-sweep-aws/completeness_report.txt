@@ -1,0 +1,78 @@
+COMPLETENESS REPORT
+==================================================
+Full factorial design: 225 cells (5 providers x 3 paradigms x 5 workloads x 3 reps, concurrency 16).
+Cells with a real measured metric: 18/225.
+Coverage: 8.0%.
+
+Per provider (filled / expected):
+  aws        18/45
+  azure       0/45
+  gcp         0/45
+  huawei      0/45
+  alibaba     0/45
+
+Missing cells: 207
+  alibaba-block-balanced-c16-r1
+  alibaba-block-balanced-c16-r2
+  alibaba-block-balanced-c16-r3
+  alibaba-block-largeobj-c16-r1
+  alibaba-block-largeobj-c16-r2
+  alibaba-block-largeobj-c16-r3
+  alibaba-block-metadata-c16-r1
+  alibaba-block-metadata-c16-r2
+  alibaba-block-metadata-c16-r3
+  alibaba-block-read-c16-r1
+  alibaba-block-read-c16-r2
+  alibaba-block-read-c16-r3
+  alibaba-block-write-c16-r1
+  alibaba-block-write-c16-r2
+  alibaba-block-write-c16-r3
+  alibaba-file-balanced-c16-r1
+  alibaba-file-balanced-c16-r2
+  alibaba-file-balanced-c16-r3
+  alibaba-file-largeobj-c16-r1
+  alibaba-file-largeobj-c16-r2
+  alibaba-file-largeobj-c16-r3
+  alibaba-file-metadata-c16-r1
+  alibaba-file-metadata-c16-r2
+  alibaba-file-metadata-c16-r3
+  alibaba-file-read-c16-r1
+  alibaba-file-read-c16-r2
+  alibaba-file-read-c16-r3
+  alibaba-file-write-c16-r1
+  alibaba-file-write-c16-r2
+  alibaba-file-write-c16-r3
+  alibaba-object-balanced-c16-r1
+  alibaba-object-balanced-c16-r2
+  alibaba-object-balanced-c16-r3
+  alibaba-object-largeobj-c16-r1
+  alibaba-object-largeobj-c16-r2
+  alibaba-object-largeobj-c16-r3
+  alibaba-object-metadata-c16-r1
+  alibaba-object-metadata-c16-r2
+  alibaba-object-metadata-c16-r3
+  alibaba-object-read-c16-r1
+  alibaba-object-read-c16-r2
+  alibaba-object-read-c16-r3
+  alibaba-object-write-c16-r1
+  alibaba-object-write-c16-r2
+  alibaba-object-write-c16-r3
+  aws-block-metadata-c16-r1
+  aws-block-metadata-c16-r2
+  aws-block-metadata-c16-r3
+  aws-block-read-c16-r1
+  aws-block-read-c16-r2
+  aws-block-read-c16-r3
+  aws-block-write-c16-r1
+  aws-block-write-c16-r2
+  aws-block-write-c16-r3
+  aws-file-metadata-c16-r1
+  aws-file-metadata-c16-r2
+  aws-file-metadata-c16-r3
+  aws-file-read-c16-r1
+  aws-file-read-c16-r2
+  aws-file-read-c16-r3
+  ... and 147 more
+
+REPORT THIS N. Do not claim 225 unless it says 225/225.
+Blank cells are honest gaps to be disclosed, not filled.

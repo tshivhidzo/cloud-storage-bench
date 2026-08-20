@@ -1,0 +1,4 @@
+provider,paradigm,region,capacity_usd_per_gb_month,egress_usd_per_gb
+gcp,block,africa-south1,0.186546,
+gcp,file,africa-south1,0.179012,
+gcp,object,africa-south1,0.020006,

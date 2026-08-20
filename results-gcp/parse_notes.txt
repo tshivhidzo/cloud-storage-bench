@@ -1,0 +1,1045 @@
+gcp-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-block-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-file-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-object-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-block-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-object-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-block-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-object-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-block-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-object-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-file-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-object-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-file-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-block-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-file-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-file-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-file-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-object-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-object-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-block-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-file-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-file-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-object-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-object-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-object-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-block-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-file-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-block-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-object-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-block-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-block-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-file-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-file-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-block-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: project: required field is not set
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+
+Error: Failed to retrieve project, pid: , err: project: required field is not set
+
+  with google_compute_disk.block[0],
+  on main.tf line 36, in resource "google_compute_disk" "block":
+  36: resource "google_compute_disk" "block" {
+
+) -> metrics blank
+gcp-object-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=object):
+
+Error: project: required field is not set
+
+  with google_storage_bucket.obj[0],
+  on main.tf line 20, in resource "google_storage_bucket" "obj":
+  20: resource "google_storage_bucket" "obj" {
+
+) -> metrics blank
+gcp-file-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (tool not found: [Errno 2] No such file or directory: 'elbencho'. Install elbencho on this host.) -> metrics blank
+gcp-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-block-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-file-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-object-read-c16-r3: run status=failed (tool not found: [Errno 2] No such file or directory: 'elbencho'. Install elbencho on this host.) -> metrics blank
+gcp-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-block-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-object-write-c16-r1: run status=failed (tool not found: [Errno 2] No such file or directory: 'elbencho'. Install elbencho on this host.) -> metrics blank
+gcp-block-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-object-largeobj-c16-r3: run status=failed (tool not found: [Errno 2] No such file or directory: 'elbencho'. Install elbencho on this host.) -> metrics blank
+gcp-file-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error when reading or editing Instance csb-bench-host-gcp: googleapi: Error 403: Required 'compute.instances.get' permission for 'projects/multi-cloud-420821/zones/africa-south1-a/instances/csb-bench-host-gcp', forbidden
+
+  with data.google_compute_instance.host[0],
+  on main.tf line 29, in data "google_compute_instance" "host":
+  29: data "google_compute_instance" "host" {
+
+) -> metrics blank
+gcp-block-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-read-c16-r2: run status=failed (tool not found: [Errno 2] No such file or directory: 'elbencho'. Install elbencho on this host.) -> metrics blank
+gcp-file-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error creating Instance: googleapi: Error 403: Cloud Filestore API has not been used in project multi-cloud-420821 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "activationUrl": "https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821",
+      "consumer": "projects/multi-cloud-420821",
+      "containerInfo": "multi-cloud-420821",
+      "service": "file.googleapis.com",
+      "serviceTitle": "Cloud Filestore API"
+    },
+    "reason": "SERVICE_DISABLED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+    "locale": "en-US",
+    "message": "Cloud Filestore API has not been used in project multi-cloud-420821 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Google developers console API activation",
+        "url": "https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821"
+      }
+    ]
+  }
+]
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-file-write-c16-r1: run status=failed (tool not found: [Errno 2] No such file or directory: 'elbencho'. Install elbencho on this host.) -> metrics blank
+gcp-file-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error creating Instance: googleapi: Error 403: Cloud Filestore API has not been used in project multi-cloud-420821 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "activationUrl": "https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821",
+      "consumer": "projects/multi-cloud-420821",
+      "containerInfo": "multi-cloud-420821",
+      "service": "file.googleapis.com",
+      "serviceTitle": "Cloud Filestore API"
+    },
+    "reason": "SERVICE_DISABLED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+    "locale": "en-US",
+    "message": "Cloud Filestore API has not been used in project multi-cloud-420821 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Google developers console API activation",
+        "url": "https://console.developers.google.com/apis/api/file.googleapis.com/overview?project=multi-cloud-420821"
+      }
+    ]
+  }
+]
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (tool not found: [Errno 2] No such file or directory: 'elbencho'. Install elbencho on this host.) -> metrics blank
+gcp-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (tool exited 1; see results/raw/gcp-object-balanced-c16-r1.stdout.log) -> metrics blank
+gcp-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+gcp-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-file-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error creating Instance: googleapi: Error 409: Resource 'projects/multi-cloud-420821/locations/africa-south1-a/instances/csb-bench-file' already exists
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ResourceInfo",
+    "resourceName": "projects/multi-cloud-420821/locations/africa-south1-a/instances/csb-bench-file"
+  }
+]
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-block-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-file-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=file):
+
+Error: Error creating Instance: googleapi: Error 409: Resource 'projects/multi-cloud-420821/locations/africa-south1-a/instances/csb-bench-file' already exists
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ResourceInfo",
+    "resourceName": "projects/multi-cloud-420821/locations/africa-south1-a/instances/csb-bench-file"
+  }
+]
+
+  with google_filestore_instance.file[0],
+  on main.tf line 74, in resource "google_filestore_instance" "file":
+  74: resource "google_filestore_instance" "file" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+gcp-block-metadata-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-metadata-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-largeobj-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-write-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-write-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-largeobj-c16-r3: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r3.stdout.log) -> metrics blank
+gcp-block-metadata-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+gcp-object-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+gcp-block-largeobj-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
+gcp-block-read-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-largeobj-c16-r2: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r2.stdout.log) -> metrics blank
+gcp-object-balanced-c16-r2: run status=failed (measurement timed out) -> metrics blank
+gcp-object-largeobj-c16-r1: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r1.stdout.log) -> metrics blank
+gcp-block-read-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-write-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-balanced-c16-r1: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-balanced-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-largeobj-c16-r3: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-read-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-block-balanced-c16-r2: run status=failed (RuntimeError: terraform failed (terraform apply -input=false -auto-approve -no-color -var paradigm=block):
+
+Error: Error waiting for disk to attach: The user does not have access to service account 'csb-bench-host@multi-cloud-420821.iam.gserviceaccount.com'.  User: ''. Ask a project owner to grant you the iam.serviceAccountUser role on the service account.
+
+
+  with google_compute_attached_disk.block[0],
+  on main.tf line 43, in resource "google_compute_attached_disk" "block":
+  43: resource "google_compute_attached_disk" "block" {
+
+) -> metrics blank
+gcp-object-balanced-c16-r1: run status=failed (measurement timed out) -> metrics blank
+gcp-object-largeobj-c16-r3: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r3.stdout.log) -> metrics blank
+gcp-object-balanced-c16-r3: run status=failed (measurement timed out) -> metrics blank
+gcp-object-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+gcp-object-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
+gcp-object-largeobj-c16-r2: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r2.stdout.log) -> metrics blank
+gcp-object-balanced-c16-r2: run status=failed (measurement timed out) -> metrics blank
+gcp-object-largeobj-c16-r1: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r1.stdout.log) -> metrics blank
+gcp-object-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+gcp-object-largeobj-c16-r2: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r2.stdout.log) -> metrics blank
+gcp-object-largeobj-c16-r1: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r1.stdout.log) -> metrics blank
+gcp-object-largeobj-c16-r3: run status=failed (tool exited 1; see results/raw/gcp-object-largeobj-c16-r3.stdout.log) -> metrics blank
+gcp-object-metadata-c16-r1: run status=failed (measurement timed out) -> metrics blank
+gcp-object-metadata-c16-r2: run status=failed (measurement timed out) -> metrics blank
+gcp-object-metadata-c16-r3: run status=failed (measurement timed out) -> metrics blank
