@@ -69,3 +69,13 @@ Added for the paper "Concurrency scaling of managed cloud storage" (CCPE):
   NOT in this dataset; the correction is documented in the paper.
 - The same redaction notice applies: S3 access key IDs (never secrets) were
   redacted from echoed command lines in raw artefacts; credentials rotated.
+
+## Redaction and checksum note (audit v2)
+
+In addition to S3 access-key IDs, AWS STS temporary session tokens echoed by
+elbencho into raw command lines were redacted (long expired; redacted
+regardless). Host-generated integrity manifests, computed over pre-redaction
+originals, are preserved as manifest.sha256.original-unredacted for
+provenance; each folder's manifest.sha256 is computed over the published
+(redacted) artefacts and verifies cleanly. No measurement value was altered
+by any redaction.

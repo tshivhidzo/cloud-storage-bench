@@ -1,0 +1,6 @@
+attempts,provider,successes
+85,aws,72
+114,azure,72
+104,gcp,72
+81,huawei,72
+227,alibaba,72

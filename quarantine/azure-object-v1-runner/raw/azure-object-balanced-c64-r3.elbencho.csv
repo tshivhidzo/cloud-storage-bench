@@ -1,0 +1,2 @@
+operation,throughput_mb_s,iops,lat_mean_ms,lat_p95_ms,lat_p99_ms
+write,8.42,128.4,93.039,340.285,433.206

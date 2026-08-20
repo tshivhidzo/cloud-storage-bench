@@ -1,0 +1,8 @@
+Pooled model (combined bytes/time throughput; fixed effects x*paradigm*workload; provider random intercept; N=360):
+  Random provider slope on log concurrency: LR=0.077
+  p (naive chi2_2)          = 0.9621
+  p (50:50 chi2 mixture)    = 0.8716
+  p (parametric bootstrap, B=40) = 0.7805
+  Interpretation: within this five-provider sample, no evidence of
+  provider-dependent scaling slopes beyond paradigm x workload
+  structure; five groups bound the power of this test.
