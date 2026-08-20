@@ -187,7 +187,15 @@ def main():
                                       "lat_p99_ms": p99s.get(op, "")})
                     row[f"{op.lower()}_tput_mib_s"] = round(mib / el, 2)
                     row[f"{op.lower()}_p99_ms"] = p99s.get(op, "")
-            row["combined_tput_mib_s"] = round(tot_mib / tot_s, 2) if tot_s else ""
+            ops_present = {p[0] for p in ph}
+            # combined = total bytes / total time, defined ONLY where the
+            # workload's full measured phase set is present: balanced requires
+            # BOTH phases (a write-only truncated run must not masquerade as a
+            # paired-pass rate); single-phase workloads use their one phase.
+            complete = (ops_present >= {"WRITE", "READ"}) if wl == "balanced" \
+                else bool(ops_present)
+            row["combined_tput_mib_s"] = (round(tot_mib / tot_s, 2)
+                                          if (tot_s and complete) else "")
             row["phases_present"] = "+".join(p[0] for p in ph)
             runs.append(row)
 

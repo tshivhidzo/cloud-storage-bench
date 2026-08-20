@@ -79,10 +79,10 @@ azure-block-balanced-c04-r2,35.45,4,74.0,5,,block,WRITE+READ,azure,55.109,38.23,
 azure-block-balanced-c04-r3,35.81,4,55.0,20,,block,WRITE+READ,azure,46.341,38.22,3,False,balanced,38.968,33.68
 azure-block-balanced-c16-r1,35.69,16,55.1,20,,block,WRITE+READ,azure,65.536,38.25,1,False,balanced,65.536,33.46
 azure-block-balanced-c16-r2,34.34,16,51.1,20,,block,WRITE+READ,azure,65.536,38.25,2,False,balanced,77.936,31.16
-azure-block-balanced-c16-r3,28.9,16,32.6,20,,block,WRITE,azure,,,3,True,balanced,77.936,28.9
-azure-block-balanced-c64-r1,29.18,64,33.3,80,,block,WRITE,azure,,,1,True,balanced,311.744,29.18
-azure-block-balanced-c64-r2,27.52,64,32.4,80,,block,WRITE,azure,,,2,True,balanced,311.744,27.52
-azure-block-balanced-c64-r3,28.17,64,32.8,80,,block,WRITE,azure,,,3,True,balanced,311.744,28.17
+azure-block-balanced-c16-r3,,16,32.6,20,,block,WRITE,azure,,,3,True,balanced,77.936,28.9
+azure-block-balanced-c64-r1,,64,33.3,80,,block,WRITE,azure,,,1,True,balanced,311.744,29.18
+azure-block-balanced-c64-r2,,64,32.4,80,,block,WRITE,azure,,,2,True,balanced,311.744,27.52
+azure-block-balanced-c64-r3,,64,32.8,80,,block,WRITE,azure,,,3,True,balanced,311.744,28.17
 azure-block-largeobj-c01-r1,145.96,1,24.3,40,,block,READ,azure,185.364,145.96,1,False,largeobj,,
 azure-block-largeobj-c01-r2,145.96,1,24.3,40,,block,READ,azure,185.364,145.96,2,False,largeobj,,
 azure-block-largeobj-c01-r3,139.93,1,24.3,40,,block,READ,azure,220.436,139.93,3,False,largeobj,,

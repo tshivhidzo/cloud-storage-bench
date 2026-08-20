@@ -27,3 +27,19 @@ recorded per run (protocol v2 requirement); NIC limits are documentation-based;
 mount options beyond the archived bootstrap defaults are unrecoverable; the
 Alibaba host instance family was auto-selected within the 4 vCPU/16 GB
 constraint and its exact SKU is recovered from retained host state.
+
+## Documentation sources for NIC limits (family documentation pages)
+
+- AWS m5.xlarge: AWS EC2 instance types documentation (m5 family),
+  docs.aws.amazon.com/ec2/latest/instancetypes/ (documented "up to 10 Gbps" burst class).
+- Azure Standard_D4s_v3: learn.microsoft.com/azure/virtual-machines/dv3-dsv3-series.
+- GCP e2-standard-4: cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types
+  (egress caps per vCPU class).
+- Huawei c6.xlarge.4: support.huaweicloud.com/intl/en-us/productdesc-ecs/ (c6 family).
+- Alibaba ecs.hfg6.xlarge: alibabacloud.com/help/en/ecs/user-guide/instance-family (hfg6 family).
+
+These are family-level documented figures, cited as documentation, not
+measurement; sweep protocol v2 replaces them with a measured per-host
+baseline. Host SKU evidence extracted from retained state is published in
+configs/host_state_extract.json (state files themselves are withheld:
+they contain resource identifiers of a live account).

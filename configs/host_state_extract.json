@@ -1,0 +1,21 @@
+{
+  "note": "Fields extracted from retained host Terraform state (state files themselves are not published). Empty = not present in state.",
+  "extracted": {
+    "alibaba": {
+      "alicloud_instance.instance_type": "ecs.hfg6.xlarge",
+      "alicloud_instance.system_disk_size": 100
+    },
+    "aws": {
+      "aws_instance.instance_type": "m5.xlarge"
+    },
+    "azure": {
+      "note": "no size field in retained state; SKU from Terraform variable default"
+    },
+    "gcp": {
+      "google_compute_instance.machine_type": "e2-standard-4"
+    },
+    "huawei": {
+      "note": "no size field in retained state; SKU from Terraform variable default"
+    }
+  }
+}

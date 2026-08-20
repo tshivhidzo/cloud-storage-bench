@@ -1,8 +1,15 @@
-Pooled model (combined bytes/time throughput; fixed effects x*paradigm*workload; provider random intercept; N=360):
-  Random provider slope on log concurrency: LR=0.077
-  p (naive chi2_2)          = 0.9621
-  p (50:50 chi2 mixture)    = 0.8716
-  p (parametric bootstrap, B=40) = 0.7805
-  Interpretation: within this five-provider sample, no evidence of
-  provider-dependent scaling slopes beyond paradigm x workload
-  structure; five groups bound the power of this test.
+Pooled model (combined bytes/time; fixed effects x*paradigm*workload; provider random intercept)
+  Libraries: python 3.10.12, statsmodels 0.14.6, pandas 2.3.3, scipy 1.15.3, numpy 2.2.6
+  N = 356 runs with a defined combined rate (balanced write-only runs excluded by construction)
+  Random-slope model converged: False; fit warnings observed: 14
+  LR (random provider slope) = 0.444
+  p (naive chi2_2)           = 0.8010
+  p (50:50 chi2 mixture)     = 0.6532
+  p (parametric bootstrap)   = 0.4378  [draws accumulated: 200; this batch B=60, seed=44, failures=0]
+  Interpretation: within this five-provider sample there is no
+  evidence of provider-dependent scaling slopes beyond the
+  paradigm x workload structure. Five groups bound the power of
+  the test, and mixed-model fits at this group count generate
+  boundary/convergence warnings that are inherent to the design;
+  the bootstrap reference distribution is therefore reported
+  alongside the analytic approximations.
