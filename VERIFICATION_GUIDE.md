@@ -1,4 +1,4 @@
-# Verification guide (r4)
+# Verification guide (r5)
 
 Audience: the auditor of the TOS manuscript and its companion archive.
 Purpose: every claim below is stated with the exact command that verifies it
@@ -7,14 +7,17 @@ reportable finding. This guide is rewritten in full at r4; earlier guide
 versions contained stale values from before the round-3 corrections and are
 superseded in their entirety.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r4`
-(github.com/tshivhidzo/cloud-storage-bench) and its matching Zenodo version.
-Superseded tags `sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation
-commit c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged
-the r1 tree) and `sweep-v1-audited-r3` (first complete publication; carries
-the pre-round-3 statistics) are preserved unchanged. Verify against the r4
-commit only; the per-folder `manifest.sha256` files are the integrity ground
-truth (Section 6).
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r5`
+(github.com/tshivhidzo/cloud-storage-bench) and its matching Zenodo version
+under the all-versions concept DOI 10.5281/zenodo.22032835. Superseded tags,
+all preserved unchanged: `sweep-v1`, `thesis-v1`, `sweep-v1-audited`
+(pre-remediation commit c952e6ff), `sweep-v1-audited-r2` (failed publication
+attempt: tagged the r1 tree), `sweep-v1-audited-r3` (first complete
+publication; pre-round-3 statistics), and `sweep-v1-audited-r4` (round-3
+remediation, superseded before any Zenodo release because its manuscript
+carried a placeholder version-DOI). Verify against the r5 commit only; the
+per-folder `manifest.sha256` files are the integrity ground truth
+(Section 6). This guide's earlier versions are superseded in their entirety.
 
 Environment: Python 3.10+, packages per `requirements-analysis.txt`
 (numpy 2.2.6, pandas 2.3.3, scipy 1.15.3, statsmodels 0.14.6).
