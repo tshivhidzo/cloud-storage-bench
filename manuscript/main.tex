@@ -239,11 +239,12 @@ Object & S3 Std & Blob StdV2 LRS & GCS Std & OBS Std & OSS Std (internal ep.) \\
 {\sloppy All reported numbers are recomputed from raw artefacts by an
 archived pipeline (\texttt{sweep/recompute\_from\_raw.py},
 \texttt{sweep/refit\_exponents.py}, \texttt{sweep/make\_figures.py},
-\texttt{sweep/prose\_numbers.py}); no measured value in this paper is transcribed by hand: statistics enter
-via generated tables (\texttt{table\_combined}, \texttt{table\_perop},
-\texttt{table\_attempts}) and generated macros
-(\texttt{prose\_macros.tex}); configuration facts are traceable to the
-archived configuration records.\par} Per run we compute: write-phase throughput and read-phase throughput,
+\texttt{sweep/prose\_numbers.py}); the principal exponent tables, the attempt table and the specified prose
+statistics are generated directly by the archived pipeline
+(\texttt{table\_combined}, \texttt{table\_perop},
+\texttt{table\_attempts}, \texttt{prose\_macros.tex}); remaining reported
+values are traceable to its outputs or to the archived configuration
+records.\par} Per run we compute: write-phase throughput and read-phase throughput,
 each as the phase's total MiB divided by the phase's elapsed seconds from the
 tool's own totals; a combined rate defined as total MiB of both phases over
 total elapsed seconds of both phases (reported only for runs with both
@@ -515,11 +516,12 @@ Dataset, harness, Terraform definitions, recomputation and figure pipelines,
 regression tests, as-executed configuration record, quarantined data, the
 manuscript source itself and the locked replication protocol:
 \url{https://github.com/tshivhidzo/cloud-storage-bench}, annotated tag
-\texttt{sweep-v1-audited-r7}. Immutable audited version DOI:
-\texttt{10.5281/zenodo.22057803}; all-versions concept DOI:
-\url{https://doi.org/10.5281/zenodo.22032835}. Superseded tags r1--r6 are
+\texttt{sweep-v1-audited-r8}. Immutable audited version DOI:
+\texttt{10.5281/zenodo.22058064}; all-versions concept DOI:
+\url{https://doi.org/10.5281/zenodo.22032835}. Superseded tags r1--r7 are
 preserved, including publication attempts retained for audit-trail
-completeness (r5: 10.5281/zenodo.22056327; r6: 10.5281/zenodo.22057377). A pinned
+completeness (r5: 10.5281/zenodo.22056327; r6: 10.5281/zenodo.22057377;
+r7: 10.5281/zenodo.22057803, whose deposit and tag diverged). A pinned
 reproduction container (Dockerfile + full dependency lock) is included;
 bootstrap draw-file byte-identity is guaranteed inside it. Code MIT; data
 CC BY 4.0.

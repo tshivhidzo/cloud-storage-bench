@@ -141,14 +141,12 @@ def _fit_pair(smf, f, dfb, warnings):
     """Fit the null/alternative pair under the validity policy:
       * per model, best finite converged likelihood across the ladder;
       * both models must produce one, else the draw is rejected;
-      * nested ordering enforced: llf_alt must be >= llf_null - NEST_TOL
-        (the alternative nests the null, so a materially lower alternative
-        likelihood is an optimizer failure, not evidence), with sub-tolerance
-        deficits clamped to LR = 0.
-    Returns a record dict; rec['accepted'] states whether the draw is valid.
-    Rejection paths: missing/non-finite fits, and ANY negative likelihood
-    difference (no clamping of any magnitude -- LR values are non-negative
-    because only non-negative differences are accepted)."""
+      * nested ordering enforced with no tolerance: the alternative nests
+        the null, so ANY negative likelihood difference, of any magnitude,
+        is an optimizer failure and rejects the draw. Nothing is clamped;
+        LR values are non-negative because only non-negative differences
+        are accepted.
+    Returns a record dict; rec['accepted'] states whether the draw is valid."""
     n = _fit_model(smf, f, dfb, None, warnings)
     a = _fit_model(smf, f, dfb, "~x", warnings)
     rec = {"llf_null": "" if n is None else round(n[0], 6),
@@ -255,8 +253,9 @@ def pooled_model(rows):
             f"({obs['method_alt']}); LR = {lr:.4f}\n"
             f"  Validity policy: per model, highest FINITE converged "
             f"log-likelihood across the optimizer ladder; nested ordering "
-            f"llf_alt >= llf_null enforced (tol {NEST_TOL}); draws failing "
-            f"either rule are rejected, never clamped or counted\n"
+            f"enforced with no tolerance (any negative difference rejects "
+            f"the draw); draws failing either rule are rejected, never "
+            f"clamped or counted\n"
             f"  p (naive chi2_2)           = {stats.chi2.sf(lr, 2):.4f}\n"
             f"  p (50:50 chi2 mixture)     = {p_mix:.4f}\n"
             f"  p (parametric bootstrap)   = {p_boot:.4f}\n"

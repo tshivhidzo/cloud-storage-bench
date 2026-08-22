@@ -1,25 +1,27 @@
-# Verification guide (r7)
+# Verification guide (r8)
 
 Audience: the auditor of the TOS manuscript and its companion archive.
 Purpose: every claim below is stated with the exact command that verifies it
 and the expected output. Deviation from a stated expected value is a
-reportable finding. This guide is rewritten in full at r7; earlier guide
+reportable finding. This guide is rewritten in full at r8; earlier guide
 versions are superseded in their entirety.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r7`
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r8`
 (github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
-`10.5281/zenodo.22057803`, under the all-versions concept DOI
+`10.5281/zenodo.22058064`, under the all-versions concept DOI
 10.5281/zenodo.22032835. Superseded tags, all preserved unchanged:
 `sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation commit
 c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged the r1
 tree), `sweep-v1-audited-r3` (first complete publication; pre-round-3
 statistics), `sweep-v1-audited-r4` (round-3 remediation, superseded before
 release: placeholder version-DOI in the manuscript), `sweep-v1-audited-r5` (version DOI 10.5281/zenodo.22056327; superseded by
-the round-5 bootstrap-validity remediation), and `sweep-v1-audited-r6`
+the round-5 bootstrap-validity remediation), `sweep-v1-audited-r6`
 (version DOI 10.5281/zenodo.22057377; superseded by the round-6
-artefact-identity and packaging remediation -- its Zenodo deposit was not
-the literal tagged tree and its metadata identified r5). Verify against
-the r7 commit
+artefact-identity remediation -- its deposit was not the literal tagged
+tree and its metadata identified r5), and `sweep-v1-audited-r7` (version
+DOI 10.5281/zenodo.22057803; failed publication attempt: the tag captured
+only file deletions while the deposit carried the remediated working tree;
+both are preserved as evidence). Verify against the r8 commit
 only; the per-folder `manifest.sha256` files are the integrity ground truth
 (Section 6). This guide's earlier versions are superseded in their entirety.
 
@@ -47,7 +49,9 @@ Or, for the guaranteed-bytewise environment:
 (`sweep/container_verify.sh`) regenerates the ENTIRE chain including all
 five bootstrap batches from scratch and exits non-zero unless the
 regenerated `boot_draws.csv` is byte-identical (SHA-256) to the committed
-one. The base image is pinned by manifest digest in the Dockerfile.
+one. The base image is pinned to the linux/amd64 image digest (not the
+multi-arch manifest list) in the Dockerfile, so the byte-identity claim is
+tied to one concrete platform image.
 
 `refit_exponents.py` without `BOOT_B` reuses the archived bootstrap draw
 file. To regenerate draws: truncate `recompute-output/boot_draws.csv`, then
@@ -213,7 +217,7 @@ optimizer, warning count, lr, accepted, reject_reason); the p-value uses
 accepted draws only. The null baseline is the fixed-effects prediction
 (exog @ fe_params), not `fittedvalues`.
 
-Expected values at r7 (statistically identical to r6; the r7 policy change
+Expected values at r8 (statistically identical to r6; the r7 policy change
 -- rejecting rather than clamping sub-tolerance negative differences --
 affected no archived draw):
 
@@ -273,7 +277,7 @@ The Zenodo deposit is the literal `git archive` of the tag. To verify from
 both sides:
 
 ```bash
-git archive --format=tar sweep-v1-audited-r7 | tar -t | sort > /tmp/tag_paths.txt
+git archive --format=tar sweep-v1-audited-r8 | tar -t | sort > /tmp/tag_paths.txt
 unzip -l <doi-download>.zip | awk '{print $4}' | grep -v '^$' | sort > /tmp/doi_paths.txt
 diff /tmp/tag_paths.txt /tmp/doi_paths.txt && echo PATH-INVENTORY-IDENTICAL
 ```
