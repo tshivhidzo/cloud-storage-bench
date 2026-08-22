@@ -202,7 +202,7 @@ def main():
     def dump(name, rows):
         keys = sorted({k for r in rows for k in r}, key=lambda k: (k != "run_id", k))
         with open(OUT / name, "w", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=keys); w.writeheader(); w.writerows(rows)
+            w = csv.DictWriter(f, fieldnames=keys, lineterminator="\n"); w.writeheader(); w.writerows(rows)
         print(f"wrote {OUT/name} ({len(rows)} rows)")
 
     dump("per_phase.csv", per_phase)

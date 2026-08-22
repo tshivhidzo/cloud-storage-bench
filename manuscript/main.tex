@@ -3,9 +3,8 @@
 %% guidance: single column, line numbers via `review`.
 \documentclass[manuscript,screen,review]{acmart}
 
-\acmJournal{TOS}
-
 \usepackage{booktabs}
+\usepackage{graphicx}
 
 \begin{document}
 
@@ -50,8 +49,9 @@ latency moved oppositely: from 1 to 64 threads, median write-phase p99 grew
 mixed-effects test with paradigm and workload fixed effects, over the 356
 runs with a defined paired-pass rate, found no evidence of
 provider-dependent scaling slopes (LR $= 0.44$; boundary-corrected
-$p = 0.65$; parametric bootstrap $p = 0.44$), within the power limits of five
-provider groups and with the random-slope model's non-convergence disclosed. We also document two instrument defects
+$p = 0.65$; parametric bootstrap $p = 0.40$ over 200 fully converged draws),
+within the power limits of five provider groups and with per-draw
+convergence accounting archived. We also document two instrument defects
 whose signatures could be mistaken for service behaviour: a client-runner
 concurrency defect and an endpoint-path bandwidth cap. All raw artefacts,
 including quarantined defective-instrument data, are openly archived.
@@ -98,7 +98,7 @@ runs. Behaviour per cell is summarised by a fitted exponent $\beta$
 (throughput $\propto$ concurrency$^{\beta}$).
 
 Two aspects of how we report this work need stating plainly at the outset.
-First, final coverage is complete -- every one of the 360 designed cells holds
+First, final coverage is complete -- each of the 360 designed runs produced
 an accepted measurement -- but completeness was reached through documented
 retries: 611 attempts in total, dominated by one provider's object-storage
 control-plane interactions (Table~\ref{tab:attempts}). Every attempt, failed
@@ -230,18 +230,18 @@ unrecoverable items marked is in the archive: configs/AS\_EXECUTED\_CONFIG.md).
 NIC limits are provider-documented figures for the SKU, not measurements; the
 replication protocol adds a measured per-host network baseline.}
 \label{tab:config}
-\small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llllll}
 \toprule
  & AWS & Azure & GCP & Huawei & Alibaba \\
 \midrule
 Region & af-south-1 & southafricanorth & africa-south1 & af-south-1 & me-central-1 \\
 Host SKU & m5.xlarge & D4s\_v3 & e2-standard-4 & c6.xlarge.4 & ecs.hfg6.xlarge \\
-Block & gp3 100 GB & StdSSD LRS 100 GB & pd-ssd 100 GB & EVS SSD 100 GB & cloud disk 100 GB \\
-File & EFS GP elastic & Files Std (SMB) & Filestore BASIC\_HDD & SFS Turbo 500 GB & NAS Capacity (NFS) \\
+Block & gp3, 100 GB & StdSSD LRS, 100 GB & pd-ssd, 100 GB & EVS SSD, 100 GB & cloud disk, 100 GB \\
+File & EFS GP, elastic (no fixed size) & Files Std (SMB), 100 GB quota & Filestore BASIC\_HDD, 1{,}024 GB & SFS Turbo, 500 GB & NAS Capacity (NFS), pay-per-use \\
 Object & S3 Std & Blob StdV2 LRS & GCS Std & OBS Std & OSS Std (internal ep.) \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{Metrics and Analysis}\label{sec:metrics}
@@ -280,9 +280,12 @@ from one Python process; batch barriers plus interpreter-lock serialisation
 of TLS work produced a throughput curve that rose to 4 threads and fell
 thereafter -- a shape indistinguishable from service saturation. The
 corrected runner (bounded process pool, independent deadline-driven loops,
-socket timeouts, streaming reads, per-phase output) measured roughly seven
-times the throughput at 16 threads on the same service
-(Figure~\ref{fig:azure}). All Azure object results in the dataset come from
+socket timeouts, streaming reads, per-phase output) measured roughly three
+times the paired-pass bytes-over-time rate at 16 threads on the same service
+(Figure~\ref{fig:azure}; the two runners' metrics are constructed
+differently, as the figure labels state, so the ratio is indicative --
+whereas the fitted exponent, invariant to metric scaling, moves from
+negative to 0.363). All Azure object results in the dataset come from
 the corrected runner; the defective runner's complete output is quarantined.
 We note a reporting limitation: the deployed runner file's hash was not
 recorded per run in this campaign (the runner version is identified by its
@@ -293,10 +296,16 @@ per-run instrument hashes.
   \centering
   \includegraphics[width=0.6\columnwidth]{figures/fig3_azure_instrument}
   \caption{Azure Blob balanced throughput measured by the defective v1 runner
-  and the corrected v2 runner on the same service. The v1 curve's
-  rise-then-fall shape resembles service saturation but is a client
-  concurrency defect; both datasets are archived (v1 under
+  (its own recorded single-phase rate) and the corrected v2 runner
+  (paired-pass bytes over time). The v1 curve's rise-then-fall shape
+  resembles service saturation but is a client concurrency defect; the two
+  metrics are constructed differently, so shapes, not absolute ratios, carry
+  the comparison. Both datasets are archived (v1 under
   \texttt{quarantine/}).}
+  \Description{Line chart comparing two measurements of the same Azure Blob
+  service: the defective runner's curve rises to four threads then falls,
+  while the corrected runner's curve rises monotonically and saturates at
+  sixteen threads at a much higher level.}
   \label{fig:azure}
 \end{figure}
 
@@ -316,6 +325,10 @@ line.
   \caption{Combined throughput (total bytes over total elapsed time,
   log--log) against client threads for both workload classes on all five
   clouds. Cell means over three repetitions.}
+  \Description{Ten log-log panels, one per cloud and workload class. Object
+  storage lines rise steadily with thread count in the balanced class and
+  flatten by sixteen threads in the large-object class; block storage lines
+  are flat in both classes; file storage lines rise modestly then flatten.}
   \label{fig:curves}
 \end{figure*}
 
@@ -343,6 +356,10 @@ are the interpretable quantities for that cell.}
   \includegraphics[width=0.9\textwidth]{figures/fig2_recomputed}
   \caption{Combined-throughput scaling exponents with 95\% confidence
   intervals. Reference lines at $\beta = 0$ and $\beta = 1$.}
+  \Description{Two dot-and-error-bar panels showing scaling exponents per
+  provider grouped by paradigm. Object exponents cluster near one in the
+  balanced panel except Azure; block exponents cluster near zero in both
+  panels; file exponents fall between zero and 0.7.}
   \label{fig:exponents}
 \end{figure*}
 
@@ -372,6 +389,10 @@ underestimated, rather than manufactured, object-storage scaling.
   \includegraphics[width=0.95\textwidth]{figures/fig4_recomputed_p99}
   \caption{Per-phase p99 latency (balanced class), one line per provider.
   Write phases (top) and read phases (bottom) are never combined.}
+  \Description{Six log-log panels of ninety-ninth percentile latency against
+  thread count: write and read phases for block, file and object storage.
+  Block and file latency lines climb steeply with thread count; object
+  storage lines remain nearly flat.}
   \label{fig:latency}
 \end{figure*}
 
@@ -387,16 +408,23 @@ per phase with no cross-phase aggregation.
 The mixed model (fixed effects: log concurrency $\times$ paradigm $\times$
 workload; random provider intercept) is fitted over the $N = 356$ runs with
 a defined combined rate. Adding a random provider slope gives a likelihood
-ratio of 0.44: $p = 0.65$ against the boundary-corrected 50:50
-$\chi^2_1$:$\chi^2_2$ mixture and $p = 0.44$ by parametric bootstrap (200
-draws, seeds 42--44, fixed-effects baseline, zero fitting failures; the
-archived analysis records library versions). Two honesty notes attach to
-this result. The random-slope model does not converge cleanly at five
-groups -- an expected pathology of estimating a variance component from
-five units -- which is precisely why the bootstrap reference distribution
-is reported alongside the analytic approximations; and the earlier
-distributed draft of this work reported LR $= 0.077$ from a model that
-included four write-only runs in the combined-rate input, corrected here.
+ratio of 0.44 (observed fit converged under a documented optimizer retry
+ladder): $p = 0.65$ against the boundary-corrected 50:50
+$\chi^2_1$:$\chi^2_2$ mixture and $p = 0.40$ by parametric bootstrap. The
+bootstrap protocol is fully accounted: 200 draws (batch seeds 42--46,
+fixed-effects null baseline), each fitted under the same retry ladder with
+per-draw convergence, optimizer and warning counts archived
+(\texttt{boot\_draws.csv}); all 200 draws converged, and 60 numerically
+negative LR draws -- the expected point mass at the variance boundary --
+were clamped to zero, which is conservative for the p-value. The bootstrap
+p moves by roughly 0.05--0.10 under different optimizer choices at this
+group count; we report this optimizer dependence rather than a single
+falsely precise value, and note that every reference distribution
+(naive, mixture, bootstrap) agrees the statistic is unremarkable under the
+null. Two further honesty notes: estimating a slope variance from five
+groups sits at the edge of what mixed models support, and the earlier
+distributed draft reported LR $= 0.077$ from a model that included four
+write-only runs in the combined-rate input, corrected here.
 Within this five-provider sample there is no evidence that scaling slopes
 vary by provider once paradigm and workload are accounted for, while
 provider effects on absolute level remain large. We state this as a
@@ -427,11 +455,10 @@ We are careful about mechanism attribution. The flat block exponents are
 the flat file streaming results are \emph{consistent with} single-connection
 protocol behaviour, and the large-object object-storage saturation at 16
 threads is \emph{consistent with} the hosts' documented network limits -- but
-this campaign did not instrument the network path or the protocol layer
-directly, so these attributions remain hypotheses supported by configuration
-records rather than demonstrated causes. The replication protocol adds a
-measured per-host network baseline to close part of this gap; per-paradigm
-causal isolation (e.g., premium-tier contrasts) is future work.
+neither the network path nor the protocol layer was instrumented directly,
+so these attributions remain hypotheses supported by configuration records
+rather than demonstrated causes; per-paradigm causal isolation (premium-tier
+contrasts, protocol tracing) is future work under the replication protocol.
 
 The null result on provider slopes, combined with the earlier campaign's
 strong provider effects on absolute performance, suggests a practical
@@ -480,11 +507,16 @@ reporting.
 \end{acks}
 
 \section*{Data Availability}
-Dataset, harness, Terraform definitions, recomputation pipeline, as-executed
-configuration record, quarantined data and the locked replication protocol:
-\url{https://github.com/tshivhidzo/cloud-storage-bench} (tag
-\texttt{sweep-v1-audited-r1}); archival snapshot
-\url{https://doi.org/10.5281/zenodo.22032836}. Code MIT; data CC BY 4.0.
+Dataset, harness, Terraform definitions, recomputation and figure pipelines,
+regression tests, as-executed configuration record, quarantined data, the
+manuscript source itself and the locked replication protocol:
+\url{https://github.com/tshivhidzo/cloud-storage-bench}, annotated tag
+\texttt{sweep-v1-audited-r4}, archived as a Zenodo version (DOI
+\texttt{10.5281/zenodo.[r4-version]}) in the record lineage that begins at
+\url{https://doi.org/10.5281/zenodo.22032836}. The version matching tag
+\texttt{sweep-v1-audited-r4} is the audited artefact for this paper;
+superseded tags r1--r3 are preserved, including one failed publication
+attempt retained for audit-trail completeness. Code MIT; data CC BY 4.0.
 
 \appendix
 \section{Per-Operation Exponents}

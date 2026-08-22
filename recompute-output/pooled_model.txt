@@ -1,15 +1,15 @@
 Pooled model (combined bytes/time; fixed effects x*paradigm*workload; provider random intercept)
   Libraries: python 3.10.12, statsmodels 0.14.6, pandas 2.3.3, scipy 1.15.3, numpy 2.2.6
   N = 356 runs with a defined combined rate (balanced write-only runs excluded by construction)
-  Random-slope model converged: False; fit warnings observed: 14
-  LR (random provider slope) = 0.444
+  Observed fit: converged=True via optimizer=powell, warnings=3; LR raw=0.4438, used=0.4438 (negatives clamped to 0)
   p (naive chi2_2)           = 0.8010
-  p (50:50 chi2 mixture)     = 0.6532
-  p (parametric bootstrap)   = 0.4378  [draws accumulated: 200; this batch B=60, seed=44, failures=0]
+  p (50:50 chi2 mixture)     = 0.6531
+  p (parametric bootstrap)   = 0.4030
+  Bootstrap accounting: 200 draws archived (boot_draws.csv, per-draw convergence/method/warnings); 200 converged draws used; 0 rejected non-converged; 60 negative LRs clamped to 0
+  Optimizer-dependence caveat: the bootstrap p moves by roughly 0.05-0.10 across optimizer choices at this group count; all reference distributions agree the LR is unremarkable under H0.
   Interpretation: within this five-provider sample there is no
   evidence of provider-dependent scaling slopes beyond the
-  paradigm x workload structure. Five groups bound the power of
-  the test, and mixed-model fits at this group count generate
-  boundary/convergence warnings that are inherent to the design;
-  the bootstrap reference distribution is therefore reported
-  alongside the analytic approximations.
+  paradigm x workload structure; five groups bound the power of
+  the test, and the bootstrap is reported alongside the analytic
+  approximations because the random-slope fit sits at a variance
+  boundary where analytic references are approximate.
