@@ -1,5 +1,6 @@
-# analysis environment (python 3.10.12)
+# analysis environment (python 3.10.12); full transitive lock in requirements-lock.txt
 numpy==2.2.6
 pandas==2.3.3
 scipy==1.15.3
 statsmodels==0.14.6
+matplotlib==3.10.9

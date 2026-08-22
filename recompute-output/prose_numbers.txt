@@ -1,0 +1,18 @@
+p99 fold change c1->c64, balanced class, median across providers:
+  write block : x60.0 (n=5 providers)
+  write file  : x26.9 (n=5 providers)
+  write object: x1.0 (n=5 providers)
+  read  block : x54.1 (n=4 providers)
+  read  file  : x51.0 (n=5 providers)
+  read  object: x1.2 (n=5 providers)
+
+c16 consistency: 30 comparable cells; 28 within 2x; geometric-mean ratio 1.08
+  outliers (corrected-instrument cells): [(('azure', 'object', 'balanced'), 6.99), (('azure', 'object', 'largeobj'), 2.86)]
+
+Azure instrument (like-for-like, write phases):
+  v1 write-only beta = 0.0008 (effectively zero, not negative)
+  v2 write-phase beta = 0.31
+  c16 write-to-write ratio v2/v1 = 2.36x
+
+design mix: fixed=174 weak-scaled=162 time-driven/other=24
+CPU-gated runs (>80% mean): 71 of 360 (19.7%)

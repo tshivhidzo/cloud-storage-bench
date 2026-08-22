@@ -30,7 +30,12 @@ table_combined.tex, table_perop.tex (both generated; the manuscript \\input s
 byte-identical copies, verifiable with diff).
 """
 from __future__ import annotations
-import csv, math, os, sys
+import os
+# single-threaded BLAS for cross-run determinism (set before numpy import)
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+           "NUMEXPR_NUM_THREADS"):
+    os.environ.setdefault(_v, "1")
+import csv, math, sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -99,26 +104,64 @@ def fit_all(rows, exclude_gated=False):
     return out
 
 
-def _fit_pair(smf, f, dfb, warnings):
-    """Fit null and alternative with an optimizer retry ladder. Returns
-    (lr, converged_both, method, n_warnings) -- convergence of BOTH fits is
-    required; the method that first achieves it is recorded."""
+NEST_TOL = 1e-6  # tolerance for nested-likelihood ordering
+
+
+def _fit_model(smf, f, dfb, re_formula, warnings):
+    """Fit one model with every optimizer in the ladder; return the fit with
+    the highest FINITE log-likelihood among converged fits, as
+    (llf, method, n_warnings), or None if no optimizer produces a converged
+    finite-likelihood fit. A .converged flag alone is NOT accepted: r5's
+    archive showed converged=True fits with infinite likelihoods."""
+    best = None
     for method in ("default", "lbfgs", "powell"):
         with warnings.catch_warnings(record=True) as w:
             warnings.simplefilter("always")
             try:
                 kw = {} if method == "default" else {"method": method}
-                b0 = smf.mixedlm(f, dfb, groups=dfb["provider"]).fit(
-                    reml=False, **kw)
-                b1 = smf.mixedlm(f, dfb, groups=dfb["provider"],
-                                 re_formula="~x").fit(reml=False, **kw)
+                if re_formula:
+                    m = smf.mixedlm(f, dfb, groups=dfb["provider"],
+                                    re_formula=re_formula).fit(reml=False, **kw)
+                else:
+                    m = smf.mixedlm(f, dfb, groups=dfb["provider"]).fit(
+                        reml=False, **kw)
             except Exception:
                 continue
-            conv = bool(getattr(b0, "converged", False)) and \
-                bool(getattr(b1, "converged", False))
-            if conv:
-                return 2 * (b1.llf - b0.llf), True, method, len(w)
-    return float("nan"), False, "none", -1
+            llf = float(m.llf)
+            if not (bool(getattr(m, "converged", False)) and math.isfinite(llf)):
+                continue
+            if best is None or llf > best[0]:
+                best = (llf, method, len(w))
+    return best
+
+
+def _fit_pair(smf, f, dfb, warnings):
+    """Fit the null/alternative pair under the validity policy:
+      * per model, best finite converged likelihood across the ladder;
+      * both models must produce one, else the draw is rejected;
+      * nested ordering enforced: llf_alt must be >= llf_null - NEST_TOL
+        (the alternative nests the null, so a materially lower alternative
+        likelihood is an optimizer failure, not evidence), with sub-tolerance
+        deficits clamped to LR = 0.
+    Returns a record dict; rec['accepted'] states whether the draw is valid."""
+    n = _fit_model(smf, f, dfb, None, warnings)
+    a = _fit_model(smf, f, dfb, "~x", warnings)
+    rec = {"llf_null": "" if n is None else round(n[0], 6),
+           "llf_alt": "" if a is None else round(a[0], 6),
+           "method_null": "none" if n is None else n[1],
+           "method_alt": "none" if a is None else a[1],
+           "n_warnings": (n[2] if n else 0) + (a[2] if a else 0),
+           "lr": "", "accepted": False, "reject_reason": ""}
+    if n is None or a is None:
+        rec["reject_reason"] = "no finite converged fit"
+        return rec
+    diff = a[0] - n[0]
+    if diff < -NEST_TOL:
+        rec["reject_reason"] = f"nested ordering violated ({diff:.3e})"
+        return rec
+    rec["lr"] = round(max(2 * diff, 0.0), 6)
+    rec["accepted"] = True
+    return rec
 
 
 def pooled_model(rows):
@@ -142,10 +185,11 @@ def pooled_model(rows):
         "provider": [r["provider"] for r in recs]})
     f = "y ~ x * C(paradigm) * C(workload)"
 
-    # observed statistic, under the same convergence policy as the bootstrap
-    lr_obs, obs_conv, obs_method, obs_warn = _fit_pair(smf, f, df, warnings)
-    lr = max(lr_obs, 0.0)  # LR is non-negative by construction; numerical
-    #                        negatives are clamped to 0 (disclosed below)
+    # observed statistic, under the same validity policy as the bootstrap
+    obs = _fit_pair(smf, f, df, warnings)
+    if not obs["accepted"]:
+        return f"OBSERVED FIT INVALID: {obs['reject_reason']} -- no inference reported"
+    lr = float(obs["lr"])
     p_mix = 0.5 * stats.chi2.sf(lr, 1) + 0.5 * stats.chi2.sf(lr, 2)
 
     # baseline model for simulation parameters (null: random intercept only)
@@ -155,63 +199,70 @@ def pooled_model(rows):
     re_sd = math.sqrt(float(m0.cov_re.iloc[0, 0]))
     provs = df["provider"].unique()
 
-    B = int(os.environ.get("BOOT_B", "0"))
+    SCHEMA = ["seed", "attempt", "llf_null", "llf_alt", "method_null",
+              "method_alt", "n_warnings", "lr", "accepted", "reject_reason"]
+    B = int(os.environ.get("BOOT_B", "0"))     # ACCEPTED draws to add
     seed = int(os.environ.get("BOOT_SEED", "42"))
     boot_file = OUT / "boot_draws.csv"
+    # start fresh if an old-schema file is present
+    if boot_file.exists():
+        hdr = open(boot_file).readline().strip().split(",")
+        if hdr != SCHEMA:
+            boot_file.write_text(",".join(SCHEMA) + "\n")
     if B:
         rng = np.random.default_rng(seed)
-        newrows = []
-        for i in range(B):
+        newrows, accepted, attempt = [], 0, 0
+        while accepted < B and attempt < 3 * B:
             icept = dict(zip(provs, rng.normal(0, re_sd, len(provs))))
             yb = fe_fitted + df["provider"].map(icept).values \
                 + rng.normal(0, sd_resid, len(df))
-            lr_b, conv, method, nwarn = _fit_pair(
-                smf, f, df.assign(y=yb), warnings)
-            newrows.append({"seed": seed, "draw": i,
-                            "lr_raw": ("" if math.isnan(lr_b) else round(lr_b, 6)),
-                            "converged": conv, "method": method,
-                            "n_warnings": nwarn})
-        exists = boot_file.exists()
+            rec = _fit_pair(smf, f, df.assign(y=yb), warnings)
+            rec.update(seed=seed, attempt=attempt)
+            newrows.append(rec)
+            accepted += rec["accepted"]
+            attempt += 1
+        exists = boot_file.exists() and boot_file.read_text().strip()
         with open(boot_file, "a", newline="") as bf:
-            w = csv.DictWriter(bf, fieldnames=list(newrows[0].keys()),
-                               lineterminator="\n")
+            w = csv.DictWriter(bf, fieldnames=SCHEMA, lineterminator="\n")
             if not exists:
                 w.writeheader()
             w.writerows(newrows)
 
-    # p-value from CONVERGED draws only; negatives clamped to 0
-    conv_lrs, n_total, n_rej, n_neg = [], 0, 0, 0
+    # p-value from ACCEPTED draws only (finite, converged, nested-ordered)
+    acc_lrs, n_total, n_rej = [], 0, 0
     if boot_file.exists():
         for r in csv.DictReader(open(boot_file)):
             n_total += 1
-            if r["converged"] != "True" or r["lr_raw"] == "":
+            if r["accepted"] == "True" and r["lr"] != "":
+                acc_lrs.append(float(r["lr"]))
+            else:
                 n_rej += 1
-                continue
-            v = float(r["lr_raw"])
-            if v < 0:
-                n_neg += 1
-                v = 0.0
-            conv_lrs.append(v)
-    p_boot = ((sum(1 for v in conv_lrs if v >= lr) + 1) / (len(conv_lrs) + 1)
-              if conv_lrs else float("nan"))
+    n_zero = sum(1 for v in acc_lrs if v == 0.0)
+    p_boot = ((sum(1 for v in acc_lrs if v >= lr) + 1) / (len(acc_lrs) + 1)
+              if acc_lrs else float("nan"))
     return (f"Pooled model (combined bytes/time; fixed effects x*paradigm*"
             f"workload; provider random intercept)\n"
             f"  Libraries: {versions}\n"
             f"  N = {len(df)} runs with a defined combined rate "
             f"(balanced write-only runs excluded by construction)\n"
-            f"  Observed fit: converged={obs_conv} via optimizer="
-            f"{obs_method}, warnings={obs_warn}; LR raw={lr_obs:.4f}, "
-            f"used={lr:.4f} (negatives clamped to 0)\n"
+            f"  Observed fit: llf_null={obs['llf_null']} "
+            f"({obs['method_null']}), llf_alt={obs['llf_alt']} "
+            f"({obs['method_alt']}); LR = {lr:.4f}\n"
+            f"  Validity policy: per model, highest FINITE converged "
+            f"log-likelihood across the optimizer ladder; nested ordering "
+            f"llf_alt >= llf_null enforced (tol {NEST_TOL}); draws failing "
+            f"either rule are rejected, never clamped or counted\n"
             f"  p (naive chi2_2)           = {stats.chi2.sf(lr, 2):.4f}\n"
             f"  p (50:50 chi2 mixture)     = {p_mix:.4f}\n"
             f"  p (parametric bootstrap)   = {p_boot:.4f}\n"
-            f"  Bootstrap accounting: {n_total} draws archived "
-            f"(boot_draws.csv, per-draw convergence/method/warnings); "
-            f"{len(conv_lrs)} converged draws used; {n_rej} rejected "
-            f"non-converged; {n_neg} negative LRs clamped to 0\n"
-            f"  Optimizer-dependence caveat: the bootstrap p moves by roughly "
-            f"0.05-0.10 across optimizer choices at this group count; all "
-            f"reference distributions agree the LR is unremarkable under H0.\n"
+            f"  Bootstrap accounting: {n_total} attempts archived in "
+            f"boot_draws.csv; {len(acc_lrs)} valid draws used "
+            f"({n_zero} at the boundary LR=0); {n_rej} rejected with reasons "
+            f"recorded per draw\n"
+            f"  Reproducibility: draw-file byte-identity is guaranteed only "
+            f"inside the pinned container (see Dockerfile + "
+            f"requirements-lock.txt); across BLAS/threading environments "
+            f"expect statistical, not bytewise, agreement\n"
             f"  Interpretation: within this five-provider sample there is no\n"
             f"  evidence of provider-dependent scaling slopes beyond the\n"
             f"  paradigm x workload structure; five groups bound the power of\n"

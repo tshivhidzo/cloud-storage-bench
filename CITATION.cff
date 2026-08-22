@@ -1,10 +1,12 @@
 cff-version: 1.2.0
-title: "Cloud Storage Benchmark - Thesis Dataset and Harness"
-version: 1.0.0
+title: "Cloud Storage Benchmark - Datasets, Harness and Analysis Pipeline"
+version: sweep-v1-audited-r6
 type: dataset
 authors:
   - family-names: Makungo
     given-names: Tshivhidzo
     affiliation: Cape Peninsula University of Technology
-date-released: 2026-08-19
-message: "If you use this dataset or harness, please cite it."
+date-released: 2026-08-22
+doi: 10.5281/zenodo.22032835
+message: "Cite the concept DOI for all versions; the audited version for the
+  TOS manuscript is the Zenodo version generated from tag sweep-v1-audited-r6."

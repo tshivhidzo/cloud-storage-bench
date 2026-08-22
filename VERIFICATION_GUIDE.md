@@ -1,26 +1,33 @@
-# Verification guide (r5)
+# Verification guide (r6)
 
 Audience: the auditor of the TOS manuscript and its companion archive.
 Purpose: every claim below is stated with the exact command that verifies it
 and the expected output. Deviation from a stated expected value is a
-reportable finding. This guide is rewritten in full at r4; earlier guide
-versions contained stale values from before the round-3 corrections and are
-superseded in their entirety.
+reportable finding. This guide is rewritten in full at r6; earlier guide
+versions are superseded in their entirety.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r5`
-(github.com/tshivhidzo/cloud-storage-bench) and its matching Zenodo version
-under the all-versions concept DOI 10.5281/zenodo.22032835. Superseded tags,
-all preserved unchanged: `sweep-v1`, `thesis-v1`, `sweep-v1-audited`
-(pre-remediation commit c952e6ff), `sweep-v1-audited-r2` (failed publication
-attempt: tagged the r1 tree), `sweep-v1-audited-r3` (first complete
-publication; pre-round-3 statistics), and `sweep-v1-audited-r4` (round-3
-remediation, superseded before any Zenodo release because its manuscript
-carried a placeholder version-DOI). Verify against the r5 commit only; the
-per-folder `manifest.sha256` files are the integrity ground truth
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r6`
+(github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
+`10.5281/zenodo.22057377`, under the all-versions concept DOI
+10.5281/zenodo.22032835. Superseded tags, all preserved unchanged:
+`sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation commit
+c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged the r1
+tree), `sweep-v1-audited-r3` (first complete publication; pre-round-3
+statistics), `sweep-v1-audited-r4` (round-3 remediation, superseded before
+release: placeholder version-DOI in the manuscript), and
+`sweep-v1-audited-r5` (version DOI 10.5281/zenodo.22056327; superseded by
+the round-5 bootstrap-validity remediation). Verify against the r6 commit
+only; the per-folder `manifest.sha256` files are the integrity ground truth
 (Section 6). This guide's earlier versions are superseded in their entirety.
 
-Environment: Python 3.10+, packages per `requirements-analysis.txt`
-(numpy 2.2.6, pandas 2.3.3, scipy 1.15.3, statsmodels 0.14.6).
+Environment: Python 3.10.12, packages per `requirements-analysis.txt`
+(numpy 2.2.6, pandas 2.3.3, scipy 1.15.3, statsmodels 0.14.6,
+matplotlib 3.10.9); complete transitive lock in `requirements-lock.txt`.
+Bootstrap draw-file BYTE-identity is guaranteed only inside the pinned
+container (`Dockerfile`; single-threaded BLAS, locked dependencies). Outside
+the container, mixed-model optimisation is BLAS/threading-sensitive: expect
+statistical agreement of the bootstrap p (and exact reproduction of
+everything else in the chain, which is deterministic arithmetic).
 
 ## 0. Reproduce the entire results chain
 
@@ -28,14 +35,19 @@ Environment: Python 3.10+, packages per `requirements-analysis.txt`
 python3 sweep/recompute_from_raw.py     # raw artefacts -> per-run/per-phase tables
 python3 sweep/refit_exponents.py        # tables -> exponents + pooled model + LaTeX tables
 python3 sweep/make_figures.py           # tables (+ quarantine) -> all four figure PNGs
+python3 sweep/prose_numbers.py          # every prose-quoted statistic -> prose_numbers.txt
 python3 sweep/test_pipeline.py          # regression tests; exit 0 = all pass
 ```
 
+Or, for the guaranteed-bytewise environment:
+`docker build -t csb . && docker run csb`.
+
 `refit_exponents.py` without `BOOT_B` reuses the archived bootstrap draw
-file; to regenerate the draws from scratch, delete
-`recompute-output/boot_draws.csv` and run five batches:
-`BOOT_B=40 BOOT_SEED=s python3 sweep/refit_exponents.py` for s = 42..46.
-The archived draw file reproduces exactly under those seeds.
+file. To regenerate draws: truncate `recompute-output/boot_draws.csv`, then
+run batches `BOOT_B=<n> BOOT_SEED=s python3 sweep/refit_exponents.py` for
+s = 42, 43, 44, 45, 46 with accepted-draw counts 30, 50, 50, 50, 20
+(archive totals: 204 attempts, 200 accepted). Bytewise identity of the
+regenerated file is guaranteed inside the container only.
 
 Everything the manuscript reports comes from these scripts' outputs. The
 manuscript's tables are `\input` copies of `recompute-output/table_combined.tex`
@@ -174,36 +186,43 @@ originals are preserved beside each folder's manifest as
 
 ## 7. Statistical model
 
-Implementation: `sweep/refit_exponents.py::pooled_model`. Model:
-log10(combined) ~ log10(conc) x C(paradigm) x C(workload), provider random
-intercept, N = 356. Both the observed statistic and every bootstrap draw are
-fitted under a documented optimizer retry ladder (default, lbfgs, powell);
-a draw enters the p-value only if both fits converge, and every draw's LR,
-convergence flag, optimizer and warning count are archived in
-`recompute-output/boot_draws.csv`. Negative LR draws (the expected point
-mass at the variance boundary) are clamped to zero for the p-value, which
-is conservative; raw values are retained in the records. The bootstrap
-null baseline is the fixed-effects prediction (exog @ fe_params), not
-`fittedvalues`.
+Implementation: `sweep/refit_exponents.py::pooled_model` with the validity
+policy in `_fit_model`/`_fit_pair`. Model: log10(combined) ~ log10(conc) x
+C(paradigm) x C(workload), provider random intercept, N = 356. Policy, per
+the round-5 audit requirements: each model (null and alternative) is fitted
+with the full optimizer ladder (default, lbfgs, powell) and represented by
+its highest FINITE converged log-likelihood -- a `.converged` flag alone is
+insufficient; both models must yield one; nested ordering
+llf_alt >= llf_null - 1e-6 is enforced (a materially lower alternative
+likelihood is an optimizer failure, and the draw is rejected, not clamped);
+LR values are therefore finite and non-negative by construction. Every
+attempt is archived in `boot_draws.csv` (llf_null, llf_alt, per-model
+optimizer, warning count, lr, accepted, reject_reason); the p-value uses
+accepted draws only. The null baseline is the fixed-effects prediction
+(exog @ fe_params), not `fittedvalues`.
 
-Expected values at r4:
+Expected values at r6:
 
 ```
-Observed fit: converged=True via optimizer=powell; LR = 0.4438
+Observed: llf_null=82.304605 (default), llf_alt=82.5265 (powell); LR = 0.4438
 p (naive chi2_2)        = 0.8010
 p (50:50 chi2 mixture)  = 0.6531
-p (parametric bootstrap)= 0.4030   [200 draws; 200 converged; 0 rejected;
-                                    60 negative LRs clamped]
+p (parametric bootstrap)= 0.5522   [204 attempts; 200 valid draws;
+                                    4 rejected with recorded reasons]
 ```
 
-Optimizer dependence is real at this group count (bootstrap p moves by
-roughly 0.05-0.10 across optimizer choices); the manuscript discloses it
-and rests no conclusion on bootstrap precision. History for the audit
-trail: r1-r2 reported LR = 0.077 (defective input: four write-only runs in
-the combined rate) and a bootstrap that double-added random effects; r3
-reported LR = 0.444 with a bootstrap lacking per-draw convergence checks.
-Both defects are documented in manuscript Section 4.4 and covered by
-regression tests.
+The bootstrap p is corroborated by the round-5 audit's independent
+finite-only diagnostic (~0.523). Byte-identity of `boot_draws.csv` under
+regeneration holds inside the pinned container; outside it, expect
+statistical agreement (see Environment note above). The regression tests
+verify the policy directly: finite likelihoods in all accepted rows, nested
+ordering, non-negative finite LRs, reject reasons on all rejected rows, and
+that the reported p-value equals the policy applied to the archived
+records. History for the audit trail: r1-r2 reported LR = 0.077 (defective
+input) with a bootstrap that double-added random effects; r3 lacked
+per-draw convergence checks; r5 accepted converged-flagged fits with
+non-finite likelihoods. Each defect is documented in manuscript Section 4.4
+and covered by a test.
 
 ## 8. Manuscript-to-archive tracing
 
@@ -213,8 +232,15 @@ The manuscript source is `manuscript/` inside this repository. Checks:
 diff manuscript/table_combined.tex recompute-output/table_combined.tex && \
 diff manuscript/table_perop.tex   recompute-output/table_perop.tex && echo TABLES-IDENTICAL
 python3 sweep/make_figures.py && git diff --stat -- manuscript/figures   # empty = figures reproduce
+python3 sweep/prose_numbers.py && git diff --stat -- recompute-output/prose_numbers.txt  # empty = prose numbers reproduce
 grep -ci "pre-regist" manuscript/main.tex    # expect 0
 ```
+
+`prose_numbers.txt` carries every prose-quoted statistic not in a table or
+figure: the p99 fold changes, the 28-of-30 consistency result and its
+geometric-mean ratio 1.08, the like-for-like Azure v1/v2 write comparison
+(0.0008 vs 0.310; 2.36x at c16), the design-mix counts and the CPU-gate
+count (71 of 360, 19.7%).
 
 Every number in the manuscript is one of: (a) the two generated `\input`
 tables; (b) a value printed by the pipeline scripts and quoted in prose,

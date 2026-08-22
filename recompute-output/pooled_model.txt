@@ -1,12 +1,13 @@
 Pooled model (combined bytes/time; fixed effects x*paradigm*workload; provider random intercept)
   Libraries: python 3.10.12, statsmodels 0.14.6, pandas 2.3.3, scipy 1.15.3, numpy 2.2.6
   N = 356 runs with a defined combined rate (balanced write-only runs excluded by construction)
-  Observed fit: converged=True via optimizer=powell, warnings=3; LR raw=0.4438, used=0.4438 (negatives clamped to 0)
+  Observed fit: llf_null=82.304605 (default), llf_alt=82.5265 (powell); LR = 0.4438
+  Validity policy: per model, highest FINITE converged log-likelihood across the optimizer ladder; nested ordering llf_alt >= llf_null enforced (tol 1e-06); draws failing either rule are rejected, never clamped or counted
   p (naive chi2_2)           = 0.8010
   p (50:50 chi2 mixture)     = 0.6531
-  p (parametric bootstrap)   = 0.4030
-  Bootstrap accounting: 200 draws archived (boot_draws.csv, per-draw convergence/method/warnings); 200 converged draws used; 0 rejected non-converged; 60 negative LRs clamped to 0
-  Optimizer-dependence caveat: the bootstrap p moves by roughly 0.05-0.10 across optimizer choices at this group count; all reference distributions agree the LR is unremarkable under H0.
+  p (parametric bootstrap)   = 0.5522
+  Bootstrap accounting: 204 attempts archived in boot_draws.csv; 200 valid draws used (0 at the boundary LR=0); 4 rejected with reasons recorded per draw
+  Reproducibility: draw-file byte-identity is guaranteed only inside the pinned container (see Dockerfile + requirements-lock.txt); across BLAS/threading environments expect statistical, not bytewise, agreement
   Interpretation: within this five-provider sample there is no
   evidence of provider-dependent scaling slopes beyond the
   paradigm x workload structure; five groups bound the power of

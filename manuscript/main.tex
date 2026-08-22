@@ -49,9 +49,10 @@ latency moved oppositely: from 1 to 64 threads, median write-phase p99 grew
 mixed-effects test with paradigm and workload fixed effects, over the 356
 runs with a defined paired-pass rate, found no evidence of
 provider-dependent scaling slopes (LR $= 0.44$; boundary-corrected
-$p = 0.65$; parametric bootstrap $p = 0.40$ over 200 fully converged draws),
-within the power limits of five provider groups and with per-draw
-convergence accounting archived. We also document two instrument defects
+$p = 0.65$; parametric bootstrap $p = 0.55$ over 200 valid draws under an
+explicit finite-likelihood and nested-ordering validity policy, with
+per-draw records archived), within the power limits of five provider
+groups. We also document two instrument defects
 whose signatures could be mistaken for service behaviour: a client-runner
 concurrency defect and an endpoint-path bandwidth cap. All raw artefacts,
 including quarantined defective-instrument data, are openly archived.
@@ -245,10 +246,11 @@ Object & S3 Std & Blob StdV2 LRS & GCS Std & OBS Std & OSS Std (internal ep.) \\
 \end{table}
 
 \subsection{Metrics and Analysis}\label{sec:metrics}
-All reported numbers are recomputed from raw artefacts by an archived
-pipeline (\texttt{sweep/recompute\_from\_raw.py},
-\texttt{sweep/refit\_exponents.py}); no value in this paper is transcribed by
-hand. Per run we compute: write-phase throughput and read-phase throughput,
+{\sloppy All reported numbers are recomputed from raw artefacts by an
+archived pipeline (\texttt{sweep/recompute\_from\_raw.py},
+\texttt{sweep/refit\_exponents.py}, \texttt{sweep/make\_figures.py},
+\texttt{sweep/prose\_numbers.py}); no value in this paper is transcribed by
+hand.\par} Per run we compute: write-phase throughput and read-phase throughput,
 each as the phase's total MiB divided by the phase's elapsed seconds from the
 tool's own totals; a combined rate defined as total MiB of both phases over
 total elapsed seconds of both phases (reported only for runs with both
@@ -280,12 +282,14 @@ from one Python process; batch barriers plus interpreter-lock serialisation
 of TLS work produced a throughput curve that rose to 4 threads and fell
 thereafter -- a shape indistinguishable from service saturation. The
 corrected runner (bounded process pool, independent deadline-driven loops,
-socket timeouts, streaming reads, per-phase output) measured roughly three
-times the paired-pass bytes-over-time rate at 16 threads on the same service
-(Figure~\ref{fig:azure}; the two runners' metrics are constructed
-differently, as the figure labels state, so the ratio is indicative --
-whereas the fitted exponent, invariant to metric scaling, moves from
-negative to 0.363). All Azure object results in the dataset come from
+socket timeouts, streaming reads, per-phase output) changes both the level
+and the shape of the measurement. The like-for-like comparison is between
+write phases, the only operation the defective runner actually performed:
+the v1 write-only exponent is 0.001 (flat), the corrected runner's
+write-phase exponent is 0.310, and the 16-thread write-to-write ratio is
+2.36$\times$ (Figure~\ref{fig:azure} shows the qualitative shape contrast;
+the two runners' full metrics are constructed differently and are not
+compared numerically). All Azure object results in the dataset come from
 the corrected runner; the defective runner's complete output is quarantined.
 We note a reporting limitation: the deployed runner file's hash was not
 recorded per run in this campaign (the runner version is identified by its
@@ -408,23 +412,30 @@ per phase with no cross-phase aggregation.
 The mixed model (fixed effects: log concurrency $\times$ paradigm $\times$
 workload; random provider intercept) is fitted over the $N = 356$ runs with
 a defined combined rate. Adding a random provider slope gives a likelihood
-ratio of 0.44 (observed fit converged under a documented optimizer retry
-ladder): $p = 0.65$ against the boundary-corrected 50:50
-$\chi^2_1$:$\chi^2_2$ mixture and $p = 0.40$ by parametric bootstrap. The
-bootstrap protocol is fully accounted: 200 draws (batch seeds 42--46,
-fixed-effects null baseline), each fitted under the same retry ladder with
-per-draw convergence, optimizer and warning counts archived
-(\texttt{boot\_draws.csv}); all 200 draws converged, and 60 numerically
-negative LR draws -- the expected point mass at the variance boundary --
-were clamped to zero, which is conservative for the p-value. The bootstrap
-p moves by roughly 0.05--0.10 under different optimizer choices at this
-group count; we report this optimizer dependence rather than a single
-falsely precise value, and note that every reference distribution
-(naive, mixture, bootstrap) agrees the statistic is unremarkable under the
-null. Two further honesty notes: estimating a slope variance from five
-groups sits at the edge of what mixed models support, and the earlier
-distributed draft reported LR $= 0.077$ from a model that included four
-write-only runs in the combined-rate input, corrected here.
+ratio of 0.44: $p = 0.65$ against the boundary-corrected 50:50
+$\chi^2_1$:$\chi^2_2$ mixture and $p = 0.55$ by parametric bootstrap. Both
+the observed statistic and every bootstrap draw are fitted under an
+explicit validity policy: each model is fitted with an optimizer ladder
+(default, lbfgs, Powell) and represented by its highest \emph{finite}
+converged log-likelihood; a draw is valid only if both models produce one
+and the nested ordering $\ell_{\mathrm{alt}} \geq \ell_{\mathrm{null}}$
+holds, so likelihood-ratio statistics are finite and non-negative by
+construction rather than by clamping. Draws failing the policy are
+rejected with recorded reasons, never counted. The archive holds 204
+attempts yielding exactly 200 valid draws (batch seeds 42--46,
+fixed-effects null baseline), each with its likelihoods, per-model
+optimizers and warning counts (\texttt{boot\_draws.csv}). Mixed-model
+optimisation at five groups is optimizer- and environment-sensitive:
+draw-file byte-reproducibility is guaranteed only in the pinned container
+published with the archive, and outside it agreement is statistical rather
+than bytewise -- a limitation we state rather than hide, noting that all
+three reference distributions agree the statistic is unremarkable under
+the null. Two further honesty notes: estimating a slope variance from
+five groups sits at the edge of what mixed models support, and earlier
+drafts of this work reported successively LR $= 0.077$ (defective input:
+four write-only runs in the combined rate) and a bootstrap without
+finite-likelihood checks; both defects and their corrections are covered
+by the archived regression tests.
 Within this five-provider sample there is no evidence that scaling slopes
 vary by provider once paradigm and workload are accounted for, while
 provider effects on absolute level remain large. We state this as a
@@ -511,11 +522,13 @@ Dataset, harness, Terraform definitions, recomputation and figure pipelines,
 regression tests, as-executed configuration record, quarantined data, the
 manuscript source itself and the locked replication protocol:
 \url{https://github.com/tshivhidzo/cloud-storage-bench}, annotated tag
-\texttt{sweep-v1-audited-r5}, archived on Zenodo under the all-versions
-concept DOI \url{https://doi.org/10.5281/zenodo.22032835}; the Zenodo
-version generated from tag \texttt{sweep-v1-audited-r5} is the audited
-artefact for this paper. Superseded tags r1--r4 are preserved, including
-publication attempts retained for audit-trail completeness. Code MIT; data
+\texttt{sweep-v1-audited-r6}. Immutable audited version DOI:
+\texttt{10.5281/zenodo.22057377}; all-versions concept DOI:
+\url{https://doi.org/10.5281/zenodo.22032835}. Superseded tags r1--r5 are
+preserved, including publication attempts retained for audit-trail
+completeness (the r5 version is 10.5281/zenodo.22056327). A pinned
+reproduction container (Dockerfile + full dependency lock) is included;
+bootstrap draw-file byte-identity is guaranteed inside it. Code MIT; data
 CC BY 4.0.
 
 \appendix
