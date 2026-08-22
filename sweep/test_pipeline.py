@@ -4,14 +4,18 @@ test_pipeline.py -- automated regression tests for the analysis pipeline.
 Run from the repository root:  python3 sweep/test_pipeline.py
 Exit code 0 = all tests pass. No external test framework required.
 
-Covers the defects found in audit rounds 1-3 so they cannot silently return:
+Covers the defects found in audit rounds 1-6 so they cannot silently return:
   1. OLS slope recovery on synthetic data (fit correctness).
   2. Combined throughput is blank for balanced runs lacking a read phase
      (write-only runs must not masquerade as paired-pass rates).
   3. Combined throughput equals total bytes / total time, not a sum of rates.
-  4. Bootstrap draw records carry per-draw convergence, method and warning
-     fields, and only converged draws enter the p-value set.
-  5. Negative LR draws are clamped to zero in the p-value computation.
+  4. Bootstrap archive invariants: schema, finite likelihoods, nested
+     ordering, non-negative finite LRs, reject reasons, and that the
+     reported p-value equals the policy applied to the archived records.
+  5. Synthetic mock tests of the fit-selection policy itself: best finite
+     converged likelihood wins per model; non-finite, unconverged, missing
+     and negatively-ordered fits are rejected (no clamping of any size);
+     zero difference is accepted with LR exactly 0.
   6. Pipeline CSV outputs use LF line endings (no CRLF, any platform).
 """
 from __future__ import annotations
@@ -98,17 +102,97 @@ if bd.exists():
         check("boot_pvalue_matches_policy",
               abs(p_re - float(m_p.group(1))) < 5e-4,
               f"recomputed {p_re:.4f} vs reported {m_p.group(1)}")
-    # synthetic guard: a draw with -inf llf must be rejected by the policy
-    fake = {"llf_null": "-inf", "llf_alt": "1.0", "accepted": "True"}
-    check("policy_would_reject_nonfinite",
-          not math.isfinite(float(fake["llf_null"])))
 else:
     check("boot_draws_present", False, "run refit with BOOT_B>0 first")
 
-# unit checks on the policy functions themselves
-check("fit_pair_rejects_missing_fit",
-      RF._fit_pair.__doc__ is not None and "reject" in RF._fit_pair.__doc__)
-check("nest_tol_defined", RF.NEST_TOL == 1e-6)
+# ---- synthetic unit tests of the selection and rejection paths ----------
+# A mock statsmodels: mixedlm(...).fit(...) yields scripted results, so the
+# policy functions are exercised directly with controlled llf/convergence
+# values, per-optimizer and per-model, with no fitting involved.
+import warnings as _warnings
+
+
+class _MockResult:
+    def __init__(self, llf, converged):
+        self.llf, self.converged = llf, converged
+
+
+class _MockModel:
+    def __init__(self, result):
+        self._r = result
+
+    def fit(self, reml=False, **kw):
+        return self._r
+
+
+class _MockSMF:
+    """Scripted results keyed by (has_re_formula, method)."""
+    def __init__(self, script):
+        self.script = script
+
+    def mixedlm(self, f, dfb, groups=None, re_formula=None):
+        method_holder = {}
+
+        class _Deferred:
+            def __init__(s):
+                pass
+
+            def fit(s, reml=False, method="default", **kw):
+                key = (re_formula is not None, method)
+                r = self.script.get(key)
+                if r is None:
+                    raise RuntimeError("scripted failure")
+                return _MockResult(*r)
+        return _Deferred()
+
+
+inf = float("inf")
+# optimizer selection: best FINITE converged llf wins per model
+smf = _MockSMF({(False, "default"): (10.0, True), (False, "lbfgs"): (12.0, True),
+                (False, "powell"): (inf, True),
+                (True, "default"): (11.0, True), (True, "lbfgs"): (13.0, False),
+                (True, "powell"): (12.5, True)})
+r = RF._fit_pair(smf, "f", {"provider": None}, _warnings)
+check("mock_selects_best_finite_converged",
+      r["accepted"] and r["llf_null"] == 12.0 and r["llf_alt"] == 12.5
+      and r["method_null"] == "lbfgs" and r["method_alt"] == "powell"
+      and abs(float(r["lr"]) - 1.0) < 1e-9, str(r))
+
+# non-finite-only model must reject the draw
+smf = _MockSMF({(False, "default"): (-inf, True), (False, "lbfgs"): (inf, True),
+                (False, "powell"): (float("nan"), True),
+                (True, "default"): (5.0, True)})
+r = RF._fit_pair(smf, "f", {"provider": None}, _warnings)
+check("mock_rejects_nonfinite_llf",
+      not r["accepted"] and r["reject_reason"] == "no finite converged fit")
+
+# converged=False everywhere must reject
+smf = _MockSMF({(False, "default"): (10.0, False), (True, "default"): (11.0, False)})
+r = RF._fit_pair(smf, "f", {"provider": None}, _warnings)
+check("mock_rejects_unconverged",
+      not r["accepted"] and r["reject_reason"] == "no finite converged fit")
+
+# all-optimizers-raise must reject
+smf = _MockSMF({})
+r = RF._fit_pair(smf, "f", {"provider": None}, _warnings)
+check("mock_rejects_all_exceptions", not r["accepted"])
+
+# ANY negative likelihood difference must reject (no clamping of any size)
+for d in (-1e-12, -1e-6, -3.5):
+    smf = _MockSMF({(False, "default"): (10.0, True),
+                    (True, "default"): (10.0 + d, True)})
+    r = RF._fit_pair(smf, "f", {"provider": None}, _warnings)
+    check(f"mock_rejects_negative_diff_{d}",
+          not r["accepted"] and "negative likelihood difference"
+          in r["reject_reason"])
+
+# zero difference is accepted with LR exactly 0
+smf = _MockSMF({(False, "default"): (10.0, True), (True, "default"): (10.0, True)})
+r = RF._fit_pair(smf, "f", {"provider": None}, _warnings)
+check("mock_accepts_zero_diff_lr0",
+      r["accepted"] and float(r["lr"]) == 0.0)
+
+check("no_tolerance_clamp", RF.NEST_TOL == 0.0)
 
 # 6. LF-only CSV emission (write via the same csv settings the pipeline uses)
 buf = io.StringIO()

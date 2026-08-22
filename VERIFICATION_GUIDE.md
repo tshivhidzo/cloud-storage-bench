@@ -1,22 +1,25 @@
-# Verification guide (r6)
+# Verification guide (r7)
 
 Audience: the auditor of the TOS manuscript and its companion archive.
 Purpose: every claim below is stated with the exact command that verifies it
 and the expected output. Deviation from a stated expected value is a
-reportable finding. This guide is rewritten in full at r6; earlier guide
+reportable finding. This guide is rewritten in full at r7; earlier guide
 versions are superseded in their entirety.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r6`
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r7`
 (github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
-`10.5281/zenodo.22057377`, under the all-versions concept DOI
+`10.5281/zenodo.22057803`, under the all-versions concept DOI
 10.5281/zenodo.22032835. Superseded tags, all preserved unchanged:
 `sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation commit
 c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged the r1
 tree), `sweep-v1-audited-r3` (first complete publication; pre-round-3
 statistics), `sweep-v1-audited-r4` (round-3 remediation, superseded before
-release: placeholder version-DOI in the manuscript), and
-`sweep-v1-audited-r5` (version DOI 10.5281/zenodo.22056327; superseded by
-the round-5 bootstrap-validity remediation). Verify against the r6 commit
+release: placeholder version-DOI in the manuscript), `sweep-v1-audited-r5` (version DOI 10.5281/zenodo.22056327; superseded by
+the round-5 bootstrap-validity remediation), and `sweep-v1-audited-r6`
+(version DOI 10.5281/zenodo.22057377; superseded by the round-6
+artefact-identity and packaging remediation -- its Zenodo deposit was not
+the literal tagged tree and its metadata identified r5). Verify against
+the r7 commit
 only; the per-folder `manifest.sha256` files are the integrity ground truth
 (Section 6). This guide's earlier versions are superseded in their entirety.
 
@@ -40,7 +43,11 @@ python3 sweep/test_pipeline.py          # regression tests; exit 0 = all pass
 ```
 
 Or, for the guaranteed-bytewise environment:
-`docker build -t csb . && docker run csb`.
+`docker build -t csb . && docker run csb` -- the container's default command
+(`sweep/container_verify.sh`) regenerates the ENTIRE chain including all
+five bootstrap batches from scratch and exits non-zero unless the
+regenerated `boot_draws.csv` is byte-identical (SHA-256) to the committed
+one. The base image is pinned by manifest digest in the Dockerfile.
 
 `refit_exponents.py` without `BOOT_B` reuses the archived bootstrap draw
 file. To regenerate draws: truncate `recompute-output/boot_draws.csv`, then
@@ -50,8 +57,9 @@ s = 42, 43, 44, 45, 46 with accepted-draw counts 30, 50, 50, 50, 20
 regenerated file is guaranteed inside the container only.
 
 Everything the manuscript reports comes from these scripts' outputs. The
-manuscript's tables are `\input` copies of `recompute-output/table_combined.tex`
-and `table_perop.tex`; its figures are the four PNGs `make_figures.py` writes
+manuscript's tables are `\input` copies of `recompute-output/table_combined.tex`,
+`table_perop.tex` and `table_attempts.tex`, and its prose statistics enter
+via generated macros (`prose_macros.tex`); its figures are the four PNGs `make_figures.py` writes
 to `manuscript/figures/`. If any regenerated output differs from the
 committed copy, the manuscript is wrong and that is a reportable defect.
 
@@ -65,8 +73,11 @@ done
 ```
 
 Expected: aws 85/72, azure 114/72, gcp 104/72, huawei 81/72, alibaba 227/72;
-totals 611 attempts, 360 accepted. Manifests are append-only JSONL with full
-credential-masked command lines for every attempt.
+totals 611 attempts, 360 accepted. Manifests are append-only JSONL. All 360 accepted runs and all failures
+that reached execution carry credential-masked command lines; 99 attempts
+that failed BEFORE provisioning completed (e.g. Terraform bucket-deletion
+conflicts) have no cmd field by construction -- their error field records
+the provisioning failure instead.
 
 ## 2. Phase-level dataset
 
@@ -192,16 +203,19 @@ C(paradigm) x C(workload), provider random intercept, N = 356. Policy, per
 the round-5 audit requirements: each model (null and alternative) is fitted
 with the full optimizer ladder (default, lbfgs, powell) and represented by
 its highest FINITE converged log-likelihood -- a `.converged` flag alone is
-insufficient; both models must yield one; nested ordering
-llf_alt >= llf_null - 1e-6 is enforced (a materially lower alternative
-likelihood is an optimizer failure, and the draw is rejected, not clamped);
-LR values are therefore finite and non-negative by construction. Every
+insufficient; both models must yield one; nested ordering is
+enforced with NO tolerance: any negative likelihood difference, of any
+magnitude, rejects the draw (r7; previously a 1e-6 clamp existed and no
+archived draw ever exercised it). LR values are therefore finite and
+non-negative because only non-negative differences are accepted. Every
 attempt is archived in `boot_draws.csv` (llf_null, llf_alt, per-model
 optimizer, warning count, lr, accepted, reject_reason); the p-value uses
 accepted draws only. The null baseline is the fixed-effects prediction
 (exog @ fe_params), not `fittedvalues`.
 
-Expected values at r6:
+Expected values at r7 (statistically identical to r6; the r7 policy change
+-- rejecting rather than clamping sub-tolerance negative differences --
+affected no archived draw):
 
 ```
 Observed: llf_null=82.304605 (default), llf_alt=82.5265 (powell); LR = 0.4438
@@ -230,9 +244,14 @@ The manuscript source is `manuscript/` inside this repository. Checks:
 
 ```bash
 diff manuscript/table_combined.tex recompute-output/table_combined.tex && \
-diff manuscript/table_perop.tex   recompute-output/table_perop.tex && echo TABLES-IDENTICAL
+diff manuscript/table_perop.tex   recompute-output/table_perop.tex && \
+diff manuscript/table_attempts.tex recompute-output/table_attempts.tex && \
+diff manuscript/prose_macros.tex  recompute-output/prose_macros.tex && echo GENERATED-INPUTS-IDENTICAL
 python3 sweep/make_figures.py && git diff --stat -- manuscript/figures   # empty = figures reproduce
 python3 sweep/prose_numbers.py && git diff --stat -- recompute-output/prose_numbers.txt  # empty = prose numbers reproduce
+# From a DOI-only download (no git history), use content comparison instead:
+#   cp -r manuscript/figures /tmp/committed_figs && python3 sweep/make_figures.py \
+#     && diff -r /tmp/committed_figs manuscript/figures
 grep -ci "pre-regist" manuscript/main.tex    # expect 0
 ```
 
@@ -248,7 +267,23 @@ regenerated by the commands above; (c) a configuration fact traceable to
 `configs/AS_EXECUTED_CONFIG.md` (documentation URLs inline, unrecoverable
 items marked) or `configs/host_state_extract.json`. There is no class (d).
 
-## 9. Open limitations, by design
+## 9. Artefact identity (tag vs DOI deposit)
+
+The Zenodo deposit is the literal `git archive` of the tag. To verify from
+both sides:
+
+```bash
+git archive --format=tar sweep-v1-audited-r7 | tar -t | sort > /tmp/tag_paths.txt
+unzip -l <doi-download>.zip | awk '{print $4}' | grep -v '^$' | sort > /tmp/doi_paths.txt
+diff /tmp/tag_paths.txt /tmp/doi_paths.txt && echo PATH-INVENTORY-IDENTICAL
+```
+
+The tracked tree contains no compiled bytecode and no retired outputs
+(`git ls-files | grep -E '\.pyc$|boot_lr|exponents_table.tex'` returns
+nothing). Note: a DOI-only download has no git history; use the content
+comparisons given in Sections 0 and 8 instead of git-based commands.
+
+## 10. Open limitations, by design
 
 1. The locked-protocol rerun (`sweep/SWEEP_PROTOCOL_V2.md`) is proposed,
    not executed; the study is framed as retrospective and exploratory.

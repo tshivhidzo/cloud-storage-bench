@@ -7,6 +7,8 @@
 \usepackage{graphicx}
 
 \begin{document}
+\input{prose_macros}
+
 
 \title{Concurrency Scaling of Managed Cloud Storage: A Retrospective
 Measurement Study of Block, File and Object Paradigms on Five Public Clouds}
@@ -45,7 +47,7 @@ Blob is the exception ($\beta = 0.36$). Block storage at entry tiers showed no
 useful scaling on any cloud (combined-rate $\beta \leq 0.11$, and $\leq 0.10$
 on four of five), and file storage was intermediate (0.18--0.69). Tail
 latency moved oppositely: from 1 to 64 threads, median write-phase p99 grew
-60-fold on block and 27-fold on file but was flat on scaling object stores. A
+\pFoldWriteBlock-fold on block and \pFoldWriteFile-fold on file but was flat on scaling object stores. A
 mixed-effects test with paradigm and workload fixed effects, over the 356
 runs with a defined paired-pass rate, found no evidence of
 provider-dependent scaling slopes (LR $= 0.44$; boundary-corrected
@@ -181,9 +183,9 @@ read/write mixing and no random-access pattern is present in either class.
 
 Because corrections were applied mid-campaign, executed conditions vary, and
 we report them from the archived command lines rather than from the design
-intent. Dataset sizing: 174 runs executed with fixed totals (20 GB balanced,
-40 GB large-object at every level), 162 with weak scaling (base $\times$
-concurrency/16, capped at 80 GB), and 24 Azure object runs are duration-driven
+intent. Dataset sizing: \designFixed{} runs executed with fixed totals (20 GB balanced,
+40 GB large-object at every level), \designScaled{} with weak scaling (base $\times$
+concurrency/16, capped at 80 GB), and \designOther{} Azure object runs are duration-driven
 (no dataset target); 12 of 120 provider-cells mix sizing rules across
 repetitions. Under the capped weak-scaling rule the large-object c64 cells run
 at half the constant per-thread allocation, so even the weak-scaled subset is
@@ -210,19 +212,7 @@ as executed: failed runs were re-attempted until accepted or until the
 underlying defect was diagnosed and corrected; the locked replication
 protocol fixes a maximum of two retries.}
 \label{tab:attempts}
-\begin{tabular}{lrr}
-\toprule
-Provider & Attempts & Accepted \\
-\midrule
-AWS & 85 & 72 \\
-Azure & 114 & 72 \\
-GCP & 104 & 72 \\
-Huawei & 81 & 72 \\
-Alibaba & 227 & 72 \\
-\midrule
-Total & 611 & 360 \\
-\bottomrule
-\end{tabular}
+\input{table_attempts}
 \end{table}
 
 \begin{table}
@@ -249,8 +239,11 @@ Object & S3 Std & Blob StdV2 LRS & GCS Std & OBS Std & OSS Std (internal ep.) \\
 {\sloppy All reported numbers are recomputed from raw artefacts by an
 archived pipeline (\texttt{sweep/recompute\_from\_raw.py},
 \texttt{sweep/refit\_exponents.py}, \texttt{sweep/make\_figures.py},
-\texttt{sweep/prose\_numbers.py}); no value in this paper is transcribed by
-hand.\par} Per run we compute: write-phase throughput and read-phase throughput,
+\texttt{sweep/prose\_numbers.py}); no measured value in this paper is transcribed by hand: statistics enter
+via generated tables (\texttt{table\_combined}, \texttt{table\_perop},
+\texttt{table\_attempts}) and generated macros
+(\texttt{prose\_macros.tex}); configuration facts are traceable to the
+archived configuration records.\par} Per run we compute: write-phase throughput and read-phase throughput,
 each as the phase's total MiB divided by the phase's elapsed seconds from the
 tool's own totals; a combined rate defined as total MiB of both phases over
 total elapsed seconds of both phases (reported only for runs with both
@@ -262,8 +255,8 @@ stdout log, overwritten per attempt, is inherently final).
 
 Exponents: OLS of $\log_{10}$(metric) on $\log_{10}$(concurrency) per
 provider--paradigm--workload--operation, with $t$-based 95\% CIs. Sensitivity:
-identical fits excluding runs whose mean client CPU exceeded 80\% (71 runs,
-19.7\%). Pooled model: $\log_{10}$(combined) on $\log_{10}$(concurrency)
+identical fits excluding runs whose mean client CPU exceeded 80\% (\gatedRuns{} runs,
+\gatedPct\%). Pooled model: $\log_{10}$(combined) on $\log_{10}$(concurrency)
 crossed with paradigm and workload as fixed effects, provider as a random
 intercept; the provider random slope on log concurrency is tested against the
 50:50 $\chi^2_1$:$\chi^2_2$ mixture appropriate to a boundary variance
@@ -285,9 +278,9 @@ corrected runner (bounded process pool, independent deadline-driven loops,
 socket timeouts, streaming reads, per-phase output) changes both the level
 and the shape of the measurement. The like-for-like comparison is between
 write phases, the only operation the defective runner actually performed:
-the v1 write-only exponent is 0.001 (flat), the corrected runner's
-write-phase exponent is 0.310, and the 16-thread write-to-write ratio is
-2.36$\times$ (Figure~\ref{fig:azure} shows the qualitative shape contrast;
+the v1 write-only exponent is \azureVOneWriteBeta{} (flat), the corrected runner's
+write-phase exponent is \azureVTwoWriteBeta, and the 16-thread write-to-write ratio is
+\azureWriteRatio$\times$ (Figure~\ref{fig:azure} shows the qualitative shape contrast;
 the two runners' full metrics are constructed differently and are not
 compared numerically). All Azure object results in the dataset come from
 the corrected runner; the defective runner's complete output is quarantined.
@@ -401,8 +394,8 @@ underestimated, rather than manufactured, object-storage scaling.
 \end{figure*}
 
 From 1 to 64 threads in the balanced class, median write-phase p99 across
-providers grows 60-fold on block, 27-fold on file, and 1.0-fold on object
-storage; read-phase medians grow 54-fold, 51-fold and 1.2-fold respectively
+providers grows \pFoldWriteBlock-fold on block, \pFoldWriteFile-fold on file, and \pFoldWriteObject-fold on object
+storage; read-phase medians grow \pFoldReadBlock-fold, \pFoldReadFile-fold and \pFoldReadObject-fold respectively
 (Figure~\ref{fig:latency}). Where throughput does not scale, offered
 concurrency appears as queueing delay; where it scales, tails hold. This is
 the expected queueing behaviour of a capacity-bounded resource, observed here
@@ -446,8 +439,8 @@ that the variance component cannot represent.
 \subsection{Consistency With the Fixed-Concurrency Dataset}
 The sweep's 16-thread cells remeasure our earlier campaign's cells
 \cite{thesis} on the same host class and regions. Using the earlier
-campaign's own metric definitions for comparability, 28 of 30 cells agree
-within ordinary cloud measurement variance (geometric-mean ratio 1.08); the
+campaign's own metric definitions for comparability, \consCellsWithin{} of \consCellsTotal{} cells agree
+within ordinary cloud measurement variance (geometric-mean ratio \consGeoMean); the
 two exceptions are the Azure object cells at 6.99$\times$ and 2.86$\times$,
 which quantify the corrected runner defect rather than service drift. An
 erratum note for the earlier report has been prepared accordingly.
@@ -522,11 +515,11 @@ Dataset, harness, Terraform definitions, recomputation and figure pipelines,
 regression tests, as-executed configuration record, quarantined data, the
 manuscript source itself and the locked replication protocol:
 \url{https://github.com/tshivhidzo/cloud-storage-bench}, annotated tag
-\texttt{sweep-v1-audited-r6}. Immutable audited version DOI:
-\texttt{10.5281/zenodo.22057377}; all-versions concept DOI:
-\url{https://doi.org/10.5281/zenodo.22032835}. Superseded tags r1--r5 are
+\texttt{sweep-v1-audited-r7}. Immutable audited version DOI:
+\texttt{10.5281/zenodo.22057803}; all-versions concept DOI:
+\url{https://doi.org/10.5281/zenodo.22032835}. Superseded tags r1--r6 are
 preserved, including publication attempts retained for audit-trail
-completeness (the r5 version is 10.5281/zenodo.22056327). A pinned
+completeness (r5: 10.5281/zenodo.22056327; r6: 10.5281/zenodo.22057377). A pinned
 reproduction container (Dockerfile + full dependency lock) is included;
 bootstrap draw-file byte-identity is guaranteed inside it. Code MIT; data
 CC BY 4.0.

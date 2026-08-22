@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
-analyze_sweep.py -- pre-registered analysis for the concurrency-scaling paper.
+analyze_sweep.py -- SUPERSEDED early analysis script, retained for provenance
+only. The authoritative chain is recompute_from_raw.py + refit_exponents.py;
+this script predates the audit corrections and must not be used for results.
 
-Implements the analysis plan fixed before data collection:
+Implemented the initial analysis plan (no independent registration existed):
   * Primary: OLS of log10(total_throughput_mbps) on log10(concurrency), fitted
     per paradigm x provider x workload cell (up to 12 obs: 4 levels x 3 reps).
     Reports beta, SE, 95% CI, R^2 per fitted line.

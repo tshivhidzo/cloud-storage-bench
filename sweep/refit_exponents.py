@@ -104,7 +104,9 @@ def fit_all(rows, exclude_gated=False):
     return out
 
 
-NEST_TOL = 1e-6  # tolerance for nested-likelihood ordering
+NEST_TOL = 0.0  # NO tolerance: any negative likelihood difference rejects
+#                 the draw outright (r7 policy -- previously a 1e-6 clamp
+#                 existed; no archived draw ever exercised it)
 
 
 def _fit_model(smf, f, dfb, re_formula, warnings):
@@ -143,7 +145,10 @@ def _fit_pair(smf, f, dfb, warnings):
         (the alternative nests the null, so a materially lower alternative
         likelihood is an optimizer failure, not evidence), with sub-tolerance
         deficits clamped to LR = 0.
-    Returns a record dict; rec['accepted'] states whether the draw is valid."""
+    Returns a record dict; rec['accepted'] states whether the draw is valid.
+    Rejection paths: missing/non-finite fits, and ANY negative likelihood
+    difference (no clamping of any magnitude -- LR values are non-negative
+    because only non-negative differences are accepted)."""
     n = _fit_model(smf, f, dfb, None, warnings)
     a = _fit_model(smf, f, dfb, "~x", warnings)
     rec = {"llf_null": "" if n is None else round(n[0], 6),
@@ -156,10 +161,10 @@ def _fit_pair(smf, f, dfb, warnings):
         rec["reject_reason"] = "no finite converged fit"
         return rec
     diff = a[0] - n[0]
-    if diff < -NEST_TOL:
-        rec["reject_reason"] = f"nested ordering violated ({diff:.3e})"
+    if diff < 0:
+        rec["reject_reason"] = f"negative likelihood difference ({diff:.3e})"
         return rec
-    rec["lr"] = round(max(2 * diff, 0.0), 6)
+    rec["lr"] = round(2 * diff, 6)
     rec["accepted"] = True
     return rec
 
