@@ -2,7 +2,7 @@ Pooled model (combined bytes/time; fixed effects x*paradigm*workload; provider r
   Libraries: python 3.10.12, statsmodels 0.14.6, pandas 2.3.3, scipy 1.15.3, numpy 2.2.6
   N = 356 runs with a defined combined rate (balanced write-only runs excluded by construction)
   Observed fit: llf_null=82.304605 (default), llf_alt=82.5265 (powell); LR = 0.4438
-  Validity policy: per model, highest FINITE converged log-likelihood across the optimizer ladder; nested ordering llf_alt >= llf_null enforced (tol 1e-06); draws failing either rule are rejected, never clamped or counted
+  Validity policy: per model, highest FINITE converged log-likelihood across the optimizer ladder; nested ordering enforced with no tolerance (any negative difference rejects the draw); draws failing either rule are rejected, never clamped or counted
   p (naive chi2_2)           = 0.8010
   p (50:50 chi2 mixture)     = 0.6531
   p (parametric bootstrap)   = 0.5522
