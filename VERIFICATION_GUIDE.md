@@ -1,14 +1,14 @@
-# Verification guide (r8)
+# Verification guide (r9)
 
 Audience: the auditor of the TOS manuscript and its companion archive.
 Purpose: every claim below is stated with the exact command that verifies it
 and the expected output. Deviation from a stated expected value is a
-reportable finding. This guide is rewritten in full at r8; earlier guide
+reportable finding. This guide is rewritten in full at r9; earlier guide
 versions are superseded in their entirety.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r8`
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r9`
 (github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
-`10.5281/zenodo.22058064`, under the all-versions concept DOI
+`10.5281/zenodo.22075555`, under the all-versions concept DOI
 10.5281/zenodo.22032835. Superseded tags, all preserved unchanged:
 `sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation commit
 c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged the r1
@@ -18,10 +18,14 @@ release: placeholder version-DOI in the manuscript), `sweep-v1-audited-r5` (vers
 the round-5 bootstrap-validity remediation), `sweep-v1-audited-r6`
 (version DOI 10.5281/zenodo.22057377; superseded by the round-6
 artefact-identity remediation -- its deposit was not the literal tagged
-tree and its metadata identified r5), and `sweep-v1-audited-r7` (version
+tree and its metadata identified r5), `sweep-v1-audited-r7` (version
 DOI 10.5281/zenodo.22057803; failed publication attempt: the tag captured
-only file deletions while the deposit carried the remediated working tree;
-both are preserved as evidence). Verify against the r8 commit
+only file deletions while the deposit carried the remediated working tree),
+and `sweep-v1-audited-r8` (version DOI 10.5281/zenodo.22058064, commit
+fe0dba4d; content boundary VALID -- extracted tag and deposit matched
+file-for-file and hash-for-hash -- but the deposit was a re-zip rather than
+the literal `git archive` output, and the record's version field was left
+blank). Verify against the r9 commit
 only; the per-folder `manifest.sha256` files are the integrity ground truth
 (Section 6). This guide's earlier versions are superseded in their entirety.
 
@@ -217,7 +221,7 @@ optimizer, warning count, lr, accepted, reject_reason); the p-value uses
 accepted draws only. The null baseline is the fixed-effects prediction
 (exog @ fe_params), not `fittedvalues`.
 
-Expected values at r8 (statistically identical to r6; the r7 policy change
+Expected values at r9 (statistically identical to r6; the r7 policy change
 -- rejecting rather than clamping sub-tolerance negative differences --
 affected no archived draw):
 
@@ -273,18 +277,39 @@ items marked) or `configs/host_state_extract.json`. There is no class (d).
 
 ## 9. Artefact identity (tag vs DOI deposit)
 
-The Zenodo deposit is the literal `git archive` of the tag. To verify from
-both sides:
+The Zenodo deposit is the byte-literal output of:
 
 ```bash
-git archive --format=tar sweep-v1-audited-r8 | tar -t | sort > /tmp/tag_paths.txt
-unzip -l <doi-download>.zip | awk '{print $4}' | grep -v '^$' | sort > /tmp/doi_paths.txt
+git archive --format=zip --prefix=cloud-storage-bench-thesis-v1/ \
+  sweep-v1-audited-r9 > sweep-v1-audited-r9-<shortsha>.zip
+```
+
+`git archive` is deterministic for a given tag, so this command regenerates
+the deposit exactly. The deposit's SHA-256 cannot be recorded inside the
+tree it hashes (self-reference); it is published in the Zenodo record's
+description and in the release correspondence. Verification, byte level
+first:
+
+```bash
+git archive --format=zip --prefix=cloud-storage-bench-thesis-v1/ \
+  sweep-v1-audited-r9 > /tmp/regen.zip
+sha256sum /tmp/regen.zip <doi-download>.zip     # identical
+cmp /tmp/regen.zip <doi-download>.zip && echo BYTE-IDENTICAL
+unzip -z <doi-download>.zip                      # prints the peeled commit SHA
+```
+
+Inventory-level cross-check (prefix-consistent, files only):
+
+```bash
+git archive --format=tar --prefix=cloud-storage-bench-thesis-v1/ \
+  sweep-v1-audited-r9 | tar -t | grep -v '/$' | sort > /tmp/tag_paths.txt
+unzip -Z1 <doi-download>.zip | grep -v '/$' | sort > /tmp/doi_paths.txt
 diff /tmp/tag_paths.txt /tmp/doi_paths.txt && echo PATH-INVENTORY-IDENTICAL
 ```
 
 The tracked tree contains no compiled bytecode and no retired outputs
 (`git ls-files | grep -E '\.pyc$|boot_lr|exponents_table.tex'` returns
-nothing). Note: a DOI-only download has no git history; use the content
+nothing). A DOI-only download has no git history; use the content
 comparisons given in Sections 0 and 8 instead of git-based commands.
 
 ## 10. Open limitations, by design
