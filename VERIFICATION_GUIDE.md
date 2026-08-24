@@ -1,15 +1,19 @@
-# Verification guide (r10)
+# Verification guide (r11)
 
-Audience: the auditor of the TOS manuscript and its companion archive.
-Purpose: every claim below is stated with the exact command that verifies it
-and the expected output. Deviation from a stated expected value is a
-reportable finding. This guide is rewritten in full at r10; earlier guide
-versions are superseded in their entirety.
+Audience: the auditor of the measurement manuscript and its companion
+archive. Purpose: every claim below is stated with the exact command that
+verifies it and the expected output. Deviation from a stated expected value
+is a reportable finding. This guide was rewritten in full at r10; r11
+amends it by adding the completion and sizing sensitivity analyses
+(Sections 0 and 11); everything else is unchanged from r10.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r10`
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r11`
 (github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
-`10.5281/zenodo.22078882`, under the all-versions concept DOI
-10.5281/zenodo.22032835. Superseded tags, all preserved unchanged:
+`10.5281/zenodo.22086561`, under the all-versions concept DOI
+10.5281/zenodo.22032835. r11 adds `sweep/sensitivity_analysis.py`, its
+generated outputs, tests keyed to it, and this guide revision; no
+measurement data, statistical result or previously generated table changed.
+Superseded tags, all preserved unchanged:
 `sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation commit
 c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged the r1
 tree), `sweep-v1-audited-r3` (first complete publication; pre-round-3
@@ -29,9 +33,14 @@ blank), and `sweep-v1-audited-r9` (version DOI 10.5281/zenodo.22075555,
 commit 7d5f5a90; the FIRST byte-identical tag-to-DOI deposit -- superseded
 only because its committed pooled_model.txt predated the zero-tolerance
 policy wording and its record description carried the commit SHA where the
-archive SHA-256 belonged). Verify against the r10 commit
-only; the per-folder `manifest.sha256` files are the integrity ground truth
-(Section 6). This guide's earlier versions are superseded in their entirety.
+archive SHA-256 belonged), and `sweep-v1-audited-r10` (version DOI
+10.5281/zenodo.22078882, commit c82a8686; the formally closed technical
+audit baseline -- superseded only by the addition of the completion and
+sizing sensitivity analyses required by the measurement-manuscript audit;
+its data and statistical results are unchanged in r11). Verify against the
+r11 commit only; the per-folder `manifest.sha256` files are the integrity
+ground truth (Section 6). This guide's earlier versions are superseded in
+their entirety.
 
 Environment: Python 3.10.12, packages per `requirements-analysis.txt`
 (numpy 2.2.6, pandas 2.3.3, scipy 1.15.3, statsmodels 0.14.6,
@@ -49,6 +58,7 @@ python3 sweep/recompute_from_raw.py     # raw artefacts -> per-run/per-phase tab
 python3 sweep/refit_exponents.py        # tables -> exponents + pooled model + LaTeX tables
 python3 sweep/make_figures.py           # tables (+ quarantine) -> all four figure PNGs
 python3 sweep/prose_numbers.py          # every prose-quoted statistic -> prose_numbers.txt
+python3 sweep/sensitivity_analysis.py   # completion + sizing analyses (Section 11)
 python3 sweep/test_pipeline.py          # regression tests; exit 0 = all pass
 ```
 
@@ -252,7 +262,12 @@ and covered by a test.
 
 ## 8. Manuscript-to-archive tracing
 
-The manuscript source is `manuscript/` inside this repository. Checks:
+The `manuscript/` directory holds the ACM-format manuscript audited through
+r10. The Future Internet submission derives every generated input from the
+same `recompute-output/` files (adding `table_completion.tex`,
+`table_sizing.tex` and `sensitivity_macros.tex`, Section 11); its source is
+submitted to the journal and is not part of this archive, and its Data
+Availability statement says so. Checks against the archived manuscript:
 
 ```bash
 diff manuscript/table_combined.tex recompute-output/table_combined.tex && \
@@ -324,3 +339,41 @@ comparisons given in Sections 0 and 8 instead of git-based commands.
    protocol instrumentation exists in this campaign.
 3. Per-run instrument hashes absent (v2 protocol requirement).
 4. Co-author review precedes any journal submission.
+
+## 11. Completion and sizing sensitivity analyses (added at r11)
+
+These support the measurement manuscript's completion analysis
+(attempts/failures by stage, paradigm and concurrency) and its
+sizing-stratified exponent refits. All outputs are regenerated
+deterministically from the archived manifests and tables:
+
+```bash
+python3 sweep/sensitivity_analysis.py
+```
+
+Expected stdout, exactly:
+
+```
+attempts=611 accepted=360 failed=251 (prov=99 timeout=79 tool=73)
+object exec failures by c: [22, 20, 44, 46]
+sizing rows: 48
+```
+
+Outputs written to `recompute-output/`: `attempts_by_cell.csv` (attempts,
+acceptances and per-stage failures by paradigm x workload x concurrency),
+`table_completion.tex` (manuscript Table: attempts/accepted by paradigm and
+concurrency with object execution-stage failures), `sensitivity_sizing.csv`
+(all 48 stratum fits), `table_sizing.tex` (manuscript appendix table,
+balanced class), and `sensitivity_macros.tex` (every prose-quoted number
+from these analyses, including the maximum stratum-versus-pooled shift and
+the Huawei fixed-stratum object exponents). Failure stages are classified
+from the manifests' error strings: `terraform`/`TimeoutExpired` ->
+provisioning, `measurement timed out` -> timeout, `tool exited` ->
+tool_exit; the classifier and the counts above are covered by
+`sweep/test_pipeline.py` (tests prefixed `sa_`). Sizing strata: a run is in
+the fixed-total stratum if its executed dataset matches 20 GB
+(balanced) / 40 GB (large-object) and in the weak-scaled stratum if it
+matches base x concurrency/16 capped at 80 GB; 16-thread runs satisfy both
+rules and enter both strata; Azure object runs (duration-driven) enter
+neither. A stratum cell is fitted only where >= 3 concurrency levels
+remain.

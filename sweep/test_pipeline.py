@@ -205,5 +205,46 @@ for f in ("recompute-output/runs_recomputed.csv",
     if p.exists():
         check(f"lf_only:{f}", b"\r" not in p.read_bytes())
 
+# 7. Completion / sizing sensitivity analysis (sweep/sensitivity_analysis.py)
+import sensitivity_analysis as SA
+
+# 7a. Failure-stage classifier maps the canonical archived error strings.
+check("sa_classify_terraform",
+      SA.classify_failure("RuntimeError: terraform failed (terraform apply"
+                          " -input=false)") == "provisioning")
+check("sa_classify_purge_timeout",
+      SA.classify_failure("TimeoutExpired: Command '['/usr/bin/python3',"
+                          " '/root/purge_oss.py']'") == "provisioning")
+check("sa_classify_timeout",
+      SA.classify_failure("measurement timed out") == "timeout")
+check("sa_classify_tool_exit",
+      SA.classify_failure("tool exited 1; see results-sweep/raw/x") == "tool_exit")
+check("sa_classify_unknown", SA.classify_failure("???") == "other")
+
+# 7b. Its OLS recovers an exact power law and refuses <3 points.
+_xs = [math.log10(c) for c in (1, 4, 16, 64)]
+_fit = SA.ols(_xs, [0.85 * x + 2.0 for x in _xs])
+check("sa_ols_exact_beta", _fit is not None and abs(_fit[0] - 0.85) < 1e-9)
+check("sa_ols_refuses_two_points", SA.ols(_xs[:2], _xs[:2]) is None)
+
+# 7c. Sizing-rule arithmetic: at 16 threads the fixed and weak rules
+# coincide for both workloads (so c16 runs must enter both strata).
+for _wl, _base in SA.BASE.items():
+    _exp16 = min(80.0, max(1.0, round(_base * 16 / 16)))
+    check(f"sa_c16_rules_coincide_{_wl}", abs(_exp16 - _base) < SA.TOL)
+
+# 7d. End-to-end attempt accounting against the archived manifests
+# (numbers quoted in the manuscript's completion analysis).
+if all((Path(d) / "run_manifest.jsonl").exists() for d in SA.DIRS.values()):
+    _rows = SA.load_attempts()
+    check("sa_attempts_total", len(_rows) == 611, str(len(_rows)))
+    _ok = sum(1 for r in _rows if r["status"] == "ok")
+    check("sa_attempts_accepted", _ok == 360, str(_ok))
+    from collections import Counter
+    _st = Counter(r["stage"] for r in _rows if r["status"] != "ok")
+    check("sa_stage_counts",
+          (_st["provisioning"], _st["timeout"], _st["tool_exit"]) == (99, 79, 73),
+          str(dict(_st)))
+
 print(f"\n{len(FAIL)} failure(s)" if FAIL else "\nALL TESTS PASS")
 sys.exit(1 if FAIL else 0)
