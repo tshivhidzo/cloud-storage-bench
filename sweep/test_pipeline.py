@@ -246,5 +246,84 @@ if all((Path(d) / "run_manifest.jsonl").exists() for d in SA.DIRS.values()):
           (_st["provisioning"], _st["timeout"], _st["tool_exit"]) == (99, 79, 73),
           str(dict(_st)))
 
+# 7e. FULL end-to-end regeneration must be byte-identical to the committed
+# outputs on every platform (the r11 CRLF defect: platform-dependent
+# newline translation made three regenerated files differ byte-wise).
+import hashlib
+
+_SA_OUTPUTS = ["attempts_by_cell.csv", "sensitivity_sizing.csv",
+               "table_completion.tex", "table_sizing.tex",
+               "sensitivity_macros.tex"]
+_sa_paths = [Path("recompute-output") / f for f in _SA_OUTPUTS]
+if all(p.exists() for p in _sa_paths) and \
+        all((Path(d) / "run_manifest.jsonl").exists() for d in SA.DIRS.values()):
+    _before = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+               for p in _sa_paths}
+    SA.main()
+    _after = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+              for p in _sa_paths}
+    for _n in _SA_OUTPUTS:
+        check(f"sa_regen_byte_identical:{_n}", _before[_n] == _after[_n])
+        check(f"sa_lf_only:{_n}",
+              b"\r" not in (Path("recompute-output") / _n).read_bytes())
+
+    # 7f. Content assertions on the regenerated outputs: the exact values
+    # quoted in the manuscript prose and the row count of the stratum fits.
+    _sizing = list(csv.DictReader(open("recompute-output/sensitivity_sizing.csv")))
+    check("sa_sizing_rows_48", len(_sizing) == 48, str(len(_sizing)))
+    _macros = (Path("recompute-output") / "sensitivity_macros.tex").read_text()
+    for _m in (r"\newcommand{\sizeMaxShift}{0.24}",
+               r"\newcommand{\huaweiObjFixedWrite}{0.62}",
+               r"\newcommand{\huaweiObjFixedRead}{0.78}",
+               r"\newcommand{\attTotal}{611}",
+               r"\newcommand{\attAccepted}{360}",
+               r"\newcommand{\attProvisioning}{99}",
+               r"\newcommand{\attTimeout}{79}",
+               r"\newcommand{\attToolExit}{73}"):
+        check(f"sa_macro:{_m.split('{')[1].rstrip('}')}".replace(chr(92), ""),
+              _m in _macros)
+
+# 8. Packaging invariants: the values any downstream copy of the generated
+# tables/figures must carry (guards the mixed-snapshot defect: a stale
+# pre-correction table_combined.tex with the write-only runs included).
+import re as _re
+
+_tc = Path("recompute-output/table_combined.tex")
+if _tc.exists():
+    _rows = [ln for ln in _tc.read_text().splitlines() if r"\\" in ln and "&" in ln
+             and "Provider" not in ln]
+    _ns = []
+    _abb = None
+    for ln in _rows:
+        cells = [c.strip() for c in ln.rstrip("\\").split("&")]
+        if len(cells) >= 7:
+            _ns.append(int(cells[-1]))
+            if cells[0] == "Azure" and cells[1] == "block" and cells[2] == "balanced":
+                _abb = (float(cells[3]), int(cells[-1]))
+    check("pkg_table_rows_30", len(_ns) == 30, str(len(_ns)))
+    check("pkg_table_N_sum_356", sum(_ns) == 356, str(sum(_ns)))
+    check("pkg_azure_block_bal_beta_0102_N8",
+          _abb is not None and abs(_abb[0] - 0.102) < 0.0005 and _abb[1] == 8,
+          str(_abb))
+
+_rr = Path("recompute-output/runs_recomputed.csv")
+if _rr.exists():
+    _rows = list(csv.DictReader(open(_rr)))
+    _c64 = [r for r in _rows if r["provider"] == "azure" and r["paradigm"] == "block"
+            and r["workload"] == "balanced" and int(r["concurrency"]) == 64]
+    check("pkg_no_azure_block_bal_c64_combined",
+          len(_c64) == 3 and all(r["combined_tput_mib_s"] == "" for r in _c64))
+    # Azure object balanced workload-level means per level: the corrected
+    # v2 runner values plotted in the instrument figure (bytes over time,
+    # never summed phase rates -- summed rates would be ~2x these).
+    import statistics as _st
+    _ao = [r for r in _rows if r["provider"] == "azure" and r["paradigm"] == "object"
+           and r["workload"] == "balanced" and r["combined_tput_mib_s"]]
+    _exp = {1: 7.923, 4: 32.153, 16: 42.750, 64: 38.383}
+    for _c, _v in _exp.items():
+        _m = _st.mean(float(r["combined_tput_mib_s"]) for r in _ao
+                      if int(r["concurrency"]) == _c)
+        check(f"pkg_azure_v2_mean_c{_c}", abs(_m - _v) < 0.0005, f"{_m:.3f}")
+
 print(f"\n{len(FAIL)} failure(s)" if FAIL else "\nALL TESTS PASS")
 sys.exit(1 if FAIL else 0)

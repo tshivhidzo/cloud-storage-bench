@@ -1,18 +1,19 @@
-# Verification guide (r11)
+# Verification guide (r12)
 
-Audience: the auditor of the measurement manuscript and its companion
-archive. Purpose: every claim below is stated with the exact command that
-verifies it and the expected output. Deviation from a stated expected value
-is a reportable finding. This guide was rewritten in full at r10; r11
-amends it by adding the completion and sizing sensitivity analyses
-(Sections 0 and 11); everything else is unchanged from r10.
+Audience: any researcher, scholar or auditor verifying the archive against
+the measurement manuscript. Purpose: every claim below is stated with the
+exact command that verifies it and the expected output. Deviation from a
+stated expected value is a reportable finding. This guide was rewritten in
+full at r10; r11 added the completion and sizing sensitivity analyses
+(Sections 0 and 11); r12 makes those analyses byte-reproducible on every
+platform, extends the container and the merged manifest to cover them, and
+fixes this guide's Section 9 commands; everything else is unchanged.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r11`
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r12`
 (github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
-`10.5281/zenodo.22086561`, under the all-versions concept DOI
-10.5281/zenodo.22032835. r11 adds `sweep/sensitivity_analysis.py`, its
-generated outputs, tests keyed to it, and this guide revision; no
-measurement data, statistical result or previously generated table changed.
+`10.5281/zenodo.22100902`, under the all-versions concept DOI
+10.5281/zenodo.22032835. No measurement data, statistical result or
+pre-r11 generated table has changed since r10.
 Superseded tags, all preserved unchanged:
 `sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation commit
 c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged the r1
@@ -37,10 +38,16 @@ archive SHA-256 belonged), and `sweep-v1-audited-r10` (version DOI
 10.5281/zenodo.22078882, commit c82a8686; the formally closed technical
 audit baseline -- superseded only by the addition of the completion and
 sizing sensitivity analyses required by the measurement-manuscript audit;
-its data and statistical results are unchanged in r11). Verify against the
-r11 commit only; the per-folder `manifest.sha256` files are the integrity
-ground truth (Section 6). This guide's earlier versions are superseded in
-their entirety.
+its data and statistical results are unchanged in r11), and
+`sweep-v1-audited-r11` (version DOI 10.5281/zenodo.22086561, commit
+0aece48d; added the completion and sizing sensitivity analyses -- superseded
+because its three committed sensitivity text outputs carried
+platform-dependent CRLF newlines and so were not byte-reproducible, its
+container script and merged manifest did not cover the new outputs, and its
+Section 9 still named the r10 tag). Verify against the r12 commit only; the
+per-folder `manifest.sha256` files are the integrity ground truth
+(Section 6). This guide's earlier versions are superseded in their
+entirety.
 
 Environment: Python 3.10.12, packages per `requirements-analysis.txt`
 (numpy 2.2.6, pandas 2.3.3, scipy 1.15.3, statsmodels 0.14.6,
@@ -65,9 +72,9 @@ python3 sweep/test_pipeline.py          # regression tests; exit 0 = all pass
 Or, for the guaranteed-bytewise environment:
 `docker build -t csb . && docker run csb` -- the container's default command
 (`sweep/container_verify.sh`) regenerates the ENTIRE chain including all
-five bootstrap batches from scratch and exits non-zero unless the
-regenerated `boot_draws.csv` is byte-identical (SHA-256) to the committed
-one. The base image is pinned to the linux/amd64 image digest (not the
+five bootstrap batches from scratch and the five sensitivity outputs, and
+exits non-zero unless the regenerated `boot_draws.csv` AND all five
+sensitivity outputs are byte-identical (SHA-256) to the committed ones. The base image is pinned to the linux/amd64 image digest (not the
 multi-arch manifest list) in the Dockerfile, so the byte-identity claim is
 tied to one concrete platform image.
 
@@ -299,8 +306,9 @@ items marked) or `configs/host_state_extract.json`. There is no class (d).
 The Zenodo deposit is the byte-literal output of:
 
 ```bash
+TAG=sweep-v1-audited-r12   # the authoritative tag named at the top of this guide
 git archive --format=zip --prefix=cloud-storage-bench-thesis-v1/ \
-  sweep-v1-audited-r10 > sweep-v1-audited-r10-<shortsha>.zip
+  $TAG > $TAG-<shortsha>.zip
 ```
 
 `git archive` is deterministic for a given tag, so this command regenerates
@@ -310,8 +318,9 @@ description and in the release correspondence. Verification, byte level
 first:
 
 ```bash
+TAG=sweep-v1-audited-r12
 git archive --format=zip --prefix=cloud-storage-bench-thesis-v1/ \
-  sweep-v1-audited-r10 > /tmp/regen.zip
+  $TAG > /tmp/regen.zip
 sha256sum /tmp/regen.zip <doi-download>.zip     # identical
 cmp /tmp/regen.zip <doi-download>.zip && echo BYTE-IDENTICAL
 unzip -z <doi-download>.zip                      # prints the peeled commit SHA
@@ -321,7 +330,7 @@ Inventory-level cross-check (prefix-consistent, files only):
 
 ```bash
 git archive --format=tar --prefix=cloud-storage-bench-thesis-v1/ \
-  sweep-v1-audited-r10 | tar -t | grep -v '/$' | sort > /tmp/tag_paths.txt
+  $TAG | tar -t | grep -v '/$' | sort > /tmp/tag_paths.txt
 unzip -Z1 <doi-download>.zip | grep -v '/$' | sort > /tmp/doi_paths.txt
 diff /tmp/tag_paths.txt /tmp/doi_paths.txt && echo PATH-INVENTORY-IDENTICAL
 ```
@@ -369,8 +378,13 @@ from these analyses, including the maximum stratum-versus-pooled shift and
 the Huawei fixed-stratum object exponents). Failure stages are classified
 from the manifests' error strings: `terraform`/`TimeoutExpired` ->
 provisioning, `measurement timed out` -> timeout, `tool exited` ->
-tool_exit; the classifier and the counts above are covered by
-`sweep/test_pipeline.py` (tests prefixed `sa_`). Sizing strata: a run is in
+tool_exit; the classifier, the counts above, end-to-end byte-identical
+regeneration of all five outputs, their LF-only encoding, the 48-row fit
+count and every prose-quoted macro value are covered by
+`sweep/test_pipeline.py` (tests prefixed `sa_`). All five outputs are
+written with explicit LF newlines on every platform (the r11 defect was
+platform-dependent newline translation) and are listed in
+`results-merged/manifest.sha256` (Section 6). Sizing strata: a run is in
 the fixed-total stratum if its executed dataset matches 20 GB
 (balanced) / 40 GB (large-object) and in the weak-scaled stratum if it
 matches base x concurrency/16 capped at 80 GB; 16-thread runs satisfy both

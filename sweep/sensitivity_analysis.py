@@ -24,6 +24,11 @@ Two analyses the measurement manuscript reports:
    when >= 3 concurrency levels are present.
    Outputs: sensitivity_sizing.csv, table_sizing.tex.
 
+All outputs are written with LF newlines explicitly (csv writers use
+newline="" with lineterminator="\n"; text writers pass newline="\n"), so
+regeneration is byte-identical to the committed files on every platform;
+sweep/test_pipeline.py enforces this end to end.
+
 Run from the repository root: python3 sweep/sensitivity_analysis.py
 """
 import csv
@@ -124,7 +129,7 @@ def completion_tables(rows):
               "Object execution failures & " + " & ".join(
                   str(exec_fail[("object", c)]) for c in cs) + r" \\",
               r"\bottomrule", r"\end{tabular}"]
-    (OUT / "table_completion.tex").write_text("\n".join(lines) + "\n")
+    (OUT / "table_completion.tex").write_text("\n".join(lines) + "\n", newline="\n")
 
     macros = {
         "attTotal": total, "attAccepted": ok, "attFailed": len(fails),
@@ -232,7 +237,7 @@ def sizing_table(rows):
         lines.append(r"\midrule")
     lines[-1] = r"\bottomrule"
     lines.append(r"\end{tabular}")
-    (OUT / "table_sizing.tex").write_text("\n".join(lines) + "\n")
+    (OUT / "table_sizing.tex").write_text("\n".join(lines) + "\n", newline="\n")
 
 
 def prose_macros(sens):
@@ -266,7 +271,7 @@ def main():
     sens = sizing_strata()
     sizing_table(sens)
     macros.update(prose_macros(sens))
-    with open(OUT / "sensitivity_macros.tex", "w") as f:
+    with open(OUT / "sensitivity_macros.tex", "w", newline="\n") as f:
         for k, v in macros.items():
             f.write("\\newcommand{\\%s}{%s}\n" % (k, v))
     print(f"attempts={macros['attTotal']} accepted={macros['attAccepted']} "
