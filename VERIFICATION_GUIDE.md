@@ -1,17 +1,19 @@
-# Verification guide (r12)
+# Verification guide (r13)
 
 Audience: any researcher, scholar or auditor verifying the archive against
 the measurement manuscript. Purpose: every claim below is stated with the
 exact command that verifies it and the expected output. Deviation from a
 stated expected value is a reportable finding. This guide was rewritten in
 full at r10; r11 added the completion and sizing sensitivity analyses
-(Sections 0 and 11); r12 makes those analyses byte-reproducible on every
-platform, extends the container and the merged manifest to cover them, and
-fixes this guide's Section 9 commands; everything else is unchanged.
+(Sections 0 and 11); r12 made those analyses byte-reproducible on every
+platform and extended the container and the merged manifest to cover them;
+r13 corrects release documentation only (the CITATION.cff release date, a
+stale cross-reference in Section 8, and Section 9's archive-regeneration
+claim, which is now correctly scoped to the pinned release environment).
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r12`
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r13`
 (github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
-`10.5281/zenodo.22100902`, under the all-versions concept DOI
+`10.5281/zenodo.22101440`, under the all-versions concept DOI
 10.5281/zenodo.22032835. No measurement data, statistical result or
 pre-r11 generated table has changed since r10.
 Superseded tags, all preserved unchanged:
@@ -44,7 +46,13 @@ its data and statistical results are unchanged in r11), and
 because its three committed sensitivity text outputs carried
 platform-dependent CRLF newlines and so were not byte-reproducible, its
 container script and merged manifest did not cover the new outputs, and its
-Section 9 still named the r10 tag). Verify against the r12 commit only; the
+Section 9 still named the r10 tag), and `sweep-v1-audited-r12` (version
+DOI 10.5281/zenodo.22100902, commit e58754d1; statistically valid and
+byte-verified end to end -- superseded only for release documentation: its
+CITATION.cff carried the previous day's release date, its Section 8 claimed
+a manuscript statement that the final manuscript no longer contains, and
+its Section 9 stated unqualified archive determinism when zip output is
+timezone-dependent). Verify against the r13 commit only; the
 per-folder `manifest.sha256` files are the integrity ground truth
 (Section 6). This guide's earlier versions are superseded in their
 entirety.
@@ -273,8 +281,8 @@ The `manuscript/` directory holds the ACM-format manuscript audited through
 r10. The Future Internet submission derives every generated input from the
 same `recompute-output/` files (adding `table_completion.tex`,
 `table_sizing.tex` and `sensitivity_macros.tex`, Section 11); its source is
-submitted to the journal and is not part of this archive, and its Data
-Availability statement says so. Checks against the archived manuscript:
+submitted to the journal and is not part of this archive. Checks against
+the archived manuscript:
 
 ```bash
 diff manuscript/table_combined.tex recompute-output/table_combined.tex && \
@@ -306,20 +314,30 @@ items marked) or `configs/host_state_extract.json`. There is no class (d).
 The Zenodo deposit is the byte-literal output of:
 
 ```bash
-TAG=sweep-v1-audited-r12   # the authoritative tag named at the top of this guide
-git archive --format=zip --prefix=cloud-storage-bench-thesis-v1/ \
+TAG=sweep-v1-audited-r13   # the authoritative tag named at the top of this guide
+TZ=Africa/Johannesburg git archive --format=zip \
+  --prefix=cloud-storage-bench-thesis-v1/ \
   $TAG > $TAG-<shortsha>.zip
 ```
 
-`git archive` is deterministic for a given tag, so this command regenerates
+Zip archive bytes depend on the archiving environment: file modification
+times in zip entries are stored in local time, so the TZ variable above is
+part of the release recipe (the deposits were generated under
+Africa/Johannesburg; TZ=UTC provably yields a different SHA-256 for
+identical content). Byte-identical regeneration is therefore claimed only
+under the pinned timezone and a compatible Git/zlib generation; under any
+other environment, verify content equivalence instead via the
+path-inventory comparison below and the per-file checksums of Section 6.
+Within the pinned environment this command regenerates
 the deposit exactly. The deposit's SHA-256 cannot be recorded inside the
 tree it hashes (self-reference); it is published in the Zenodo record's
 description and in the release correspondence. Verification, byte level
 first:
 
 ```bash
-TAG=sweep-v1-audited-r12
-git archive --format=zip --prefix=cloud-storage-bench-thesis-v1/ \
+TAG=sweep-v1-audited-r13
+TZ=Africa/Johannesburg git archive --format=zip \
+  --prefix=cloud-storage-bench-thesis-v1/ \
   $TAG > /tmp/regen.zip
 sha256sum /tmp/regen.zip <doi-download>.zip     # identical
 cmp /tmp/regen.zip <doi-download>.zip && echo BYTE-IDENTICAL
