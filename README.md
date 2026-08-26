@@ -6,8 +6,7 @@ one tool (elbencho) through one execution path into one 26-field dataset
 (`all_runs.csv`). FIO is an independent cross-check on block runs; an Azure Blob
 SDK runner covers the one non-S3 object service.
 
-This is the **runnable implementation** of the harness described in the project's
-`SKILL.md`, `HARNESS_RUNBOOK.md`, `ARCHITECTURE.md`, `HARDWARE_AND_PLACEMENT.md`
+This is the **runnable implementation** of the harness described in the project's`HARNESS_RUNBOOK.md`, `ARCHITECTURE.md`, `HARDWARE_AND_PLACEMENT.md`
 and `ACCESS_AND_AUTH.md`. Those documents are the design; this folder is the code
 that executes it.
 
