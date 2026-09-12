@@ -16,6 +16,12 @@ SA_FILES="recompute-output/attempts_by_cell.csv recompute-output/sensitivity_siz
 sha256sum $SA_FILES > /tmp/sa_committed.sha
 python3 sweep/sensitivity_analysis.py
 if sha256sum -c /tmp/sa_committed.sha; then echo "SENSITIVITY-OUTPUTS-BYTE-IDENTICAL"; else echo "SENSITIVITY-OUTPUTS-DIFFER (defect inside the container; reportable)"; exit 1; fi
+# Review analyses (r14): regenerate and byte-verify all outputs, including the
+# model fits selected under the archived ML policy.
+RV_FILES="recompute-output/table_completionprob.tex recompute-output/table_pooledfe.tex recompute-output/review_macros.tex recompute-output/diagnostics_perop.csv recompute-output/diagnostics_combined.csv recompute-output/completion_by_cell_full.csv recompute-output/timelimit_phases.csv recompute-output/sizing_exclusion.csv recompute-output/pooled_covariance.txt recompute-output/pooled_fit_flags.json"
+sha256sum $RV_FILES > /tmp/rv_committed.sha
+python3 sweep/review_analyses.py > /dev/null
+if sha256sum -c /tmp/rv_committed.sha; then echo "REVIEW-OUTPUTS-BYTE-IDENTICAL"; else echo "REVIEW-OUTPUTS-DIFFER (defect inside the container; reportable)"; exit 1; fi
 python3 sweep/test_pipeline.py
 NEW=$(sha256sum recompute-output/boot_draws.csv | awk '{print $1}')
 OLD=$(cat /tmp/committed.sha)

@@ -93,9 +93,12 @@ def fit_all(rows, exclude_gated=False):
                    "gated_excluded": exclude_gated}
             if fit:
                 t = T975.get(fit["dof"], 1.96)
-                rec.update(beta=round(fit["beta"], 3), se=round(fit["se"], 3),
-                           ci_lo=round(fit["beta"] - t * fit["se"], 3),
-                           ci_hi=round(fit["beta"] + t * fit["se"], 3),
+                # five decimals archived so that near-zero cells keep
+                # distinguishable (nonzero) uncertainty; tables format
+                # adaptively (see latex_tables)
+                rec.update(beta=round(fit["beta"], 5), se=round(fit["se"], 5),
+                           ci_lo=round(fit["beta"] - t * fit["se"], 5),
+                           ci_hi=round(fit["beta"] + t * fit["se"], 5),
                            r2=round(fit["r2"], 3))
             else:
                 rec.update(beta="", se="", ci_lo="", ci_hi="", r2="")
@@ -277,13 +280,20 @@ def pooled_model(rows):
 
 def latex_tables(prim):
     """Both manuscript tables, generated -- never hand-transcribed."""
+    def fmt(r):
+        """Three decimals, or five where the interval would otherwise
+        display as zero-width (a reviewer-required precision rule)."""
+        b, lo, hi = float(r["beta"]), float(r["ci_lo"]), float(r["ci_hi"])
+        d = 3 if (hi - lo) >= 0.001 else 5
+        return f"{b:.{d}f}", f"$[{lo:.{d}f}, {hi:.{d}f}]$"
+
     def rowline(r, with_op):
         cells = [PM[r["provider"]], r["paradigm"],
                  r["workload"].replace("largeobj", "large-object")]
         if with_op:
             cells.append(r["operation"])
-        cells += [str(r["beta"]), f"$[{r['ci_lo']}, {r['ci_hi']}]$",
-                  str(r["r2"]), str(r["n_runs"])]
+        b, ci = fmt(r)
+        cells += [b, ci, f"{float(r['r2']):.3f}", str(r["n_runs"])]
         return " & ".join(cells) + r" \\"
     comb = [r for r in prim if r["operation"] == "combined" and r["beta"] != ""]
     perop = [r for r in prim if r["operation"] != "combined" and r["beta"] != ""]

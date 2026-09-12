@@ -11,7 +11,7 @@ c16 consistency: 30 comparable cells; 28 within 2x; geometric-mean ratio 1.08
 
 Azure instrument (like-for-like, write phases):
   v1 write-only beta = 0.0008 (effectively zero, not negative)
-  v2 write-phase beta = 0.31
+  v2 write-phase beta = 0.30988
   c16 write-to-write ratio v2/v1 = 2.36x
 
 design mix: fixed=174 weak-scaled=162 time-driven/other=24

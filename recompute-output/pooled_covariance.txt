@@ -1,0 +1,20 @@
+Fits selected under the archived ML validity policy (reml=False; best finite converged log-likelihood across default/lbfgs/powell)
+  null: method=default converged=True reml=False llf=82.30460542578874
+  alt : method=powell converged=True reml=False llf=82.5265003573329
+  LR = 0.443789863088341  (must equal the archived pooled_model.txt LR)
+Alternative (random-slope) model: provider random-effects covariance, full precision
+  var(intercept) = np.float64(0.01057081794717969)
+  var(slope)     = np.float64(0.00010063818739580366)
+  cov            = np.float64(-0.0010314203355574134)
+  implied correlation = np.float64(-0.9999999770198614)
+  eigenvalues = [4.581739027347161e-12, 0.010671456129993755]
+Null (random-intercept) model:
+  var(intercept) = 0.008822830352399695
+  residual variance = np.float64(0.03538634232068497)
+Null-model residual SD by paradigm/workload group:
+  block/balanced: 0.18191417402742155
+  block/largeobj: 0.0940084594420897
+  file/balanced: 0.19350977730593047
+  file/largeobj: 0.19124174556468415
+  object/balanced: 0.2626410017714496
+  object/largeobj: 0.16730898122410584

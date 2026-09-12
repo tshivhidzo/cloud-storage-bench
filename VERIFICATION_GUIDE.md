@@ -1,4 +1,4 @@
-# Verification guide (r13)
+# Verification guide (r14)
 
 Audience: any researcher, scholar or auditor verifying the archive against
 the measurement manuscript. Purpose: every claim below is stated with the
@@ -7,15 +7,28 @@ stated expected value is a reportable finding. This guide was rewritten in
 full at r10; r11 added the completion and sizing sensitivity analyses
 (Sections 0 and 11); r12 made those analyses byte-reproducible on every
 platform and extended the container and the merged manifest to cover them;
-r13 corrects release documentation only (the CITATION.cff release date, a
-stale cross-reference in Section 8, and Section 9's archive-regeneration
-claim, which is now correctly scoped to the pinned release environment).
+r13 corrected release documentation only; r14 adds the peer-review
+analyses (Section 11: completion probabilities, residual and lack-of-fit
+diagnostics, time-limit and CPU-threshold refits, exclusive sizing strata,
+full pooled-model output and a no-Azure sensitivity, all fitted under the
+archived maximum-likelihood policy), archives exponents at five decimals,
+draws individual repetitions in figure 1, records the literature-search
+log, and adds a manuscript-to-archive path check (Section 12). r14 also
+re-archives `boot_draws.csv` as regenerated from scratch in the pinned
+container on the release machine: every numeric field reproduced the
+r7-r13 file byte-for-byte, and only the reason strings of its three
+rejected draws changed, because the committed file predated the r7
+wording change (Section 7). No measurement data or primary statistical
+result changed.
 
-Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r13`
+Authoritative artefact: the repository at annotated tag `sweep-v1-audited-r14`
 (github.com/tshivhidzo/cloud-storage-bench), immutable version DOI
-`10.5281/zenodo.22101440`, under the all-versions concept DOI
-10.5281/zenodo.22032835. No measurement data, statistical result or
-pre-r11 generated table has changed since r10.
+`10.5281/zenodo.22681160`, under the all-versions concept DOI
+10.5281/zenodo.22032835. No measurement data or primary statistical
+result has changed since r10; r14 re-archives the exponent tables and
+`exponents_recomputed.csv` at five decimals (every value unchanged to the
+three decimals previously archived) so that no interval displays as
+zero-width.
 Superseded tags, all preserved unchanged:
 `sweep-v1`, `thesis-v1`, `sweep-v1-audited` (pre-remediation commit
 c952e6ff), `sweep-v1-audited-r2` (failed publication attempt: tagged the r1
@@ -52,7 +65,12 @@ byte-verified end to end -- superseded only for release documentation: its
 CITATION.cff carried the previous day's release date, its Section 8 claimed
 a manuscript statement that the final manuscript no longer contains, and
 its Section 9 stated unqualified archive determinism when zip output is
-timezone-dependent). Verify against the r13 commit only; the
+timezone-dependent), and `sweep-v1-audited-r13` (version DOI
+10.5281/zenodo.22101440, commit 6fea2f8a; release-documentation
+corrections only -- superseded by the peer-review analyses of r14, whose
+first draft exported REML and unconverged model fits, a defect caught in
+review and corrected before this release with unconditional regression
+gates). Verify against the r14 commit only; the
 per-folder `manifest.sha256` files are the integrity ground truth
 (Section 6). This guide's earlier versions are superseded in their
 entirety.
@@ -61,10 +79,18 @@ Environment: Python 3.10.12, packages per `requirements-analysis.txt`
 (numpy 2.2.6, pandas 2.3.3, scipy 1.15.3, statsmodels 0.14.6,
 matplotlib 3.10.9); complete transitive lock in `requirements-lock.txt`.
 Bootstrap draw-file BYTE-identity is guaranteed only inside the pinned
-container (`Dockerfile`; single-threaded BLAS, locked dependencies). Outside
-the container, mixed-model optimisation is BLAS/threading-sensitive: expect
-statistical agreement of the bootstrap p (and exact reproduction of
-everything else in the chain, which is deterministic arithmetic).
+container (`Dockerfile`; single-threaded BLAS, locked dependencies) and
+only on a CPU for which OpenBLAS selects the same kernel family as the
+release run, because OpenBLAS chooses CPU-specific kernels at import time
+and different kernels can differ in the last bits of floating-point
+reductions. The r14 release run: Intel Core i7-5600U, OpenBLAS core type
+`Haswell` (as printed by `OPENBLAS_VERBOSE=2 python3 -c "import numpy"`
+inside the container), Docker Engine on WSL 2. Outside the container, or
+on a CPU that selects another kernel family, mixed-model optimisation is
+BLAS/threading-sensitive: expect statistical agreement of the bootstrap p
+and of the draw accounting (204 attempts, 200 valid, 4 rejected), and
+exact reproduction of everything else in the chain, which is
+deterministic arithmetic.
 
 ## 0. Reproduce the entire results chain
 
@@ -74,29 +100,36 @@ python3 sweep/refit_exponents.py        # tables -> exponents + pooled model + L
 python3 sweep/make_figures.py           # tables (+ quarantine) -> all four figure PNGs
 python3 sweep/prose_numbers.py          # every prose-quoted statistic -> prose_numbers.txt
 python3 sweep/sensitivity_analysis.py   # completion + sizing analyses (Section 11)
+python3 sweep/review_analyses.py        # peer-review analyses + model output (Section 11)
 python3 sweep/test_pipeline.py          # regression tests; exit 0 = all pass
+python3 sweep/check_manuscript_paths.py <main.tex>   # every manuscript-named path exists (Section 12)
 ```
 
 Or, for the guaranteed-bytewise environment:
 `docker build -t csb . && docker run csb` -- the container's default command
 (`sweep/container_verify.sh`) regenerates the ENTIRE chain including all
-five bootstrap batches from scratch and the five sensitivity outputs, and
-exits non-zero unless the regenerated `boot_draws.csv` AND all five
-sensitivity outputs are byte-identical (SHA-256) to the committed ones. The base image is pinned to the linux/amd64 image digest (not the
+five bootstrap batches from scratch, the five sensitivity outputs and the
+ten review-analysis outputs, and exits non-zero unless the regenerated
+`boot_draws.csv`, sensitivity outputs and review outputs are all
+byte-identical (SHA-256) to the committed ones. The base image is pinned to the linux/amd64 image digest (not the
 multi-arch manifest list) in the Dockerfile, so the byte-identity claim is
-tied to one concrete platform image.
+tied to one concrete platform image and, for the draw file, to the CPU
+kernel family recorded in the Environment note.
 
 `refit_exponents.py` without `BOOT_B` reuses the archived bootstrap draw
 file. To regenerate draws: truncate `recompute-output/boot_draws.csv`, then
 run batches `BOOT_B=<n> BOOT_SEED=s python3 sweep/refit_exponents.py` for
 s = 42, 43, 44, 45, 46 with accepted-draw counts 30, 50, 50, 50, 20
 (archive totals: 204 attempts, 200 accepted). Bytewise identity of the
-regenerated file is guaranteed inside the container only.
+regenerated file is guaranteed inside the container on the release CPU
+kernel family only (Environment note; Section 7 for the r14 regeneration).
 
 Everything the manuscript reports comes from these scripts' outputs. The
 manuscript's tables are `\input` copies of `recompute-output/table_combined.tex`,
-`table_perop.tex` and `table_attempts.tex`, and its prose statistics enter
-via generated macros (`prose_macros.tex`); its figures are the four PNGs `make_figures.py` writes
+`table_perop.tex`, `table_attempts.tex`, `table_completion.tex`,
+`table_completionprob.tex`, `table_sizing.tex` and `table_pooledfe.tex`, and
+its prose statistics enter via generated macros (`prose_macros.tex`,
+`sensitivity_macros.tex`, `review_macros.tex`); its figures are the four PNGs `make_figures.py` writes
 to `manuscript/figures/`. If any regenerated output differs from the
 committed copy, the manuscript is wrong and that is a reportable defect.
 
@@ -264,12 +297,32 @@ p (parametric bootstrap)= 0.5522   [204 attempts; 200 valid draws;
 
 The bootstrap p is corroborated by the round-5 audit's independent
 finite-only diagnostic (~0.523). Byte-identity of `boot_draws.csv` under
-regeneration holds inside the pinned container; outside it, expect
-statistical agreement (see Environment note above). The regression tests
-verify the policy directly: finite likelihoods in all accepted rows, nested
-ordering, non-negative finite LRs, reject reasons on all rejected rows, and
-that the reported p-value equals the policy applied to the archived
-records. History for the audit trail: r1-r2 reported LR = 0.077 (defective
+regeneration holds inside the pinned container on the release CPU kernel
+family; elsewhere, expect statistical agreement (see Environment note
+above). The regression tests verify the policy directly: finite
+likelihoods in all accepted rows, nested ordering, non-negative finite
+LRs, reject reasons on all rejected rows, reject reasons that the current
+writer can emit (`boot_reject_reasons_match_code`, r14), and that the
+reported p-value equals the policy applied to the archived records.
+
+Draw-file provenance, stated for the audit trail. The `boot_draws.csv`
+committed from r7 through r13 was generated before the r7 change that
+replaced the sub-tolerance clamp with unconditional rejection. That change
+also renamed the rejection label from "nested ordering violated" to
+"negative likelihood difference", but the draw file was not regenerated
+afterwards, so its three rejected draws (seed 42 attempt 30, seed 44
+attempt 28, seed 46 attempt 4) kept the old label. A full regeneration
+necessarily rewrites those three strings, so the container's
+BOOT-DRAWS-BYTE-IDENTICAL line was not attainable for the r7-r13 trees;
+the numbers in those files were nevertheless correct, as the r14 run
+shows. On 12 September 2026 the pinned container regenerated all 204
+attempts from scratch on the machine described in the Environment note:
+every `llf_null`, `llf_alt`, `lr`, optimizer choice, warning count and
+accepted flag reproduced the committed file exactly (maximum absolute
+difference 0.0 over all numeric fields), and the only differences were
+the three label strings. r14 archives the regenerated file; the byte
+gate therefore holds for r14 on that image and CPU, and the new test
+above fails if the archived labels and the writer ever drift apart again. History for the audit trail: r1-r2 reported LR = 0.077 (defective
 input) with a bootstrap that double-added random effects; r3 lacked
 per-draw convergence checks; r5 accepted converged-flagged fits with
 non-finite likelihoods. Each defect is documented in manuscript Section 4.4
@@ -314,7 +367,7 @@ items marked) or `configs/host_state_extract.json`. There is no class (d).
 The Zenodo deposit is the byte-literal output of:
 
 ```bash
-TAG=sweep-v1-audited-r13   # the authoritative tag named at the top of this guide
+TAG=sweep-v1-audited-r14   # the authoritative tag named at the top of this guide
 TZ=Africa/Johannesburg git archive --format=zip \
   --prefix=cloud-storage-bench-thesis-v1/ \
   $TAG > $TAG-<shortsha>.zip
@@ -335,7 +388,7 @@ description and in the release correspondence. Verification, byte level
 first:
 
 ```bash
-TAG=sweep-v1-audited-r13
+TAG=sweep-v1-audited-r14
 TZ=Africa/Johannesburg git archive --format=zip \
   --prefix=cloud-storage-bench-thesis-v1/ \
   $TAG > /tmp/regen.zip
@@ -409,3 +462,47 @@ matches base x concurrency/16 capped at 80 GB; 16-thread runs satisfy both
 rules and enter both strata; Azure object runs (duration-driven) enter
 neither. A stratum cell is fitted only where >= 3 concurrency levels
 remain.
+
+### 11b. Peer-review analyses (added at r14)
+
+```bash
+python3 sweep/review_analyses.py
+```
+
+Expected: the printed macros include `reviewLlfNull = 82.304605`,
+`reviewLlfAlt = 82.526500`, `reviewLR = 0.4438` (identical to Section 7's
+primary fit), `noAzLR = 1.27`, `noAzP = 0.39`, `diagPeropCells = 45`,
+`diagCombinedCells = 30`, `tlPhases = 60`, `tlPhasesHit = 4`,
+`tlPhasesComplete = 56`, `sizeOverlapRuns = 84`, `sizeExclLost = 14`.
+Every model fit is selected under the archived maximum-likelihood policy
+(`reml=False`; best finite converged log-likelihood across the optimizer
+ladder); `pooled_fit_flags.json` records method, convergence and
+likelihood method per fit, and `sweep/test_pipeline.py` fails
+unconditionally if that file or `pooled_model.txt` is missing or
+unparseable, if any exported fit is unconverged or REML, or if the
+likelihoods do not reproduce Section 7's. Outputs: `table_completionprob.tex`,
+`table_pooledfe.tex`, `review_macros.tex`, `diagnostics_perop.csv`,
+`diagnostics_combined.csv` (per-cell degrees of freedom, lack-of-fit F and
+p, per-level residual spread with a near-zero flag, lag-1 autocorrelation,
+run-level and level-mean interval half-widths), `completion_by_cell_full.csv`,
+`timelimit_phases.csv` (byte-count completion ratio per time-limited
+phase), `sizing_exclusion.csv` (kept/lost stratum cells under exclusive
+assignment), `pooled_covariance.txt` (full-precision random-effects
+covariance, implied correlation, eigenvalues) and `pooled_fit_flags.json`.
+The literature-search log supporting the manuscript's novelty statement is
+`configs/search_log_2026-09-08.md` (30 returned records with URLs and
+screening decisions).
+
+## 12. Manuscript-to-archive path check (added at r14)
+
+```bash
+python3 sweep/check_manuscript_paths.py <path-to-manuscript-main.tex>            # against the tree
+python3 sweep/check_manuscript_paths.py <path-to-manuscript-main.tex> --zip <deposit>.zip   # against the deposit
+```
+
+Expected: `0 missing of N named paths` in both forms (N = 31 for the
+Future Internet manuscript at r14). The script extracts every
+`\texttt{...}` token in the manuscript that names a file or directory and
+verifies its presence in the repository tree or in the entry list of the
+`git archive` deposit, so the manuscript cannot name a file the published
+archive does not contain.

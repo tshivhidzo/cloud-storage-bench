@@ -1,0 +1,16 @@
+{
+ "null": {
+  "method": "default",
+  "converged": true,
+  "reml": false,
+  "llf": 82.30460542578874
+ },
+ "alt": {
+  "method": "powell",
+  "converged": true,
+  "reml": false,
+  "llf": 82.5265003573329
+ },
+ "lr": 0.443789863088341,
+ "n": 356
+}

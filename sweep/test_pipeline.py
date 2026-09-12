@@ -81,6 +81,18 @@ if bd.exists():
     rej = [r for r in drows if r["accepted"] != "True"]
     check("boot_rejects_have_reasons", all(r["reject_reason"] for r in rej),
           f"{len(rej)} rejected")
+    # r14: every archived reject reason must be a string the CURRENT code can
+    # emit. The draw file committed from r7 to r13 still carried the pre-r7
+    # label "nested ordering violated" on its three rejected draws (the r7
+    # wording change was never followed by a regeneration), so the container's
+    # byte-identity gate could not pass for those trees. This test fails on
+    # any such drift between the archived file and the writer.
+    _emittable = ("no finite converged fit", "negative likelihood difference (")
+    stale = [r["reject_reason"] for r in rej
+             if not r["reject_reason"].startswith(_emittable)]
+    check("boot_reject_reasons_match_code", not stale,
+          f"{len(rej)} rejected; stale labels: {stale}" if stale
+          else f"{len(rej)} rejected, all labels current")
     fin = all(math.isfinite(float(r["llf_null"])) and
               math.isfinite(float(r["llf_alt"])) for r in acc)
     check("boot_accepted_llfs_finite", fin)
@@ -324,6 +336,49 @@ if _rr.exists():
         _m = _st.mean(float(r["combined_tput_mib_s"]) for r in _ao
                       if int(r["concurrency"]) == _c)
         check(f"pkg_azure_v2_mean_c{_c}", abs(_m - _v) < 0.0005, f"{_m:.3f}")
+
+# 9. Review-analysis model reporting must use the SAME likelihood method and
+# fit-selection policy as the archived primary analysis (the r14 review
+# defect: default REML fits and an unconverged alternative fit were exported).
+# These gates are UNCONDITIONAL: missing evidence files or an unparseable
+# model report fail the release gate rather than silently skipping.
+import json as _json
+import re as _re
+_flags = Path("recompute-output/pooled_fit_flags.json")
+_pm = Path("recompute-output/pooled_model.txt")
+check("review_fit_flags_present", _flags.exists(), str(_flags))
+check("review_model_report_present", _pm.exists(), str(_pm))
+_fl = None
+if _flags.exists():
+    try:
+        _fl = _json.loads(_flags.read_text())
+    except Exception as _e:  # noqa: BLE001
+        check("review_fit_flags_parseable", False, str(_e))
+if _fl is not None:
+    check("review_null_fit_converged", _fl["null"]["converged"] is True)
+    check("review_alt_fit_converged", _fl["alt"]["converged"] is True)
+    check("review_null_fit_is_ML", _fl["null"]["reml"] is False)
+    check("review_alt_fit_is_ML", _fl["alt"]["reml"] is False)
+else:
+    for _n in ("review_null_fit_converged", "review_alt_fit_converged",
+               "review_null_fit_is_ML", "review_alt_fit_is_ML"):
+        check(_n, False, "no fit flags")
+_m = _re.search(r"llf_null=([0-9.]+).*?llf_alt=([0-9.]+).*?LR = ([0-9.]+)",
+                _pm.read_text()) if _pm.exists() else None
+check("review_model_report_parseable", _m is not None)
+if _fl is not None and _m is not None:
+    check("review_null_llf_matches_archive",
+          abs(_fl["null"]["llf"] - float(_m.group(1))) < 1e-4,
+          f"{_fl['null']['llf']:.6f} vs {_m.group(1)}")
+    check("review_alt_llf_matches_archive",
+          abs(_fl["alt"]["llf"] - float(_m.group(2))) < 1e-4,
+          f"{_fl['alt']['llf']:.6f} vs {_m.group(2)}")
+    check("review_LR_matches_archive",
+          abs(_fl["lr"] - float(_m.group(3))) < 1e-3, f"{_fl['lr']:.4f}")
+else:
+    for _n in ("review_null_llf_matches_archive", "review_alt_llf_matches_archive",
+               "review_LR_matches_archive"):
+        check(_n, False, "evidence missing or unparseable")
 
 print(f"\n{len(FAIL)} failure(s)" if FAIL else "\nALL TESTS PASS")
 sys.exit(1 if FAIL else 0)

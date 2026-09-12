@@ -54,6 +54,15 @@ def fig1(rows):
                 xs = [c for c in (1, 4, 16, 64)
                       if cell_mean(rows, prov, para, wl, c)]
                 ys = [cell_mean(rows, prov, para, wl, c) for c in xs]
+                # individual repetitions as light markers (replicate
+                # variability visible per point; reviewer-requested)
+                for c in xs:
+                    reps = [float(r["combined_tput_mib_s"]) for r in rows
+                            if r["provider"] == prov and r["paradigm"] == para
+                            and r["workload"] == wl and r["concurrency"] == c
+                            and r.get("combined_tput_mib_s")]
+                    ax.plot([c] * len(reps), reps, marker=MARK[para], ls="",
+                            color=COL[para], ms=2.5, alpha=0.35)
                 ax.plot(xs, ys, marker=MARK[para], ls=LS[para],
                         color=COL[para], label=para, ms=4, lw=1.3)
             ax.set_xscale("log", base=2); ax.set_yscale("log")

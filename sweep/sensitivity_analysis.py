@@ -212,25 +212,41 @@ def sizing_strata():
 
 
 def sizing_table(rows):
-    """Compact LaTeX: object+block balanced betas per provider, both strata."""
+    """Compact LaTeX: object+block+file balanced betas per provider, pooled
+    fit alongside both strata so pooled-versus-stratum differences are
+    directly readable."""
+    full = {}
+    exp = OUT / "exponents_recomputed.csv"
+    if exp.exists():
+        full = {(r["provider"], r["paradigm"], r["workload"], r["operation"]):
+                float(r["beta"]) for r in csv.DictReader(open(exp))
+                if r.get("beta")}
     idx = {(r["stratum"], r["provider"], r["paradigm"], r["workload"],
             r["operation"]): r for r in rows}
     provs = ["aws", "azure", "gcp", "huawei", "alibaba"]
     names = {"aws": "AWS", "azure": "Azure", "gcp": "GCP",
              "huawei": "Huawei", "alibaba": "Alibaba"}
-    lines = [r"\begin{tabular}{llcccc}", r"\toprule",
-             r"Paradigm & Provider & \multicolumn{2}{c}{Fixed-total stratum} & "
+    lines = [r"\begin{tabular}{llcccccc}", r"\toprule",
+             r"Paradigm & Provider & \multicolumn{2}{c}{Pooled} & "
+             r"\multicolumn{2}{c}{Fixed-total stratum} & "
              r"\multicolumn{2}{c}{Weak-scaled stratum} \\",
-             r" & & write $\beta$ & read $\beta$ & write $\beta$ & read $\beta$ \\",
+             r" & & write $\beta$ & read $\beta$ & write $\beta$ & read $\beta$"
+             r" & write $\beta$ & read $\beta$ \\",
              r"\midrule"]
     for para in ["object", "block", "file"]:
         for p in provs:
             cells = []
+            for op in ["write", "read"]:
+                b = full.get((p, para, "balanced", op))
+                cells.append(f"{b:.2f}" if b is not None else "--")
+            has_stratum = False
             for st in ["fixed", "weak"]:
                 for op in ["write", "read"]:
                     r = idx.get((st, p, para, "balanced", op))
+                    if r:
+                        has_stratum = True
                     cells.append(f"{r['beta']:.2f}" if r else "--")
-            if all(c == "--" for c in cells):
+            if not has_stratum:
                 continue
             lines.append(f"{para.capitalize()} & {names[p]} & " +
                          " & ".join(cells) + r" \\")
