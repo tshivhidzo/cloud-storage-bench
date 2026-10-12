@@ -67,6 +67,20 @@ resource "aws_security_group" "csb" {
     protocol    = "tcp"
     cidr_blocks = [aws_vpc.csb.cidr_block]
   }
+  ingress {
+    description = "v2.1 rerun: elbencho service (1611) between clients, in-VPC"
+    from_port   = 1611
+    to_port     = 1611
+    protocol    = "tcp"
+    cidr_blocks = [aws_vpc.csb.cidr_block]
+  }
+  ingress {
+    description = "v2.1 rerun: iperf3 network baseline (5201), in-VPC"
+    from_port   = 5201
+    to_port     = 5201
+    protocol    = "tcp"
+    cidr_blocks = [aws_vpc.csb.cidr_block]
+  }
   egress {
     from_port   = 0
     to_port     = 0

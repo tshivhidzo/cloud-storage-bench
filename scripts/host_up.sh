@@ -27,8 +27,14 @@ terraform apply -input=false -auto-approve \
   -var "ssh_public_key=$(cat "$KEY")" \
   -var "operator_cidr=${MYIP}/32" \
   -var "auto_shutdown_hours=${HOURS}" \
+  -var "second_client=${SECOND_CLIENT:-false}" \
   "${EXTRA[@]}"
 
+if [ "${SECOND_CLIENT:-false}" = "true" ]; then
+  echo "Second client (v2.1 rerun): public $(terraform output -raw host2_ip)" \
+       " private $(terraform output -raw host2_private_ip)"
+  echo "First client private IP: $(terraform output -raw host_private_ip)"
+fi
 IP="$(terraform output -raw host_ip)"
 REGION="$(terraform output -raw region)"
 LOCALITY="$(terraform output -raw locality)"
