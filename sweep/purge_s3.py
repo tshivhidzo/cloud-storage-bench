@@ -35,26 +35,36 @@ def client():
         kw["aws_secret_access_key"] = os.environ["S3_SECRET_KEY"]
         if os.environ.get("S3_SESSION_TOKEN"):
             kw["aws_session_token"] = os.environ["S3_SESSION_TOKEN"]
-    cfg = Config(max_pool_connections=40, retries={"max_attempts": 5},
+    cfg = Config(max_pool_connections=40,
+                 retries={"max_attempts": 10, "mode": "adaptive"},
                  s3={"addressing_style": "virtual"
                      if os.environ.get("S3_VIRT_ADDR") == "1" else "auto"})
     return boto3.client("s3", config=cfg, **kw)
 
 
-def empty_bucket(s3, bucket, workers=32):
+def empty_bucket(s3, bucket, workers=None):
+    # 4 parallel 1000-key batches stays near S3's per-prefix delete rate
+    # (about 3,500 keys/s); 32 in parallel triggered SlowDown on 12 Oct 2026.
+    workers = workers or int(os.environ.get("PURGE_WORKERS", "4"))
     if not bucket.startswith(SAFE_PREFIX):
         print(f"purge: refusing to touch {bucket!r} (not a {SAFE_PREFIX} bucket)")
         return 0
     t0, deleted = time.time(), 0
 
     def delete_batch(keys):
-        try:
-            s3.delete_objects(Bucket=bucket, Delete={
-                "Objects": [{"Key": k} for k in keys], "Quiet": True})
-            return len(keys)
-        except Exception as e:
-            print(f"purge: batch failed on {bucket}: {e}")
-            return 0
+        for attempt in range(8):            # back off on SlowDown, never drop
+            try:
+                s3.delete_objects(Bucket=bucket, Delete={
+                    "Objects": [{"Key": k} for k in keys], "Quiet": True})
+                return len(keys)
+            except Exception as e:
+                if "SlowDown" in str(e) or "503" in str(e):
+                    time.sleep(min(30, 2 ** attempt))
+                    continue
+                print(f"purge: batch failed on {bucket}: {e}")
+                return 0
+        print(f"purge: batch gave up after backoff on {bucket}")
+        return 0
 
     paginator = s3.get_paginator("list_objects_v2")
     with ThreadPoolExecutor(max_workers=workers) as ex:
