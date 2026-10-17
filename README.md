@@ -27,7 +27,11 @@ Internet manuscript (futureinternet-4640878):
   `sweep/make_v21_paper.py`;
 - `VERIFICATION_GUIDE_V21.md`: how to check all of the above.
 
-Version DOI: `10.5281/zenodo.23434883`. The earlier (August 2026) campaign and its
+Version DOI: `10.5281/zenodo.23434883`.
+
+A step-by-step account of how this campaign was run, from credentials to
+teardown and release, with every problem met on the way, is in
+[`cloud-bench-guide/`](cloud-bench-guide/README.md). The earlier (August 2026) campaign and its
 verification guide are unchanged.
 
 ## Start here
