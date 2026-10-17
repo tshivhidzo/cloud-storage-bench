@@ -1,0 +1,45 @@
+{
+  "provider": "azure",
+  "measured_utc": "2026-10-12T19:36:44.809417Z",
+  "nproc": 4,
+  "runs": [
+    {
+      "file": "recv_r1.json",
+      "direction": "receive",
+      "gbit_s": 1.774,
+      "mib_s": 211.4
+    },
+    {
+      "file": "recv_r2.json",
+      "direction": "receive",
+      "gbit_s": 1.772,
+      "mib_s": 211.2
+    },
+    {
+      "file": "recv_r3.json",
+      "direction": "receive",
+      "gbit_s": 1.775,
+      "mib_s": 211.6
+    },
+    {
+      "file": "send_r1.json",
+      "direction": "send",
+      "gbit_s": 1.831,
+      "mib_s": 218.3
+    },
+    {
+      "file": "send_r2.json",
+      "direction": "send",
+      "gbit_s": 1.831,
+      "mib_s": 218.3
+    },
+    {
+      "file": "send_r3.json",
+      "direction": "send",
+      "gbit_s": 1.833,
+      "mib_s": 218.5
+    }
+  ],
+  "send_median_mib_s": 218.3,
+  "receive_median_mib_s": 211.4
+}

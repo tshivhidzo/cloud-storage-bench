@@ -1,0 +1,2 @@
+s3_equiv_runner: write 2.53 MB/s 38.6 ops/s p99=56.849 ms (samples=10000, cap=10000)
+s3_equiv_runner: read 2.58 MB/s 39.3 ops/s p99=64.526 ms (samples=10000, cap=10000)

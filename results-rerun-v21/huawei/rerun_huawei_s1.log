@@ -1,0 +1,63 @@
+v2.1 plan for huawei: 24 runs
+  1 huawei-block-balanced-c01-r3           primary   block  c=1   hosts=1 dataset=1280 MiB
+  2 huawei-object-balanced-c16-r1          primary   object c=16  hosts=1 dataset=20480 MiB
+  3 huawei-block-balanced-c16-r2           primary   block  c=16  hosts=1 dataset=20480 MiB
+  4 huawei-object-balanced-c64-r1          primary   object c=64  hosts=1 dataset=81920 MiB
+  5 huawei-object-balanced-c16-r2          primary   object c=16  hosts=1 dataset=20480 MiB
+  6 huawei-object-balanced-c04-r2          primary   object c=4   hosts=1 dataset=5120 MiB
+  7 huawei-object-balanced-c64-r3          primary   object c=64  hosts=1 dataset=81920 MiB
+  8 huawei-block-balanced-c64-r2           primary   block  c=64  hosts=1 dataset=81920 MiB
+  9 huawei-object-balanced-c01-r2          primary   object c=1   hosts=1 dataset=1280 MiB
+ 10 huawei-object-balanced-c04-r3          primary   object c=4   hosts=1 dataset=5120 MiB
+ 11 huawei-object-balanced-c01-r1          primary   object c=1   hosts=1 dataset=1280 MiB
+ 12 huawei-block-balanced-c04-r3           primary   block  c=4   hosts=1 dataset=5120 MiB
+ 13 huawei-object-balanced-c64-r2          primary   object c=64  hosts=1 dataset=81920 MiB
+ 14 huawei-block-balanced-c16-r1           primary   block  c=16  hosts=1 dataset=20480 MiB
+ 15 huawei-block-balanced-c16-r3           primary   block  c=16  hosts=1 dataset=20480 MiB
+ 16 huawei-block-balanced-c01-r1           primary   block  c=1   hosts=1 dataset=1280 MiB
+ 17 huawei-object-balanced-c04-r1          primary   object c=4   hosts=1 dataset=5120 MiB
+ 18 huawei-object-balanced-c16-r3          primary   object c=16  hosts=1 dataset=20480 MiB
+ 19 huawei-block-balanced-c04-r1           primary   block  c=4   hosts=1 dataset=5120 MiB
+ 20 huawei-block-balanced-c64-r3           primary   block  c=64  hosts=1 dataset=81920 MiB
+ 21 huawei-object-balanced-c01-r3          primary   object c=1   hosts=1 dataset=1280 MiB
+ 22 huawei-block-balanced-c04-r2           primary   block  c=4   hosts=1 dataset=5120 MiB
+ 23 huawei-block-balanced-c64-r1           primary   block  c=64  hosts=1 dataset=81920 MiB
+ 24 huawei-block-balanced-c01-r2           primary   block  c=1   hosts=1 dataset=1280 MiB
+[1/24] huawei-block-balanced-c01-r3 (primary, stage 1)
+[2/24] huawei-object-balanced-c16-r1 (primary, stage 1)
+purge: csb-bench-nmy9xswp: 327680 objects deleted in 63 s
+[3/24] huawei-block-balanced-c16-r2 (primary, stage 1)
+[4/24] huawei-object-balanced-c64-r1 (primary, stage 1)
+purge: csb-bench-5ilihz52: 1310720 objects deleted in 241 s
+[5/24] huawei-object-balanced-c16-r2 (primary, stage 1)
+purge: csb-bench-v5w1vdyd: 327680 objects deleted in 63 s
+[6/24] huawei-object-balanced-c04-r2 (primary, stage 1)
+purge: csb-bench-bpts4p35: 81920 objects deleted in 16 s
+[7/24] huawei-object-balanced-c64-r3 (primary, stage 1)
+purge: csb-bench-hgbm45g2: 1310720 objects deleted in 247 s
+[8/24] huawei-block-balanced-c64-r2 (primary, stage 1)
+[9/24] huawei-object-balanced-c01-r2 (primary, stage 1)
+purge: csb-bench-8wpfrwc3: 20480 objects deleted in 5 s
+[10/24] huawei-object-balanced-c04-r3 (primary, stage 1)
+purge: csb-bench-6eszr36s: 81920 objects deleted in 17 s
+[11/24] huawei-object-balanced-c01-r1 (primary, stage 1)
+purge: csb-bench-c82ukza6: 20480 objects deleted in 4 s
+[12/24] huawei-block-balanced-c04-r3 (primary, stage 1)
+[13/24] huawei-object-balanced-c64-r2 (primary, stage 1)
+purge: csb-bench-ijtdxids: 1310720 objects deleted in 253 s
+[14/24] huawei-block-balanced-c16-r1 (primary, stage 1)
+[15/24] huawei-block-balanced-c16-r3 (primary, stage 1)
+[16/24] huawei-block-balanced-c01-r1 (primary, stage 1)
+[17/24] huawei-object-balanced-c04-r1 (primary, stage 1)
+purge: csb-bench-czjsf1jn: 81920 objects deleted in 16 s
+[18/24] huawei-object-balanced-c16-r3 (primary, stage 1)
+purge: csb-bench-31l3bky4: 327680 objects deleted in 62 s
+[19/24] huawei-block-balanced-c04-r1 (primary, stage 1)
+[20/24] huawei-block-balanced-c64-r3 (primary, stage 1)
+[21/24] huawei-object-balanced-c01-r3 (primary, stage 1)
+purge: csb-bench-yg0x7sy3: 20480 objects deleted in 5 s
+[22/24] huawei-block-balanced-c04-r2 (primary, stage 1)
+[23/24] huawei-block-balanced-c64-r1 (primary, stage 1)
+[24/24] huawei-block-balanced-c01-r2 (primary, stage 1)
+
+finished: ok=24 failed=0 of 24. Manifest: results-rerun-v21-huawei/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).

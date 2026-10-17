@@ -1,0 +1,45 @@
+{
+  "provider": "gcp",
+  "measured_utc": "2026-10-12T20:50:10.797759Z",
+  "nproc": 4,
+  "runs": [
+    {
+      "file": "recv_r1.json",
+      "direction": "receive",
+      "gbit_s": 7.053,
+      "mib_s": 840.8
+    },
+    {
+      "file": "recv_r2.json",
+      "direction": "receive",
+      "gbit_s": 7.525,
+      "mib_s": 897.0
+    },
+    {
+      "file": "recv_r3.json",
+      "direction": "receive",
+      "gbit_s": 7.562,
+      "mib_s": 901.4
+    },
+    {
+      "file": "send_r1.json",
+      "direction": "send",
+      "gbit_s": 7.845,
+      "mib_s": 935.2
+    },
+    {
+      "file": "send_r2.json",
+      "direction": "send",
+      "gbit_s": 7.706,
+      "mib_s": 918.6
+    },
+    {
+      "file": "send_r3.json",
+      "direction": "send",
+      "gbit_s": 7.839,
+      "mib_s": 934.5
+    }
+  ],
+  "send_median_mib_s": 934.5,
+  "receive_median_mib_s": 897.0
+}

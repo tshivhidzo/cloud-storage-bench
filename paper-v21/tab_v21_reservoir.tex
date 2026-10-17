@@ -1,0 +1,12 @@
+\begin{tabular}{rrrr}
+\toprule
+Threads & Reservoir per thread & write p99 (ms) & read p99 (ms) \\
+\midrule
+16 & 1{,}000 (1 run) & 84 & 83 \\
+16 & 10{,}000 (4 runs) & 82--83 & 80--82 \\
+16 & 100{,}000 (1 run) & 83 & 80 \\
+64 & 1{,}000 (1 run) & 443 & 267 \\
+64 & 10{,}000 (4 runs) & 218--409 & 375--434 \\
+64 & 100{,}000 (1 run) & 373 & 442 \\
+\bottomrule
+\end{tabular}

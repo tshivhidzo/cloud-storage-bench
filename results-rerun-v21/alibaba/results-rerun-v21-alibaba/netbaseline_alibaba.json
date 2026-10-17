@@ -1,0 +1,45 @@
+{
+  "provider": "alibaba",
+  "measured_utc": "2026-10-13T19:52:30.275167Z",
+  "nproc": 4,
+  "runs": [
+    {
+      "file": "recv_r1.json",
+      "direction": "receive",
+      "gbit_s": 3.55,
+      "mib_s": 423.2
+    },
+    {
+      "file": "recv_r2.json",
+      "direction": "receive",
+      "gbit_s": 3.453,
+      "mib_s": 411.7
+    },
+    {
+      "file": "recv_r3.json",
+      "direction": "receive",
+      "gbit_s": 3.473,
+      "mib_s": 414.0
+    },
+    {
+      "file": "send_r1.json",
+      "direction": "send",
+      "gbit_s": 3.456,
+      "mib_s": 412.0
+    },
+    {
+      "file": "send_r2.json",
+      "direction": "send",
+      "gbit_s": 3.471,
+      "mib_s": 413.8
+    },
+    {
+      "file": "send_r3.json",
+      "direction": "send",
+      "gbit_s": 3.232,
+      "mib_s": 385.3
+    }
+  ],
+  "send_median_mib_s": 412.0,
+  "receive_median_mib_s": 414.0
+}

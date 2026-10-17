@@ -1,0 +1,15 @@
+v2.1 plan for alibaba: 3 runs
+  1 alibaba-object-balanced-c64-r1-fb      fb        object c=64  hosts=1 dataset=81920 MiB
+  2 alibaba-object-balanced-c16-r2-fb      fb        object c=16  hosts=1 dataset=20480 MiB
+  3 alibaba-object-balanced-c04-r2-fb      fb        object c=4   hosts=1 dataset=5120 MiB
+[1/3] alibaba-object-balanced-c64-r1-fb (fb, stage 3)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+purge: csb-bench-m1yoxamp: 1310720 objects deleted in 200 s
+[2/3] alibaba-object-balanced-c16-r2-fb (fb, stage 3)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+purge: csb-bench-witxgn1t: 327680 objects deleted in 57 s
+[3/3] alibaba-object-balanced-c04-r2-fb (fb, stage 3)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+purge: csb-bench-uy3bs6jz: 81920 objects deleted in 15 s
+
+finished: ok=3 failed=0 of 3. Manifest: results-rerun-v21-alibaba/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).

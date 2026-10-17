@@ -1,0 +1,4 @@
+huawei: manifest results-rerun-v21-huawei/run_manifest.jsonl (45 attempts)
+  stage 1: planned  24  ok  24  failed attempts   0  to run   0  exhausted 0
+  stage 2: planned  18  ok  18  failed attempts   3  to run   0  exhausted 0
+  gates: all ok runs pass

@@ -1,0 +1,66 @@
+v2.1 plan for alibaba: 18 runs
+  1 alibaba-file-balanced-c16-r3           primary   file   c=16  hosts=1 dataset=20480 MiB
+  2 alibaba-object-balanced-c128-r1        ext128    object c=128 hosts=1 dataset=163840 MiB
+  3 alibaba-object-balanced-c128-r2        ext128    object c=128 hosts=1 dataset=163840 MiB
+  4 alibaba-file-balanced-c01-r3           primary   file   c=1   hosts=1 dataset=1280 MiB
+  5 alibaba-file-balanced-c16-r1           primary   file   c=16  hosts=1 dataset=20480 MiB
+  6 alibaba-file-balanced-c04-r1           primary   file   c=4   hosts=1 dataset=5120 MiB
+  7 alibaba-object-balanced-c64-r1-mc2     multi     object c=64  hosts=2 dataset=163840 MiB
+  8 alibaba-file-balanced-c01-r1           primary   file   c=1   hosts=1 dataset=1280 MiB
+  9 alibaba-object-balanced-c64-r2-mc2     multi     object c=64  hosts=2 dataset=163840 MiB
+ 10 alibaba-object-balanced-c128-r3        ext128    object c=128 hosts=1 dataset=163840 MiB
+ 11 alibaba-object-balanced-c64-r3-mc2     multi     object c=64  hosts=2 dataset=163840 MiB
+ 12 alibaba-file-balanced-c64-r3           primary   file   c=64  hosts=1 dataset=81920 MiB
+ 13 alibaba-file-balanced-c64-r2           primary   file   c=64  hosts=1 dataset=81920 MiB
+ 14 alibaba-file-balanced-c04-r3           primary   file   c=4   hosts=1 dataset=5120 MiB
+ 15 alibaba-file-balanced-c16-r2           primary   file   c=16  hosts=1 dataset=20480 MiB
+ 16 alibaba-file-balanced-c04-r2           primary   file   c=4   hosts=1 dataset=5120 MiB
+ 17 alibaba-file-balanced-c64-r1           primary   file   c=64  hosts=1 dataset=81920 MiB
+ 18 alibaba-file-balanced-c01-r2           primary   file   c=1   hosts=1 dataset=1280 MiB
+[1/18] alibaba-file-balanced-c16-r3 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[2/18] alibaba-object-balanced-c128-r1 (ext128, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+purge: csb-bench-9eu3blth: 2621440 objects deleted in 391 s
+[3/18] alibaba-object-balanced-c128-r2 (ext128, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+purge: csb-bench-jrc0c04f: 2621440 objects deleted in 395 s
+[4/18] alibaba-file-balanced-c01-r3 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[5/18] alibaba-file-balanced-c16-r1 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[6/18] alibaba-file-balanced-c04-r1 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[7/18] alibaba-object-balanced-c64-r1-mc2 (multi, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-s1luzv8z: 2621440 objects deleted in 427 s
+[8/18] alibaba-file-balanced-c01-r1 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[9/18] alibaba-object-balanced-c64-r2-mc2 (multi, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-7vj1xu2g: 2621440 objects deleted in 399 s
+[10/18] alibaba-object-balanced-c128-r3 (ext128, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+purge: csb-bench-e7q7a69k: 2621440 objects deleted in 402 s
+[11/18] alibaba-object-balanced-c64-r3-mc2 (multi, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-goq4u936: 2621440 objects deleted in 431 s
+[12/18] alibaba-file-balanced-c64-r3 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[13/18] alibaba-file-balanced-c64-r2 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[14/18] alibaba-file-balanced-c04-r3 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[15/18] alibaba-file-balanced-c16-r2 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[16/18] alibaba-file-balanced-c04-r2 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[17/18] alibaba-file-balanced-c64-r1 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+[18/18] alibaba-file-balanced-c01-r2 (primary, stage 2)
+purge: csb-bench-zc7vpqnd: 0 objects deleted in 0 s
+
+finished: ok=18 failed=0 of 18. Manifest: results-rerun-v21-alibaba/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).

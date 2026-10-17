@@ -1,0 +1,33 @@
+v2.1 plan for azure: 15 runs
+  1 azure-file-balanced-c64-r1             primary   file   c=64  hosts=1 dataset=81920 MiB
+  2 azure-file-balanced-c16-r3             primary   file   c=16  hosts=1 dataset=20480 MiB
+  3 azure-object-balanced-c128-r1          ext128    object c=128 hosts=1 dataset=163840 MiB
+  4 azure-object-balanced-c128-r3          ext128    object c=128 hosts=1 dataset=163840 MiB
+  5 azure-file-balanced-c16-r1             primary   file   c=16  hosts=1 dataset=20480 MiB
+  6 azure-file-balanced-c04-r1             primary   file   c=4   hosts=1 dataset=5120 MiB
+  7 azure-object-balanced-c128-r2          ext128    object c=128 hosts=1 dataset=163840 MiB
+  8 azure-file-balanced-c64-r2             primary   file   c=64  hosts=1 dataset=81920 MiB
+  9 azure-file-balanced-c01-r2             primary   file   c=1   hosts=1 dataset=1280 MiB
+ 10 azure-file-balanced-c04-r3             primary   file   c=4   hosts=1 dataset=5120 MiB
+ 11 azure-file-balanced-c16-r2             primary   file   c=16  hosts=1 dataset=20480 MiB
+ 12 azure-file-balanced-c01-r3             primary   file   c=1   hosts=1 dataset=1280 MiB
+ 13 azure-file-balanced-c64-r3             primary   file   c=64  hosts=1 dataset=81920 MiB
+ 14 azure-file-balanced-c04-r2             primary   file   c=4   hosts=1 dataset=5120 MiB
+ 15 azure-file-balanced-c01-r1             primary   file   c=1   hosts=1 dataset=1280 MiB
+[1/15] azure-file-balanced-c64-r1 (primary, stage 2)
+[2/15] azure-file-balanced-c16-r3 (primary, stage 2)
+[3/15] azure-object-balanced-c128-r1 (ext128, stage 2)
+[4/15] azure-object-balanced-c128-r3 (ext128, stage 2)
+[5/15] azure-file-balanced-c16-r1 (primary, stage 2)
+[6/15] azure-file-balanced-c04-r1 (primary, stage 2)
+[7/15] azure-object-balanced-c128-r2 (ext128, stage 2)
+[8/15] azure-file-balanced-c64-r2 (primary, stage 2)
+[9/15] azure-file-balanced-c01-r2 (primary, stage 2)
+[10/15] azure-file-balanced-c04-r3 (primary, stage 2)
+[11/15] azure-file-balanced-c16-r2 (primary, stage 2)
+[12/15] azure-file-balanced-c01-r3 (primary, stage 2)
+[13/15] azure-file-balanced-c64-r3 (primary, stage 2)
+[14/15] azure-file-balanced-c04-r2 (primary, stage 2)
+[15/15] azure-file-balanced-c01-r1 (primary, stage 2)
+
+finished: ok=15 failed=0 of 15. Manifest: results-rerun-v21-azure/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).

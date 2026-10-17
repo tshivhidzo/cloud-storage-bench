@@ -109,7 +109,7 @@ def main():
           macro("vAttemptsAll", tot_att + len(d5))]
     wonly = [r for r in runs if r["mode"] == "primary" and r["phases"] == "WRITE"]
     M.append(macro("vWriteOnly", len(wonly)))
-    with open(OUT / "tab_v21_completion.tex", "w") as fh:
+    with open(OUT / "tab_v21_completion.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{lrrrrl}\n\\toprule\nProvider & Runs & Attempts & Accepted & Failed & Cause of failed attempts \\\\\n\\midrule\n")
         cause = {"huawei": "operator: second-host name not resolvable (D2)",
                  "alibaba": "operator: bucket not emptied (D1); missing credentials (D3)"}
@@ -120,7 +120,7 @@ def main():
         fh.write("\\bottomrule\n\\end{tabular}\n")
 
     # ---------------- exponent table (per operation, both CIs) ----------------
-    with open(OUT / "tab_v21_exponents.tex", "w") as fh:
+    with open(OUT / "tab_v21_exponents.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{llrcccrccc}\n\\toprule\n")
         fh.write(" & & \\multicolumn{4}{c}{Write phase} & \\multicolumn{4}{c}{Read phase} \\\\\n")
         fh.write("\\cmidrule(lr){3-6}\\cmidrule(lr){7-10}\n")
@@ -173,7 +173,7 @@ def main():
     M.append(macro("vObjCombMax", f(max(obj_comb))))
 
     # ---------------- replication table v1 vs v2.1 ----------------
-    with open(OUT / "tab_v21_replication.tex", "w") as fh:
+    with open(OUT / "tab_v21_replication.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{llcccc}\n\\toprule\n")
         fh.write(" & & \\multicolumn{2}{c}{Write $\\beta$} & \\multicolumn{2}{c}{Read $\\beta$} \\\\\n")
         fh.write("\\cmidrule(lr){3-4}\\cmidrule(lr){5-6}\nProvider & Paradigm & Earlier & Present & Earlier & Present \\\\\n\\midrule\n")
@@ -213,7 +213,7 @@ def main():
             d5cpu.append(mpstat(Path(a.d5) / r[f"raw_{h}_mpstat_txt"])["cpu_all"])
         for op in tot:
             d5agg[op].append(tot[op])
-    with open(OUT / "tab_v21_clientservice.tex", "w") as fh:
+    with open(OUT / "tab_v21_clientservice.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{llrrrrrl}\n\\toprule\n")
         fh.write("Provider & Op. & 64 thr., 1 host & 128 thr., 1 host & 2 hosts $\\times$ 64 & $\\times$128 & $\\times$2 hosts & CPU \\% (64 / 128 / 2-host) \\\\\n\\midrule\n")
         for p in PROV:
@@ -263,7 +263,7 @@ def main():
     M.append(macro("vMaxCoreLow", f(max(float(c["cpu_maxcore"]) for c in cpu if float(c["cpu_all"]) < 50), 0)))
 
     # ---------------- equivalence / reservoir ----------------
-    with open(OUT / "tab_v21_equiv.tex", "w") as fh:
+    with open(OUT / "tab_v21_equiv.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{rrrrrrr}\n\\toprule\n")
         fh.write("Threads & \\multicolumn{2}{c}{Runner / elbencho throughput} & \\multicolumn{2}{c}{p99 (ms), runner / elbencho} & \\multicolumn{2}{c}{Client CPU (\\%)} \\\\\n")
         fh.write("\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}\n & write & read & write & read & runner & elbencho \\\\\n\\midrule\n")
@@ -290,7 +290,7 @@ def main():
                            f(e["runner_over_elbencho"], 2)))
     for k, v in bet.items():
         M.append(macro(f"vEqBeta{k[0].capitalize()}{k[1].capitalize()}", f(v["beta"], 2)))
-    with open(OUT / "tab_v21_reservoir.tex", "w") as fh:
+    with open(OUT / "tab_v21_reservoir.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{rrrr}\n\\toprule\nThreads & Reservoir per thread & write p99 (ms) & read p99 (ms) \\\\\n\\midrule\n")
         grp = defaultdict(list)
         for r in rv:
@@ -303,7 +303,7 @@ def main():
         fh.write("\\bottomrule\n\\end{tabular}\n")
 
     # ---------------- block vs documented limits; network ----------------
-    with open(OUT / "tab_v21_block.tex", "w") as fh:
+    with open(OUT / "tab_v21_block.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{lp{2.6cm}rrrp{4.2cm}}\n\\toprule\n")
         fh.write("Provider & Product & Write, 4 thr. & Write, 16 thr. & Read, 4+ thr. & Documented limit \\\\\n\\midrule\n")
         for p in PROV:
@@ -315,7 +315,7 @@ def main():
             fh.write(f"{PNAME[p]} & {DOCS[p][0]} & {lm('write',4):.0f} & {lm('write',16):.0f} & "
                      f"{(str(round(min(reads))) + '--' + str(round(max(reads)))) if round(min(reads)) != round(max(reads)) else round(min(reads))} & {DOCS[p][1]} \\\\\n")
         fh.write("\\bottomrule\n\\end{tabular}\n")
-    with open(OUT / "tab_v21_network.tex", "w") as fh:
+    with open(OUT / "tab_v21_network.tex", "w", newline="\n") as fh:
         fh.write("\\begin{tabular}{lrrrrr}\n\\toprule\nProvider & send (Gbit/s) & receive & 600 s sustained & first / last 60 s & retransmits \\\\\n\\midrule\n")
         for p in PROV:
             n = net[p]
@@ -358,7 +358,8 @@ def main():
             M.append(macro(f"vFoldS{para.capitalize()}{op.capitalize()}", f(st.median(folds16), 1)))
             M.append(macro(f"vFoldS{para.capitalize()}{op.capitalize()}N", len(folds16)))
 
-    (OUT / "v21_macros.tex").write_text("% generated by sweep/make_v21_paper.py -- do not edit\n" + "".join(M))
+    with open(OUT / "v21_macros.tex", "w", newline="\n") as fh:  # LF on every platform
+        fh.write("% generated by sweep/make_v21_paper.py -- do not edit\n" + "".join(M))
     figures(runs, ex, exd, v1, em, eq, cpud, d5agg, OUT)
     print(f"wrote {len(M)} macros, tables and figures to {OUT}")
 

@@ -1,0 +1,16 @@
+OPERATION   RESULT TYPE         FIRST DONE   LAST DONE
+=========== ================    ==========   =========
+WRITE       Elapsed time     :   1m10.269s   1m10.269s
+            IOPS             :         291         291
+            Throughput MiB/s :          18          18
+            Total MiB        :        1280        1280
+            IO latency       : [ min=3.05ms avg=3.43ms max=23.8ms ]
+            IO lat % us      : [ 1%<=3444 50%<=3444 75%<=4096 99%<=4871 ]
+---
+READ        Elapsed time     :     48.365s     48.365s
+            IOPS             :         423         423
+            Throughput MiB/s :          26          26
+            Total MiB        :        1280        1280
+            IO latency       : [ min=2.08ms avg=2.36ms max=4.62ms ]
+            IO lat % us      : [ 1%<=2435 50%<=2435 75%<=2435 99%<=2896 ]
+---

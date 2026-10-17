@@ -1,0 +1,5 @@
+gcp: manifest results-rerun-v21-gcp/run_manifest.jsonl (42 attempts)
+  stage 1: planned  24  ok  24  failed attempts   0  to run   0  exhausted 0
+  stage 2: planned  18  ok  18  failed attempts   0  to run   0  exhausted 0
+  GATE FAIL gcp-object-balanced-c16-r3: TEARDOWN FAILED: check billing
+  gates: 1 problem(s)

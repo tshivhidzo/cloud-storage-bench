@@ -1,0 +1,102 @@
+v2.1 plan for aws: 36 runs
+  1 aws-object-balanced-c16-r1-rv1k        reservoir object c=16  hosts=1 dataset=20480 MiB
+  2 aws-file-balanced-c64-r2               primary   file   c=64  hosts=1 dataset=81920 MiB
+  3 aws-file-balanced-c16-r2               primary   file   c=16  hosts=1 dataset=20480 MiB
+  4 aws-file-balanced-c04-r3               primary   file   c=4   hosts=1 dataset=5120 MiB
+  5 aws-file-balanced-c16-r3               primary   file   c=16  hosts=1 dataset=20480 MiB
+  6 aws-object-balanced-c64-r1-eq          equiv     object c=64  hosts=1 dataset=81920 MiB
+  7 aws-file-balanced-c04-r2               primary   file   c=4   hosts=1 dataset=5120 MiB
+  8 aws-object-balanced-c64-r1-rv1k        reservoir object c=64  hosts=1 dataset=81920 MiB
+  9 aws-object-balanced-c16-r1-rv10k       reservoir object c=16  hosts=1 dataset=20480 MiB
+ 10 aws-object-balanced-c16-r3-eq          equiv     object c=16  hosts=1 dataset=20480 MiB
+ 11 aws-file-balanced-c16-r1               primary   file   c=16  hosts=1 dataset=20480 MiB
+ 12 aws-object-balanced-c16-r1-eq          equiv     object c=16  hosts=1 dataset=20480 MiB
+ 13 aws-file-balanced-c01-r2               primary   file   c=1   hosts=1 dataset=1280 MiB
+ 14 aws-object-balanced-c16-r1-rv100k      reservoir object c=16  hosts=1 dataset=20480 MiB
+ 15 aws-object-balanced-c64-r1-rv100k      reservoir object c=64  hosts=1 dataset=81920 MiB
+ 16 aws-object-balanced-c128-r1            ext128    object c=128 hosts=1 dataset=163840 MiB
+ 17 aws-object-balanced-c01-r3-eq          equiv     object c=1   hosts=1 dataset=1280 MiB
+ 18 aws-object-balanced-c64-r3-mc2         multi     object c=64  hosts=2 dataset=163840 MiB
+ 19 aws-file-balanced-c64-r3               primary   file   c=64  hosts=1 dataset=81920 MiB
+ 20 aws-object-balanced-c64-r1-rv10k       reservoir object c=64  hosts=1 dataset=81920 MiB
+ 21 aws-object-balanced-c128-r2            ext128    object c=128 hosts=1 dataset=163840 MiB
+ 22 aws-object-balanced-c64-r2-mc2         multi     object c=64  hosts=2 dataset=163840 MiB
+ 23 aws-file-balanced-c01-r1               primary   file   c=1   hosts=1 dataset=1280 MiB
+ 24 aws-object-balanced-c64-r2-eq          equiv     object c=64  hosts=1 dataset=81920 MiB
+ 25 aws-object-balanced-c64-r1-mc2         multi     object c=64  hosts=2 dataset=163840 MiB
+ 26 aws-object-balanced-c01-r2-eq          equiv     object c=1   hosts=1 dataset=1280 MiB
+ 27 aws-object-balanced-c128-r3            ext128    object c=128 hosts=1 dataset=163840 MiB
+ 28 aws-file-balanced-c04-r1               primary   file   c=4   hosts=1 dataset=5120 MiB
+ 29 aws-object-balanced-c16-r2-eq          equiv     object c=16  hosts=1 dataset=20480 MiB
+ 30 aws-object-balanced-c04-r2-eq          equiv     object c=4   hosts=1 dataset=5120 MiB
+ 31 aws-object-balanced-c04-r1-eq          equiv     object c=4   hosts=1 dataset=5120 MiB
+ 32 aws-object-balanced-c04-r3-eq          equiv     object c=4   hosts=1 dataset=5120 MiB
+ 33 aws-object-balanced-c64-r3-eq          equiv     object c=64  hosts=1 dataset=81920 MiB
+ 34 aws-file-balanced-c64-r1               primary   file   c=64  hosts=1 dataset=81920 MiB
+ 35 aws-object-balanced-c01-r1-eq          equiv     object c=1   hosts=1 dataset=1280 MiB
+ 36 aws-file-balanced-c01-r3               primary   file   c=1   hosts=1 dataset=1280 MiB
+[1/36] aws-object-balanced-c16-r1-rv1k (reservoir, stage 2)
+purge: csb-bench-20261013201741366200000001: 4096 objects deleted in 2 s
+[2/36] aws-file-balanced-c64-r2 (primary, stage 2)
+[3/36] aws-file-balanced-c16-r2 (primary, stage 2)
+[4/36] aws-file-balanced-c04-r3 (primary, stage 2)
+[5/36] aws-file-balanced-c16-r3 (primary, stage 2)
+[6/36] aws-object-balanced-c64-r1-eq (equiv, stage 2)
+purge: csb-bench-20261013215823361300000001: 16384 objects deleted in 5 s
+[7/36] aws-file-balanced-c04-r2 (primary, stage 2)
+[8/36] aws-object-balanced-c64-r1-rv1k (reservoir, stage 2)
+purge: csb-bench-20261013224851533800000001: 16384 objects deleted in 4 s
+[9/36] aws-object-balanced-c16-r1-rv10k (reservoir, stage 2)
+purge: csb-bench-20261013232920848700000001: 4096 objects deleted in 2 s
+[10/36] aws-object-balanced-c16-r3-eq (equiv, stage 2)
+purge: csb-bench-20261014000948079300000001: 4096 objects deleted in 2 s
+[11/36] aws-file-balanced-c16-r1 (primary, stage 2)
+[12/36] aws-object-balanced-c16-r1-eq (equiv, stage 2)
+purge: csb-bench-20261014010426767600000001: 4096 objects deleted in 2 s
+[13/36] aws-file-balanced-c01-r2 (primary, stage 2)
+[14/36] aws-object-balanced-c16-r1-rv100k (reservoir, stage 2)
+purge: csb-bench-20261014015336631900000001: 4096 objects deleted in 2 s
+[15/36] aws-object-balanced-c64-r1-rv100k (reservoir, stage 2)
+purge: csb-bench-20261014023404156800000001: 16384 objects deleted in 4 s
+[16/36] aws-object-balanced-c128-r1 (ext128, stage 2)
+purge: csb-bench-20261014031435452100000001: 2621440 objects deleted in 889 s
+[17/36] aws-object-balanced-c01-r3-eq (equiv, stage 2)
+purge: csb-bench-20261014035638752700000001: 256 objects deleted in 1 s
+[18/36] aws-object-balanced-c64-r3-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-20261014043704283600000001: 2621440 objects deleted in 824 s
+[19/36] aws-file-balanced-c64-r3 (primary, stage 2)
+[20/36] aws-object-balanced-c64-r1-rv10k (reservoir, stage 2)
+purge: csb-bench-20261014053705230400000001: 16384 objects deleted in 5 s
+[21/36] aws-object-balanced-c128-r2 (ext128, stage 2)
+purge: csb-bench-20261014061735956800000001: 2621440 objects deleted in 855 s
+[22/36] aws-object-balanced-c64-r2-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-20261014065935195600000001: 2621440 objects deleted in 866 s
+[23/36] aws-file-balanced-c01-r1 (primary, stage 2)
+[24/36] aws-object-balanced-c64-r2-eq (equiv, stage 2)
+purge: csb-bench-20261014075029036500000001: 16384 objects deleted in 5 s
+[25/36] aws-object-balanced-c64-r1-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-20261014083059304200000001: 2621440 objects deleted in 862 s
+[26/36] aws-object-balanced-c01-r2-eq (equiv, stage 2)
+purge: csb-bench-20261014091207362100000001: 256 objects deleted in 1 s
+[27/36] aws-object-balanced-c128-r3 (ext128, stage 2)
+purge: csb-bench-20261014095232347000000001: 2621440 objects deleted in 869 s
+[28/36] aws-file-balanced-c04-r1 (primary, stage 2)
+[29/36] aws-object-balanced-c16-r2-eq (equiv, stage 2)
+purge: csb-bench-20261014104421860700000001: 4096 objects deleted in 2 s
+[30/36] aws-object-balanced-c04-r2-eq (equiv, stage 2)
+purge: csb-bench-20261014112448275300000001: 1024 objects deleted in 1 s
+[31/36] aws-object-balanced-c04-r1-eq (equiv, stage 2)
+purge: csb-bench-20261014120514760600000001: 1024 objects deleted in 1 s
+[32/36] aws-object-balanced-c04-r3-eq (equiv, stage 2)
+purge: csb-bench-20261014124540287300000001: 1024 objects deleted in 1 s
+[33/36] aws-object-balanced-c64-r3-eq (equiv, stage 2)
+purge: csb-bench-20261014132605555900000001: 16384 objects deleted in 4 s
+[34/36] aws-file-balanced-c64-r1 (primary, stage 2)
+[35/36] aws-object-balanced-c01-r1-eq (equiv, stage 2)
+purge: csb-bench-20261014142520106400000001: 256 objects deleted in 1 s
+[36/36] aws-file-balanced-c01-r3 (primary, stage 2)
+
+finished: ok=36 failed=0 of 36. Manifest: results-rerun-v21-aws/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).

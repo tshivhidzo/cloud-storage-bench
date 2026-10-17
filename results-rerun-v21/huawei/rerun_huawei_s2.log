@@ -1,0 +1,66 @@
+v2.1 plan for huawei: 18 runs
+  1 huawei-file-balanced-c16-r3            primary   file   c=16  hosts=1 dataset=20480 MiB
+  2 huawei-object-balanced-c128-r1         ext128    object c=128 hosts=1 dataset=163840 MiB
+  3 huawei-object-balanced-c128-r2         ext128    object c=128 hosts=1 dataset=163840 MiB
+  4 huawei-file-balanced-c01-r3            primary   file   c=1   hosts=1 dataset=1280 MiB
+  5 huawei-file-balanced-c16-r1            primary   file   c=16  hosts=1 dataset=20480 MiB
+  6 huawei-file-balanced-c04-r1            primary   file   c=4   hosts=1 dataset=5120 MiB
+  7 huawei-object-balanced-c64-r1-mc2      multi     object c=64  hosts=2 dataset=163840 MiB
+  8 huawei-file-balanced-c01-r1            primary   file   c=1   hosts=1 dataset=1280 MiB
+  9 huawei-object-balanced-c64-r2-mc2      multi     object c=64  hosts=2 dataset=163840 MiB
+ 10 huawei-object-balanced-c128-r3         ext128    object c=128 hosts=1 dataset=163840 MiB
+ 11 huawei-object-balanced-c64-r3-mc2      multi     object c=64  hosts=2 dataset=163840 MiB
+ 12 huawei-file-balanced-c64-r3            primary   file   c=64  hosts=1 dataset=81920 MiB
+ 13 huawei-file-balanced-c64-r2            primary   file   c=64  hosts=1 dataset=81920 MiB
+ 14 huawei-file-balanced-c04-r3            primary   file   c=4   hosts=1 dataset=5120 MiB
+ 15 huawei-file-balanced-c16-r2            primary   file   c=16  hosts=1 dataset=20480 MiB
+ 16 huawei-file-balanced-c04-r2            primary   file   c=4   hosts=1 dataset=5120 MiB
+ 17 huawei-file-balanced-c64-r1            primary   file   c=64  hosts=1 dataset=81920 MiB
+ 18 huawei-file-balanced-c01-r2            primary   file   c=1   hosts=1 dataset=1280 MiB
+[1/18] huawei-file-balanced-c16-r3 (primary, stage 2)
+[2/18] huawei-object-balanced-c128-r1 (ext128, stage 2)
+purge: csb-bench-bqqauykd: 2621440 objects deleted in 498 s
+[3/18] huawei-object-balanced-c128-r2 (ext128, stage 2)
+purge: csb-bench-084r7ffq: 2621440 objects deleted in 500 s
+[4/18] huawei-file-balanced-c01-r3 (primary, stage 2)
+[5/18] huawei-file-balanced-c16-r1 (primary, stage 2)
+[6/18] huawei-file-balanced-c04-r1 (primary, stage 2)
+[7/18] huawei-object-balanced-c64-r1-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-tgitidxb: 0 objects deleted in 0 s
+    -> failed: tool exited 1; see results-rerun-v21-huawei/raw/huawei-object-balanced-c64-r1-mc2.stdout.log
+[8/18] huawei-file-balanced-c01-r1 (primary, stage 2)
+[9/18] huawei-object-balanced-c64-r2-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-7z5lcoqn: 0 objects deleted in 0 s
+    -> failed: tool exited 1; see results-rerun-v21-huawei/raw/huawei-object-balanced-c64-r2-mc2.stdout.log
+[10/18] huawei-object-balanced-c128-r3 (ext128, stage 2)
+purge: csb-bench-p7q7itr9: 2621440 objects deleted in 496 s
+[11/18] huawei-object-balanced-c64-r3-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-y20io9he: 0 objects deleted in 0 s
+    -> failed: tool exited 1; see results-rerun-v21-huawei/raw/huawei-object-balanced-c64-r3-mc2.stdout.log
+[12/18] huawei-file-balanced-c64-r3 (primary, stage 2)
+[13/18] huawei-file-balanced-c64-r2 (primary, stage 2)
+[14/18] huawei-file-balanced-c04-r3 (primary, stage 2)
+[15/18] huawei-file-balanced-c16-r2 (primary, stage 2)
+[16/18] huawei-file-balanced-c04-r2 (primary, stage 2)
+[17/18] huawei-file-balanced-c64-r1 (primary, stage 2)
+[18/18] huawei-file-balanced-c01-r2 (primary, stage 2)
+
+finished: ok=15 failed=3 of 18. Manifest: results-rerun-v21-huawei/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).
+v2.1 plan for huawei: 3 runs
+  1 huawei-object-balanced-c64-r1-mc2      multi     object c=64  hosts=2 dataset=163840 MiB
+  2 huawei-object-balanced-c64-r2-mc2      multi     object c=64  hosts=2 dataset=163840 MiB
+  3 huawei-object-balanced-c64-r3-mc2      multi     object c=64  hosts=2 dataset=163840 MiB
+[1/3] huawei-object-balanced-c64-r1-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-vvqnj0p8: 2621440 objects deleted in 499 s
+[2/3] huawei-object-balanced-c64-r2-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-w25qo4ne: 2621440 objects deleted in 488 s
+[3/3] huawei-object-balanced-c64-r3-mc2 (multi, stage 2)
+Daemonizing into background... Logfile: /tmp/elbencho_ubuntu_p1611.log
+purge: csb-bench-t9kay47f: 2621440 objects deleted in 506 s
+
+finished: ok=3 failed=0 of 3. Manifest: results-rerun-v21-huawei/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).

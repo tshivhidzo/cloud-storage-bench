@@ -1,0 +1,14 @@
+D5 Azure two-host test: 3 repetition(s) [1, 2, 3], 64 threads per host, 2400 s each
+  preflight ok: host2 reachable, runner sha 4e05b889b4b2 on both hosts
+[rep 1] starting
+[rep 1] ok skew=0.0 s teardown=ok 
+    host1: write,55.23,842.7,75.786,121.999,148.999 | read,48.47,739.6,86.244,141.441,172.818
+    host2: write,41.97,640.5,99.472,160.005,197.331 | read,38.59,588.8,108.313,178.081,218.425
+[rep 2] starting
+[rep 2] ok skew=0.0 s teardown=ok 
+    host1: write,53.93,822.9,77.611,124.338,152.005 | read,48.53,740.5,86.134,141.167,173.337
+    host2: write,41.71,636.4,100.137,160.687,197.427 | read,38.76,591.4,107.817,177.799,219.396
+[rep 3] starting
+[rep 3] ok skew=0.0 s teardown=ok 
+    host1: write,53.91,822.5,77.64,124.256,151.852 | read,47.75,728.6,87.549,143.428,176.537
+    host2: write,41.51,633.4,100.615,161.021,198.634 | read,38.5,587.5,108.524,178.985,219.683

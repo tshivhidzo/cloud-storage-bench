@@ -1,0 +1,11 @@
+\begin{tabular}{lp{2.6cm}rrrp{4.2cm}}
+\toprule
+Provider & Product & Write, 4 thr. & Write, 16 thr. & Read, 4+ thr. & Documented limit \\
+\midrule
+AWS & EBS gp3, 100 GB & 87 & 50 & 126--128 & 125 MiB/s baseline \\
+Azure & Standard SSD E10 tier & 34 & 34 & 38 & 500 IOPS (burst 600) $\times$ 64 KiB = 31--38 MiB/s \\
+GCP & pd-ssd, 100 GB & 238 & 91 & 240 & 240 MiB/s per-instance baseline \\
+Huawei & EVS ultra-high I/O, 100 GB & 336 & 89 & 348--353 & 170 MiB/s by size; 350 MiB/s type maximum \\
+Alibaba & ESSD PL1, 100 GB & 170 & 170 & 170 & $\min(120+0.5\times100,350)$ = 170 MB/s \\
+\bottomrule
+\end{tabular}

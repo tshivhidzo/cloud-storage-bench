@@ -1,0 +1,16 @@
+provider,paradigm,attempts,runs_ok
+aws,block,12,12
+aws,file,12,12
+aws,object,36,36
+azure,block,12,12
+azure,file,12,12
+azure,object,15,15
+gcp,block,12,12
+gcp,file,12,12
+gcp,object,18,18
+huawei,block,12,12
+huawei,file,12,12
+huawei,object,21,18
+alibaba,block,14,12
+alibaba,file,12,12
+alibaba,object,21,21

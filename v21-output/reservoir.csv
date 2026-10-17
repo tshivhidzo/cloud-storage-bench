@@ -1,0 +1,13 @@
+run_id,conc,lat_cap,write_p99_ms,read_p99_ms,write_tput,read_tput
+aws-object-balanced-c16-r1-rv1k,16,1000,84.058,82.76,34.8282,37.4508
+aws-object-balanced-c16-r1-rv10k,16,10000,82.763,81.405,37.0884,37.5462
+aws-object-balanced-c16-r3-eq,16,10000,82.134,81.69,36.3922,37.6225
+aws-object-balanced-c16-r1-eq,16,10000,83.174,79.704,36.3922,37.6415
+aws-object-balanced-c16-r2-eq,16,10000,82.994,81.27,35.5339,37.508
+aws-object-balanced-c16-r1-rv100k,16,100000,82.524,79.965,35.1334,37.5843
+aws-object-balanced-c64-r1-rv1k,64,1000,443.261,267.473,62.685,57.745
+aws-object-balanced-c64-r1-eq,64,10000,218.399,415.061,63.0283,57.6687
+aws-object-balanced-c64-r1-rv10k,64,10000,408.512,403.347,63.5338,59.1278
+aws-object-balanced-c64-r2-eq,64,10000,331.845,374.54,63.6292,59.3567
+aws-object-balanced-c64-r3-eq,64,10000,400.522,434.18,63.4575,59.5665
+aws-object-balanced-c64-r1-rv100k,64,100000,373.235,441.741,63.2668,58.4412

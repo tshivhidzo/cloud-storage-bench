@@ -1,0 +1,14 @@
+\begin{tabular}{rrrrrrr}
+\toprule
+Threads & \multicolumn{2}{c}{Runner / elbencho throughput} & \multicolumn{2}{c}{p99 (ms), runner / elbencho} & \multicolumn{2}{c}{Client CPU (\%)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & write & read & write & read & runner & elbencho \\
+\midrule
+1 & 0.95 & 1.14 & 67 / 59 & 61 / 57 & 2 & 1 \\
+4 & 0.93 & 1.10 & 72 / 39 & 68 / 59 & 10 & 2 \\
+16 & 0.94 & 1.47 & 83 / 46 & 81 / 79 & 49 & 8 \\
+64 & 0.44 & 0.55 & 317 / 65 & 408 / 70 & 100 & 38 \\
+\midrule
+$\beta$ & \multicolumn{6}{l}{write: runner 0.81 [0.71, 0.91], elbencho 0.98 [0.96, 1.00]; read: runner 0.78 [0.67, 0.90], elbencho 0.93 [0.85, 1.00]} \\
+\bottomrule
+\end{tabular}

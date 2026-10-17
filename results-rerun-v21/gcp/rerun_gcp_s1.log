@@ -1,0 +1,80 @@
+v2.1 plan for gcp: 24 runs
+  1 gcp-block-balanced-c01-r3              primary   block  c=1   hosts=1 dataset=1280 MiB
+  2 gcp-object-balanced-c16-r1             primary   object c=16  hosts=1 dataset=20480 MiB
+  3 gcp-block-balanced-c16-r2              primary   block  c=16  hosts=1 dataset=20480 MiB
+  4 gcp-object-balanced-c64-r1             primary   object c=64  hosts=1 dataset=81920 MiB
+  5 gcp-object-balanced-c16-r2             primary   object c=16  hosts=1 dataset=20480 MiB
+  6 gcp-object-balanced-c04-r2             primary   object c=4   hosts=1 dataset=5120 MiB
+  7 gcp-object-balanced-c64-r3             primary   object c=64  hosts=1 dataset=81920 MiB
+  8 gcp-block-balanced-c64-r2              primary   block  c=64  hosts=1 dataset=81920 MiB
+  9 gcp-object-balanced-c01-r2             primary   object c=1   hosts=1 dataset=1280 MiB
+ 10 gcp-object-balanced-c04-r3             primary   object c=4   hosts=1 dataset=5120 MiB
+ 11 gcp-object-balanced-c01-r1             primary   object c=1   hosts=1 dataset=1280 MiB
+ 12 gcp-block-balanced-c04-r3              primary   block  c=4   hosts=1 dataset=5120 MiB
+ 13 gcp-object-balanced-c64-r2             primary   object c=64  hosts=1 dataset=81920 MiB
+ 14 gcp-block-balanced-c16-r1              primary   block  c=16  hosts=1 dataset=20480 MiB
+ 15 gcp-block-balanced-c16-r3              primary   block  c=16  hosts=1 dataset=20480 MiB
+ 16 gcp-block-balanced-c01-r1              primary   block  c=1   hosts=1 dataset=1280 MiB
+ 17 gcp-object-balanced-c04-r1             primary   object c=4   hosts=1 dataset=5120 MiB
+ 18 gcp-object-balanced-c16-r3             primary   object c=16  hosts=1 dataset=20480 MiB
+ 19 gcp-block-balanced-c04-r1              primary   block  c=4   hosts=1 dataset=5120 MiB
+ 20 gcp-block-balanced-c64-r3              primary   block  c=64  hosts=1 dataset=81920 MiB
+ 21 gcp-object-balanced-c01-r3             primary   object c=1   hosts=1 dataset=1280 MiB
+ 22 gcp-block-balanced-c04-r2              primary   block  c=4   hosts=1 dataset=5120 MiB
+ 23 gcp-block-balanced-c64-r1              primary   block  c=64  hosts=1 dataset=81920 MiB
+ 24 gcp-block-balanced-c01-r2              primary   block  c=1   hosts=1 dataset=1280 MiB
+REFUSING TO RUN: ['S3_ACCESS_KEY', 'S3_SECRET_KEY'] not set for gcp object runs. Export the S3_* block from the runbook in THIS shell.
+v2.1 plan for gcp: 24 runs
+  1 gcp-block-balanced-c01-r3              primary   block  c=1   hosts=1 dataset=1280 MiB
+  2 gcp-object-balanced-c16-r1             primary   object c=16  hosts=1 dataset=20480 MiB
+  3 gcp-block-balanced-c16-r2              primary   block  c=16  hosts=1 dataset=20480 MiB
+  4 gcp-object-balanced-c64-r1             primary   object c=64  hosts=1 dataset=81920 MiB
+  5 gcp-object-balanced-c16-r2             primary   object c=16  hosts=1 dataset=20480 MiB
+  6 gcp-object-balanced-c04-r2             primary   object c=4   hosts=1 dataset=5120 MiB
+  7 gcp-object-balanced-c64-r3             primary   object c=64  hosts=1 dataset=81920 MiB
+  8 gcp-block-balanced-c64-r2              primary   block  c=64  hosts=1 dataset=81920 MiB
+  9 gcp-object-balanced-c01-r2             primary   object c=1   hosts=1 dataset=1280 MiB
+ 10 gcp-object-balanced-c04-r3             primary   object c=4   hosts=1 dataset=5120 MiB
+ 11 gcp-object-balanced-c01-r1             primary   object c=1   hosts=1 dataset=1280 MiB
+ 12 gcp-block-balanced-c04-r3              primary   block  c=4   hosts=1 dataset=5120 MiB
+ 13 gcp-object-balanced-c64-r2             primary   object c=64  hosts=1 dataset=81920 MiB
+ 14 gcp-block-balanced-c16-r1              primary   block  c=16  hosts=1 dataset=20480 MiB
+ 15 gcp-block-balanced-c16-r3              primary   block  c=16  hosts=1 dataset=20480 MiB
+ 16 gcp-block-balanced-c01-r1              primary   block  c=1   hosts=1 dataset=1280 MiB
+ 17 gcp-object-balanced-c04-r1             primary   object c=4   hosts=1 dataset=5120 MiB
+ 18 gcp-object-balanced-c16-r3             primary   object c=16  hosts=1 dataset=20480 MiB
+ 19 gcp-block-balanced-c04-r1              primary   block  c=4   hosts=1 dataset=5120 MiB
+ 20 gcp-block-balanced-c64-r3              primary   block  c=64  hosts=1 dataset=81920 MiB
+ 21 gcp-object-balanced-c01-r3             primary   object c=1   hosts=1 dataset=1280 MiB
+ 22 gcp-block-balanced-c04-r2              primary   block  c=4   hosts=1 dataset=5120 MiB
+ 23 gcp-block-balanced-c64-r1              primary   block  c=64  hosts=1 dataset=81920 MiB
+ 24 gcp-block-balanced-c01-r2              primary   block  c=1   hosts=1 dataset=1280 MiB
+[1/24] gcp-block-balanced-c01-r3 (primary, stage 1)
+[2/24] gcp-object-balanced-c16-r1 (primary, stage 1)
+[3/24] gcp-block-balanced-c16-r2 (primary, stage 1)
+[4/24] gcp-object-balanced-c64-r1 (primary, stage 1)
+[5/24] gcp-object-balanced-c16-r2 (primary, stage 1)
+[6/24] gcp-object-balanced-c04-r2 (primary, stage 1)
+[7/24] gcp-object-balanced-c64-r3 (primary, stage 1)
+[8/24] gcp-block-balanced-c64-r2 (primary, stage 1)
+[9/24] gcp-object-balanced-c01-r2 (primary, stage 1)
+[10/24] gcp-object-balanced-c04-r3 (primary, stage 1)
+[11/24] gcp-object-balanced-c01-r1 (primary, stage 1)
+[12/24] gcp-block-balanced-c04-r3 (primary, stage 1)
+[13/24] gcp-object-balanced-c64-r2 (primary, stage 1)
+[14/24] gcp-block-balanced-c16-r1 (primary, stage 1)
+[15/24] gcp-block-balanced-c16-r3 (primary, stage 1)
+[16/24] gcp-block-balanced-c01-r1 (primary, stage 1)
+[17/24] gcp-object-balanced-c04-r1 (primary, stage 1)
+[18/24] gcp-object-balanced-c16-r3 (primary, stage 1)
+[19/24] gcp-block-balanced-c04-r1 (primary, stage 1)
+[20/24] gcp-block-balanced-c64-r3 (primary, stage 1)
+[21/24] gcp-object-balanced-c01-r3 (primary, stage 1)
+[22/24] gcp-block-balanced-c04-r2 (primary, stage 1)
+[23/24] gcp-block-balanced-c64-r1 (primary, stage 1)
+[24/24] gcp-block-balanced-c01-r2 (primary, stage 1)
+
+finished: ok=24 failed=0 of 24. Manifest: results-rerun-v21-gcp/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).
+v2.1 plan for gcp: 0 runs
+
+finished: ok=0 failed=0 of 0. Manifest: results-rerun-v21-gcp/run_manifest.jsonl. Re-run with --resume to retry failures (at most two retries per run, protocol section G).

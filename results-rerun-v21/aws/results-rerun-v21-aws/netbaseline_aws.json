@@ -1,0 +1,45 @@
+{
+  "provider": "aws",
+  "measured_utc": "2026-10-12T18:48:26.724870Z",
+  "nproc": 4,
+  "runs": [
+    {
+      "file": "recv_r1.json",
+      "direction": "receive",
+      "gbit_s": 9.941,
+      "mib_s": 1185.0
+    },
+    {
+      "file": "recv_r2.json",
+      "direction": "receive",
+      "gbit_s": 9.944,
+      "mib_s": 1185.4
+    },
+    {
+      "file": "recv_r3.json",
+      "direction": "receive",
+      "gbit_s": 9.943,
+      "mib_s": 1185.3
+    },
+    {
+      "file": "send_r1.json",
+      "direction": "send",
+      "gbit_s": 9.933,
+      "mib_s": 1184.1
+    },
+    {
+      "file": "send_r2.json",
+      "direction": "send",
+      "gbit_s": 9.932,
+      "mib_s": 1184.0
+    },
+    {
+      "file": "send_r3.json",
+      "direction": "send",
+      "gbit_s": 9.928,
+      "mib_s": 1183.6
+    }
+  ],
+  "send_median_mib_s": 1184.0,
+  "receive_median_mib_s": 1185.3
+}

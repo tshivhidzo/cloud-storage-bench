@@ -1,0 +1,3 @@
+operation,throughput_mb_s,iops,lat_mean_ms,lat_p95_ms,lat_p99_ms,lat_samples,lat_cap
+write,9.89,150.9,26.497,30.679,72.044,40000,10000
+read,10.24,156.2,25.597,28.794,68.35,40000,10000

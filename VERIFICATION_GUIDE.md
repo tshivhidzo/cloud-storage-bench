@@ -1,5 +1,10 @@
 # Verification guide (r14)
 
+> Since release `sweep-v2.1` (October 2026) the archive also holds the
+> locked-protocol campaign on which the revised manuscript is based. Verify
+> that campaign with `VERIFICATION_GUIDE_V21.md`. This guide still verifies
+> the earlier (August 2026) campaign, whose data and results are unchanged.
+
 Audience: any researcher, scholar or auditor verifying the archive against
 the measurement manuscript. Purpose: every claim below is stated with the
 exact command that verifies it and the expected output. Deviation from a

@@ -1,0 +1,9 @@
+alibaba: manifest results-rerun-v21-alibaba/run_manifest.jsonl (47 attempts)
+  stage 1: planned  24  ok  24  failed attempts   2  to run   0  exhausted 0
+  stage 2: planned  18  ok  18  failed attempts   0  to run   0  exhausted 0
+  supplementary -fb (D1): attempted  3  ok  3
+  GATE FAIL alibaba-object-balanced-c16-r1: TEARDOWN FAILED: check billing
+  GATE FAIL alibaba-object-balanced-c64-r1: TEARDOWN FAILED: check billing
+  GATE FAIL alibaba-object-balanced-c16-r2: TEARDOWN FAILED: check billing
+  GATE FAIL alibaba-object-balanced-c04-r2: TEARDOWN FAILED: check billing
+  gates: 4 problem(s)
