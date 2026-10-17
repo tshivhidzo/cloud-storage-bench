@@ -30,8 +30,9 @@ Internet manuscript (futureinternet-4640878):
 Version DOI: `10.5281/zenodo.23434883`.
 
 A step-by-step account of how this campaign was run, from credentials to
-teardown and release, with every problem met on the way, is in
-[`cloud-bench-guide/`](cloud-bench-guide/README.md). The earlier (August 2026) campaign and its
+teardown and release, with every problem met on the way, is kept on its own
+branch:
+[`cloud-bench-guide`](https://github.com/tshivhidzo/cloud-storage-bench/tree/cloud-bench-guide). The earlier (August 2026) campaign and its
 verification guide are unchanged.
 
 ## Start here
