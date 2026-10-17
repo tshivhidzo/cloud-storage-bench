@@ -199,6 +199,9 @@ def main():
     ap.add_argument("--outdir", default=None)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--fb", default="",
+                    help="comma-separated object run_ids to repeat once on a "
+                         "fresh bucket (DEVIATIONS_V21.md D1); ids get '-fb'")
     a = ap.parse_args()
 
     import provision as provision_mod   # imported late: dry runs need no terraform
@@ -206,6 +209,15 @@ def main():
     modes = set(a.modes.split(","))
     plan = [r for r in D.plan(a.provider, multi_client=bool(a.host2))
             if r["mode"] in modes and (a.stage == "all" or r["stage"] == int(a.stage))]
+    if a.fb:
+        # DEVIATIONS_V21.md D1: supplementary fresh-bucket repeats, decided
+        # before results were seen. Same cell, same parameters; run_id + "-fb".
+        ids = [x.strip() for x in a.fb.split(",") if x.strip()]
+        full = {r["run_id"]: r for r in D.plan(a.provider, multi_client=bool(a.host2))}
+        bad = [i for i in ids if i not in full or full[i]["paradigm"] != "object"]
+        if bad:
+            sys.exit(f"--fb: not object runs in the {a.provider} plan: {bad}")
+        plan = [dict(full[i], run_id=i + "-fb", mode="fb", stage=3) for i in ids]
     manifest = outdir / "run_manifest.jsonl"
     if a.resume and manifest.exists():
         done, tries = set(), {}

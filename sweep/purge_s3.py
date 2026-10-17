@@ -39,7 +39,28 @@ def client():
                  retries={"max_attempts": 10, "mode": "adaptive"},
                  s3={"addressing_style": "virtual"
                      if os.environ.get("S3_VIRT_ADDR") == "1" else "auto"})
-    return boto3.client("s3", config=cfg, **kw)
+    s3 = boto3.client("s3", config=cfg, **kw)
+    # Alibaba OSS and Huawei OBS require Content-MD5 on DeleteObjects and
+    # answer "MissingArgument" to the CRC32 checksum newer boto3 sends
+    # instead (seen on OSS, 13 Oct 2026). Send MD5 and drop the CRC headers.
+    s3.meta.events.register("before-sign.s3.DeleteObjects", _content_md5)
+    return s3
+
+
+def _content_md5(request, **kwargs):
+    import base64, hashlib
+    body = request.body
+    if hasattr(body, "read"):
+        data = body.read()
+        body.seek(0)
+    else:
+        data = body or b""
+    if isinstance(data, str):
+        data = data.encode()
+    for h in list(request.headers.keys()):
+        if h.lower().startswith("x-amz-checksum") or h.lower() == "x-amz-sdk-checksum-algorithm":
+            del request.headers[h]
+    request.headers["Content-MD5"] = base64.b64encode(hashlib.md5(data).digest()).decode()
 
 
 def empty_bucket(s3, bucket, workers=None):

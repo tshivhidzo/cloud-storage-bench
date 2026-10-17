@@ -49,6 +49,10 @@ def main():
               f"exhausted {len(exhausted)}")
         for k in exhausted:
             print(f"     exhausted: {k}  last error: {recs[k][-1].get('error', '')[:100]}")
+    fb = [k for k in recs if k.endswith("-fb")]
+    if fb:
+        fb_ok = [k for k in fb if any(x.get("status") == "ok" for x in recs[k])]
+        print(f"  supplementary -fb (D1): attempted {len(fb):>2}  ok {len(fb_ok):>2}")
     bad = 0
     for k, attempts in recs.items():
         good = [x for x in attempts if x.get("status") == "ok"]
