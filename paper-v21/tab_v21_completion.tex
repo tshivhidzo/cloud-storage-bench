@@ -1,4 +1,4 @@
-\begin{tabular}{lrrrrl}
+\begin{tabular}{lrrrrp{4.2cm}}
 \toprule
 Provider & Runs & Attempts & Accepted & Failed & Cause of failed attempts \\
 \midrule
@@ -6,9 +6,9 @@ AWS & 60 & 60 & 60 & 0 & -- \\
 Azure & 39 & 39 & 39 & 0 & -- \\
 GCP & 42 & 42 & 42 & 0 & -- \\
 Huawei & 42 & 45 & 42 & 3 & operator: second-host name not resolvable (D2) \\
-Alibaba & 45 & 47 & 45 & 2 & operator: bucket not emptied (D1); missing credentials (D3) \\
+Alibaba & 45 & 47 & 45 & 2 & harness housekeeping: bucket left by failed purge (D1); operator: missing credentials (D3) \\
 \midrule
-Total & 228 & 233 & 228 & 5 & no storage-service or harness failure \\
+Total & 228 & 233 & 228 & 5 & see Table~\ref{tab:deviations} \\
 Azure two-host (D5) & 3 & 3 & 3 & 0 & -- \\
 \bottomrule
 \end{tabular}

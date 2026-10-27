@@ -1,0 +1,24 @@
+\begin{tabular}{llllrrrl}
+\toprule
+Provider & Paradigm & Op. & Gate & Excluded & $\beta$, all runs & $\beta$, gated runs excluded & Levels left \\
+\midrule
+AWS & block & write & B & 5 (c1, 4) & -0.020 & 0.019 & 1, 16, 64 \\
+AWS & block & read & B & 5 (c1, 4) & 0.164 & 0.163 & 1, 16 \\
+Azure & block & write & B & 6 (c1, 4, 16) & 0.007 & 0.003 & 1, 4, 16, 64 \\
+Azure & block & read & B & 6 (c1, 4, 16) & 0.172 & n.e. & -- \\
+GCP & block & write & B & 4 (c1, 4) & -0.061 & 0.018 & 1, 16, 64 \\
+GCP & block & read & B & 4 (c1, 4) & 0.258 & 0.263 & 1, 16 \\
+Huawei & block & write & B & 4 (c1, 4) & -0.071 & 0.036 & 1, 16, 64 \\
+Huawei & block & read & B & 4 (c1, 4) & 0.482 & 0.478 & 1, 16 \\
+Alibaba & block & write & B & 9 (c4, 16, 64) & 0.016 & n.e. & -- \\
+Alibaba & block & read & B & 9 (c4, 16, 64) & 0.032 & n.e. & -- \\
+AWS & file & write & B & 7 (c1, 4, 16, 64) & 0.100 & 0.094 & 1, 16, 64 \\
+AWS & file & read & B & 6 (c1, 4, 16) & 0.162 & 0.164 & 1, 16 \\
+Azure & object & write & A, B$'$ & 6 (c16, 64) & 0.466 & 0.973 & 1, 4 \\
+Azure & object & read & A, B$'$ & 6 (c16, 64) & 0.379 & 0.931 & 1, 4 \\
+Huawei & object & write & A, B$'$ & 3 (c64) & 0.946 & 0.969 & 1, 4, 16 \\
+Huawei & object & read & A, B$'$ & 3 (c64) & 0.881 & 0.997 & 1, 4, 16 \\
+Alibaba & object & write & A, B$'$ & 3 (c64) & 0.966 & 0.979 & 1, 4, 16 \\
+Alibaba & object & read & A, B$'$ & 3 (c64) & 0.920 & 0.988 & 1, 4, 16 \\
+\bottomrule
+\end{tabular}

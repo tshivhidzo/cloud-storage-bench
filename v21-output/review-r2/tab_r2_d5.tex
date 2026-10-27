@@ -1,0 +1,14 @@
+\begin{tabular}{lrrrrrr}
+\toprule
+ & \multicolumn{3}{c}{Write phase} & \multicolumn{3}{c}{Read phase} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Run, host & MiB/s & CPU \% & time at $\geq$90\% & MiB/s & CPU \% & time at $\geq$90\% \\
+\midrule
+r1, host 1 & 52.7 & 99.7 & 100\% & 46.2 & 100.0 & 100\% \\
+r1, host 2 & 40.0 & 99.8 & 100\% & 36.8 & 100.0 & 100\% \\
+r2, host 1 & 51.4 & 100.0 & 100\% & 46.3 & 99.9 & 100\% \\
+r2, host 2 & 39.8 & 100.0 & 100\% & 37.0 & 99.9 & 100\% \\
+r3, host 1 & 51.4 & 99.6 & 100\% & 45.5 & 99.5 & 99\% \\
+r3, host 2 & 39.6 & 99.6 & 100\% & 36.7 & 100.0 & 100\% \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,21 @@
+\begin{tabular}{llll}
+\toprule
+Provider & Paradigm & Balanced workload & Large-object workload \\
+\midrule
+AWS & block & fixed total (9/0) & fixed total (9/0) \\
+ & file & fixed total (7/2) & fixed total (9/0) \\
+ & object & weak scaling (3/6) & fixed total (8/1) \\
+Azure & block & weak scaling (1/8) & fixed total (9/0) \\
+ & file & fixed total (6/3) & fixed total (9/0) \\
+ & object & duration-driven (12 runs) & duration-driven (12 runs) \\
+GCP & block & fixed total (9/0) & fixed total (9/0) \\
+ & file & fixed total (9/0) & fixed total (9/0) \\
+ & object & weak scaling (0/9) & weak scaling (0/9) \\
+Huawei & block & fixed total (9/0) & fixed total (9/0) \\
+ & file & fixed total (6/3) & fixed total (9/0) \\
+ & object & fixed total (6/3) & fixed total (9/0) \\
+Alibaba & block & weak scaling (3/6) & fixed total (7/2) \\
+ & file & weak scaling (4/5) & fixed total (6/3) \\
+ & object & weak scaling (0/9) & weak scaling (0/9) \\
+\bottomrule
+\end{tabular}

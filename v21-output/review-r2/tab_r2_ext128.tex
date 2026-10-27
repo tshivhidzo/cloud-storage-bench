@@ -1,0 +1,13 @@
+\begin{tabular}{lrrcrrc}
+\toprule
+ & \multicolumn{3}{c}{Write phase} & \multicolumn{3}{c}{Read phase} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Provider & 1--64 & 1--128 & run-level CI (1--128) & 1--64 & 1--128 & run-level CI (1--128) \\
+\midrule
+AWS & 0.976 & 0.943 & [0.91, 0.97] & 0.928 & 0.937 & [0.89, 0.99] \\
+Azure$^{\ddagger}$ & 0.466 & 0.361 & [0.23, 0.49] & 0.379 & 0.288 & [0.16, 0.41] \\
+GCP & 0.940 & 0.898 & [0.86, 0.93] & 1.027 & 1.003 & [0.98, 1.03] \\
+Huawei & 0.946 & 0.885 & [0.84, 0.93] & 0.881 & 0.772 & [0.68, 0.87] \\
+Alibaba & 0.966 & 0.876 & [0.81, 0.94] & 0.920 & 0.809 & [0.72, 0.90] \\
+\bottomrule
+\end{tabular}

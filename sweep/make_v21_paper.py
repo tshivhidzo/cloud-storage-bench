@@ -33,8 +33,8 @@ DOCS = {
     "aws": ("EBS gp3, 100 GB", "125 MiB/s baseline", 125.0),
     "azure": ("Standard SSD E10 tier", "500 IOPS (burst 600) $\\times$ 64 KiB = 31--38 MiB/s", 31.25),
     "gcp": ("pd-ssd, 100 GB", "240 MiB/s per-instance baseline", 240.0),
-    "huawei": ("EVS ultra-high I/O, 100 GB", "170 MiB/s by size; 350 MiB/s type maximum", 350.0),
-    "alibaba": ("ESSD PL1, 100 GB", "$\\min(120+0.5\\times100,350)$ = 170 MB/s", 170.0 / MB_TO_MIB * MB_TO_MIB),
+    "huawei": ("EVS ultra-high I/O, 100 GB", "170 MiB/s by capacity rule; 350 MiB/s type maximum", 170.0),
+    "alibaba": ("ESSD PL1, 100 GB", "$\\min(120+0.5\\times100,350)$ = 170 MB/s as documented (162 MiB/s if MB = $10^6$ B)", 170.0 * MB_TO_MIB),
 }
 
 
@@ -110,12 +110,12 @@ def main():
     wonly = [r for r in runs if r["mode"] == "primary" and r["phases"] == "WRITE"]
     M.append(macro("vWriteOnly", len(wonly)))
     with open(OUT / "tab_v21_completion.tex", "w", newline="\n") as fh:
-        fh.write("\\begin{tabular}{lrrrrl}\n\\toprule\nProvider & Runs & Attempts & Accepted & Failed & Cause of failed attempts \\\\\n\\midrule\n")
+        fh.write("\\begin{tabular}{lrrrrp{4.2cm}}\n\\toprule\nProvider & Runs & Attempts & Accepted & Failed & Cause of failed attempts \\\\\n\\midrule\n")
         cause = {"huawei": "operator: second-host name not resolvable (D2)",
-                 "alibaba": "operator: bucket not emptied (D1); missing credentials (D3)"}
+                 "alibaba": "harness housekeeping: bucket left by failed purge (D1); operator: missing credentials (D3)"}
         for p, pl, at, ok, fl in comp_rows:
             fh.write(f"{PNAME[p]} & {pl} & {at} & {ok} & {fl} & {cause.get(p, '--') if fl else '--'} \\\\\n")
-        fh.write(f"\\midrule\nTotal & {sum(r[1] for r in comp_rows)} & {tot_att} & {tot_ok} & {tot_fail} & no storage-service or harness failure \\\\\n")
+        fh.write(f"\\midrule\nTotal & {sum(r[1] for r in comp_rows)} & {tot_att} & {tot_ok} & {tot_fail} & see Table~\\ref{{tab:deviations}} \\\\\n")
         fh.write(f"Azure two-host (D5) & {len(d5)} & {len(d5)} & {d5ok} & {len(d5) - d5ok} & -- \\\\\n")
         fh.write("\\bottomrule\n\\end{tabular}\n")
 

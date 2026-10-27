@@ -1,0 +1,12 @@
+{
+ "recorded_attempts_primary_plan": 233,
+ "accepted_primary_plan": 228,
+ "recorded_attempts_d5": 3,
+ "accepted_d5": 3,
+ "recorded_attempts_total": 236,
+ "accepted_total": 231,
+ "unrecorded_invocations": 1,
+ "unrecorded_note": "DEVIATIONS_V21.md D3: an Alibaba block c16-r2 invocation stopped by hand before it provisioned anything or wrote a manifest record",
+ "invocations_total": 237,
+ "alibaba_block_c16_r2_invocations": 4
+}
